@@ -86,31 +86,19 @@
 \providecommand{\opn}{\operatorname}
 \providecommand{\ol}{\overline}
 \def\ii#1{^{(#1)}}
-
 \providecommand{\E}{\mathsf{E}}
 \renewcommand{\P}{\mathsf{P}}
 \renewcommand{\Pr}[1]{\P\left(#1\right)}
 \providecommand{\Ex}[1]{\E(#1)}
 
-\renewcommand{\Re}{\opn{Re}}
-\renewcommand{\Im}{\opn{Im}}
 \providecommand{\Var}{\opn{Var}}
-\providecommand{\bVar}{\opn{\mathbf{Var}}}
 \providecommand{\var}{\opn{var}} 
 \providecommand{\Cov}{\opn{Cov}}
 \providecommand{\sign}{\opn{sign}}
-\providecommand{\length}{\opn{length}}
-\providecommand{\supp}{\opn{supp}}
-\providecommand{\argmin}{\opn{arg\,min}}
-\providecommand{\mmin}{\opn{min}}
-\providecommand{\mmax}{\opn{max}}
-\providecommand{\diam}{\opn{diam}}
 \providecommand{\diag}{\opn{diag}}
 
 \providecommand{\msf}{\mathsf}
 \providecommand{\ett}{\mathsf{1}}
-\providecommand{\Tr}{\opn{Tr}}
-\providecommand{\Ker}{\opn{Ker}}
 
 \providecommand{\Ordo}[1]{{O(#1)}} 
 \providecommand{\ordo}[1]{{o(#1)}} 
@@ -118,11 +106,7 @@
 \providecommand{\OrdoTheta}[1]{\ensuremath{\Theta(#1)}} 
 \providecommand{\ordoomega}[1]{\ensuremath{\omega(#1)}}
 
-\providecommand{\ddt}[1][t]{{\dd{}{#1}}}
-\providecommand{\dnt}[2][t]{{\dfrac{d^{#2}}{{d#1}^{#2}}}}
-\providecommand{\bdry}{\partial}
 \providecommand{\e}{\epsilon}
-\renewcommand{\l}{\ell}
 \providecommand{\tl}{\tilde}
 \providecommand{\g}{\gamma}
 \providecommand{\w}{\omega}
@@ -133,54 +117,14 @@
 \providecommand{\T}{^{\!\mathrm{T}}}
 \providecommand{\ds}{\displaystyle}
 
-% Material implication
-\providecommand{\mimplies}{\rightarrow}
-\providecommand{\miff}{\leftrightarrow}
-
-\providecommand{\xpart}[1]{^{\mathbf #1}}
-\providecommand{\ppart}{\xpart+}
-\providecommand{\npart}{\xpart-}
-\providecommand{\minp}{\operatorname{min_+}}
-\providecommand{\xsupp}[2]{{#2}^{\mathbf #1}}
-\providecommand{\inflap}[1]{\ensuremath{\Delta_{\!{}_\infty}\!{#1}}}
-\providecommand{\Lip}{\opn{Lip}}
-
-\newcommand{\wresiz}[2][\textwidth]{\resizebox{#1}{!}{#2}}
-\newcommand{\hresiz}[2][0.8\textheight]{\resizebox{!}{#1}{#2}}
-
-\newcommand{\head}{\opn{hd}}
-\newcommand{\tail}{\opn{tl}}
 \renewcommand{\L}{\mathscr{L}}
 
-
-
-%\setlength{\parindent}{0pt}
-%\addtolength{\parskip}{10pt}
-%\addtolength{\lineskip}{3pt}
-\def\msn{}
-\def\HH{\mbb H}
-\def\OO{\mbb O}
-\def\UU{\mbb U}
-\def\EE{\mbb{E}}
-
-\def\H{H}
-\def\B{\mscr{B}}
-\def\A{\opn{\msf{A}}}
-\def\a{A}
-\def\C{\msn{C}}
 \def\Ex#1{\EE\left[#1\right]}
+
 \def\dom{\opn{dom}}
 
-\def\cy#1{{[#1]}} % cylinder
 \def\X{\mscr X}
 \def\T{\opn{\msf{T}}}
-\def\M{\opn{M}}
-\def\J{\msf{J}}
-\def\S{S}
-\def\Cyl{\mscr C}
-\def\Proj{\msf P}
-
-\def\LL{\mbb L}
 
 
 \def\ilim{\varinjlim}
@@ -189,39 +133,11 @@
 \def\rover#1{\overset{#1}{\longrightarrow}} 
 \def\npair#1#2{\left\langle\, #1\mid #2\,\right\rangle}
 \def\F{\mscr F}
-\def\E{{\opn{\mscr{E}}}}
-\def\R{\mscr R}
-\def\Q{\opn{Q}}
-\def\K{\opn{K}}
-\def\I{\opn{I}}
-\def\P{\opn{P}}
-\def\L{\opn{\mscr L}}
 
 \def\scp#1#2{\left\langle #1 , #2 \right\rangle}
-\def\norm#1{\left\| {#1} \right\|}
-\def\Scp#1#2{\left( #1 \mid #2 \right)}
-
-\def\scpe#1#2{\left\langle {#1} , {#2} \right\rangle_{\E}}
-\def\norme#1{\left\| {#1} \right\|_{\E}}
-\def\Scpe#1#2{\left( #1 , #2 \right)_{\E}}
-\def\normtr#1{\left\| {#1} \right\|_{tr}}
-
-\def\al{\alpha}
-\def\Al{\A(\al)}
-%\def\P{\mscr P}
-%\def\T{\mscr T}
-%\def\R{\mscr R}
-\def\e{\mb{e}}
-\def\f{\mb{f}}
-\def\t{\mb{t}}
-\def\aM{\opn{|M|}}
-\let\cobdry=\delta
-
-\def\Dom{\opn{Dom}}
-\def\Dir{\opn{Dir}}
-\def\LinDir{\opn{LinDir}}
 
 \title{Existence for an eigenfunction for the critical phase of the Dyson model}
+
 \author{Anders Johansson and Anders \"Oberg}
 \date{}
 \begin{document}
@@ -229,93 +145,139 @@
 
 
 \section{Introduction}\noindent
-It is well-known that there exists a continuous and strictly positive eigenfunction $h$ for any transfer operator defined on a symbolic shift space with finitely many symbols such that the potential has summable variations. Here we prove the existence of an eigenfunction for the important special class of Dyson potentials close to the critical phase, when the potential does not satisfy the condition of summable variations.
+It is well-known that there exists a continuous and strictly positive
+eigenfunction $h$ for any transfer operator defined on a symbolic shift space
+with finitely many symbols such that the potential has summable variations. Here
+we prove the existence of an eigenfunction for the important special class of
+Dyson potentials close to the critical phase, when the potential does not
+satisfy the condition of summable variations.
 
-More precisely, let $T$ be the left shift on the space $X_+=S^{{\mathbb Z}_+}$, where $S$ is a finite set. Define a transfer operator ${\mathcal L}$ on continuous functions $f$ by
-\begin{equation}\label{trans}
-{\mathcal L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}f(y),
+\def\h{h}
+
+More precisely, let $T$ be the left shift on the space $X_+=S^{{\mathbb Z}_+}$,
+where $S$ is a finite set. Define a transfer operator ${\mathcal L}$ on
+continuous functions $f$ by
+\begin{equation}\label{trans} {\mathcal L} f(x)= \sum_{y\in T^{-1}x}
+  e^{\phi(y)}f(y),
 \end{equation}
-where $\phi$ is a continuous potential. Since $X_+$ is a compact space, it follows automatically from the Schauder--Tychonoff theorem that the dual ${\mathcal L}^*$, restricted to the probability measures, has an eigenmeasure $\nu$: ${\mathcal L}^* \mu=\lambda \nu$, for some $\lambda>0$. The existence of a continuous eigenfunction $h$ such that ${\mathcal L}h=\lambda h$, $\lambda>0$, is however not automatic for any continuous potential $\phi$. If one assumes summable variations of $\phi$, 
+where $\phi$ is a continuous potential. Since $X_+$ is a compact space, it
+follows automatically from the Schauder--Tychonoff theorem that the dual
+${\mathcal L}^*$, restricted to the probability measures, has an eigenmeasure
+$\nu$: ${\mathcal L}^* \mu=\lambda \nu$, for some $\lambda>0$. The existence of
+a continuous eigenfunction $h$ such that ${\mathcal L}h=\lambda h$, $\lambda>0$,
+is however not automatic for any continuous potential $\phi$. If one assumes
+summable variations of $\phi$,
 \begin{equation}\label{sum}
-\sum_{n=1}^\infty \var_n (\phi)<\infty,
+  \sum_{n=1}^\infty \var_n (\phi)<\infty,
 \end{equation}
-where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that $x$ and $y$ coincide in the first $n$ entries), 
-then existence of a continuous eigenfunction follows for a typical ``cone-argument'', such as in, {\em e.g.}, Walters \cite{walters1}.
+where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that
+$x$ and $y$ coincide in the first $n$ entries), then existence of a continuous
+eigenfunction follows for a typical ``cone-argument'', such as in, {\em e.g.},
+Walters \cite{walters1}.
 
-If $\mu$ is the equilibrium measure (translation invariant Gibbs measure) for the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then (with slight abuse of notation) $\mu$ is recovered on $X_+$ as the $g$-measure for the probability potential 
-\begin{equation}\label{g} 
-g(x)= \frac{h(x) e^{\phi(y)}}{\lambda h(Tx)}.
+If $\mu$ is the equilibrium measure (translation invariant Gibbs measure) for
+the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then (with
+slight abuse of notation) $\mu$ is recovered on $X_+$ as the $g$-measure for the
+probability potential
+\begin{equation}\label{g}
+  g(x)= \frac{h(x) e^{\phi(y)}}{\lambda h(Tx)}.
 \end{equation} 
 For a transfer operator ${\mathcal L}_g$, defined on continuous functions $f$ by
-\begin{equation}
-{\mathcal L}_g f(x)=\sum_{y\in T^{-1}x} g(y) f(y)
+\begin{equation} {\mathcal L}_g f(x)=\sum_{y\in T^{-1}x} g(y) f(y)
 \end{equation}
-we have ${\mathcal L}_g^*\mu=\mu$, and also the invariance $\mu\circ T^{-1}=\mu$.
+we have ${\mathcal L}_g^*\mu=\mu$, and also the invariance $\mu\circ
+T^{-1}=\mu$.
 
-More precisely, if 
+More precisely, if
 $$\theta(x_0, x_1,\ldots)=\beta \sum_{j=1}^\infty \frac{x_j}{j^\alpha},$$
 then we may define the two-sided Dyson potential $\psi$ as
 $$\psi(x)=\sum_{k=-\infty}^\infty \theta(T^k x).$$ 
-A one-sided version can be defined as 
+A one-sided version can be defined as
 $$\phi(x)=\sum_{k=0}^\infty \theta (T^k x).$$
 We then have for $\alpha>2$
 $$\mu_{|{\mathcal F}_{[0,\infty)}}= h\nu,$$
-where $\mu$ is the two-sided translation invariant Gibbs measure (the equilibrium measure) and where 
-${\mathcal L}^*\nu=\lambda \nu$, and $h>0$ is a H\"older continuous eigenfunction. We are interested in the boundary case $\alpha=2$, when there exists a unique equilibrium measure for $\psi$ for $\beta<\beta_c$. In this case the summable variations condition is not satisfied for neither $\psi$ nor $\phi$; we may have multiple eigenmeasures for ${\mathcal L}*$. In this context we have $\var_n(\phi)=O(\frac{1}{n})$ and it is not clear if there exists an eigenfunction even in the cases we have a unique equilibrium measure, such as in the case of the Berbee condition \cite{berbee2}. Berbee proved that there exists a unique equlibrium measure whenever 
+where $\mu$ is the two-sided translation invariant Gibbs measure (the
+equilibrium measure) and where ${\mathcal L}^*\nu=\lambda \nu$, and $h>0$ is a
+H\"older continuous eigenfunction. We are interested in the boundary case
+$\alpha=2$, when there exists a unique equilibrium measure for $\psi$ for
+$\beta<\beta_c$. In this case the summable variations condition is not satisfied
+for neither $\psi$ nor $\phi$; we may have multiple eigenmeasures for ${\mathcal
+  L}*$. In this context we have $\var_n(\phi)=O(\frac{1}{n})$ and it is not
+clear if there exists an eigenfunction even in the cases we have a unique
+equilibrium measure, such as in the case of the Berbee condition \cite{berbee2}.
+Berbee proved that there exists a unique equlibrium measure whenever
 \begin{equation}\label{berbee}
-\sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,    
+  \sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,    
 \end{equation}
-where $r_n=\var_n \log \psi$, or if $r_n=\var_n \log phi$. Berbee's condition is very robust in the sense that it gives uniqueness for both the two-sided and one-sided potentials, whereas square summable variations (see \cite{johob}) only gives a unique $g$-measure, ${\mathcal L}_g^* \mu=\mu$. Since we have proved in \cite{jop3} that for all $epsilon>0$ we can find a one-sided potential $\phi$ with 
+where $r_n=\var_n \log \psi$, or if $r_n=\var_n \log phi$. Berbee's condition is
+very robust in the sense that it gives uniqueness for both the two-sided and
+one-sided potentials, whereas square summable variations (see \cite{johob}) only
+gives a unique $g$-measure, ${\mathcal L}_g^* \mu=\mu$. Since we have proved in
+\cite{jop3} that for all $epsilon>0$ we can find a one-sided potential $\phi$
+with
 $$\sum_{n=1}^\infty (\var_n \phi)^{1+\epsilon}<\infty$$
-such that 
-${\mathcal L}^* \nu=\lambda \nu$ has multiple solutions $\nu$, it seems that the existence of a at least a very regular eigenfunction of ${\mathcal L}$ would be in doubt in view of uniqueness of a $g$-measure corresponding to multiple one-sided Gibbs measures.
+such that ${\mathcal L}^* \nu=\lambda \nu$ has multiple solutions $\nu$, it
+seems that the existence of a at least a very regular eigenfunction of
+${\mathcal L}$ would be in doubt in view of uniqueness of a $g$-measure
+corresponding to multiple one-sided Gibbs measures.
 
-Here we prove that if the inverse critical temperature is small enough, close to the critical phase, then we still have an eigenfunction of ${\mathcal L}$.
+Here we prove that if the inverse critical temperature is small enough, close to
+the critical phase, then we still have an eigenfunction of ${\mathcal L}$.
 
 \begin{thm}\label{main}
-Let $\mu$ be the Gibbs equilibrium measure with respect to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure, i.e., ${\mathcal L}^*\mu=\lambda \mu$. 
-Define 
-$$h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n}},$$
-and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$. If $\beta<\beta_c$, then $h$ is a continuous function on $X_+$, and which is also an
-eigenfunction of ${\mathcal L}$.
+  Let $\mu$ be the Gibbs equilibrium measure with respect to the Dyson potential
+  $\phi$ and let $\nu$ be the one-sided Gibbs measure, i.e., ${\mathcal
+    L}^*\mu=\lambda \mu$. Define
+$$h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n},$$
+and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$. If
+$\beta<\beta_c$, then $h$ is a continuous function on $X_+$, and which is also
+an eigenfunction of ${\mathcal L}$.
 \end{thm}
 
-We conjecture that there exists a continuous eigenfunction for a potential $\phi$ that satisfies Berbee's condition \eqref{berbee}.
+We conjecture that there exists a continuous eigenfunction for a potential
+$\phi$ that satisfies Berbee's condition \eqref{berbee}.
 
 \section{Proof of the main results}\noindent
 \begin{lem}
-There exists a continuous eigenfunction $h$ of ${\mathcal L}$, if
+  There exists a continuous eigenfunction $h$ of ${\mathcal L}$, if
 $$\frac{\mu[x_0,\ldots x_N, \ldots, x_n]}{\nu[x_0,\ldots, x_N, \ldots, x_n]}=(1+o(1)) \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]},$$
 as $N\to \infty$.
 \end{lem}
 \begin{proof}
-Let $\lambda=1$. By the assumption, the measure $\mu= \h \nu$ is translation invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have $(h\nu)\circ T^{-1}=h\nu$ and it suffices to show that $(h\nu)\circ T^{-1}=({\mathcal L}h)\nu$. Let $A$ be any Borel subset of $X_+$. Then
+  Let $\lambda=1$. By the assumption, the measure $\mu= \h \nu$ is translation
+  invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have $(h\nu)\circ
+  T^{-1}=h\nu$ and it suffices to show that $(h\nu)\circ T^{-1}=({\mathcal
+    L}h)\nu$. Let $A$ be any Borel subset of $X_+$. Then
 $$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
 \end{proof}
 
 \begin{lem}
-If $$\frac{\mu[x_0,\ldots X_N, \ldots, x_n]}{\nu[x_0,\ldots, X_N, \ldots, x_n]}=e^{xi}\; \; \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]}$$
+  If $$\frac{\mu[x_0,\ldots X_N, \ldots, x_n]}{\nu[x_0,\ldots, X_N, \ldots,
+    x_n]}=e^{xi}\; \; \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]}$$
 \end{lem}
-then $|\xi|=O(P(A_N))$, where $A_N$ is the event that there exists a cluster $C\subset [(-\infty, 0]$ with two edges that goes from $C$ into $[N,\infty)$.
+then $|\xi|=O(P(A_N))$, where $A_N$ is the event that there exists a cluster
+$C\subset [(-\infty, 0]$ with two edges that goes from $C$ into $[N,\infty)$.
 \begin{proof}
-For the random cluster model, we have
-that 
+  For the random cluster model, we have that
 $$\mu[x_0,\ldots, x_N]\propto P((t_{ij} \sim [x_0, \ldots, x_N]),$$
-where $\sim$ means that the graph $t_{ij}$ is compatible with the cylinder $[x_0,\ldots, x_N]$.
+where $\sim$ means that the graph $t_{ij}$ is compatible with the cylinder
+$[x_0,\ldots, x_N]$.
 
-We will study conditional probabilities $P(B_M|B_N)$, where $B_M$ means $t_{ij}\sim [x_0,\ldots, x_M]$.
+We will study conditional probabilities $P(B_M|B_N)$, where $B_M$ means
+$t_{ij}\sim [x_0,\ldots, x_M]$.
 
-We have 
-$$e^{\xi}=\frac{K(x_0,\ldots, x_N)P(B_M|B_N}{\tile K(x_0,\ldots, x_N)P(\tilde B_M|\tilde B_N)}.$$
+We have
+$$e^{\xi}=\frac{K(x_0,\ldots, x_N)P(B_M|B_N}{\tl K(x_0,\ldots, x_N)P(\tilde B_M|\tilde B_N)}.$$
 
-We make a coupling with the one-sided system $\tilde t=t[0,\infty)$ and use the corresponding events
-$\tilde B_M: \tilde t \sim [x_0,\ldots, x_M]$. We have $B_M\subset \tilde B_M$.
+We make a coupling with the one-sided system $\tilde t=t[0,\infty)$ and use the
+corresponding events $\tilde B_M: \tilde t \sim [x_0,\ldots, x_M]$. We have
+$B_M\subset \tilde B_M$.
 
 We have
 $$ 
-\frac{P(B_M|B_N)}{P(\tilde B_M| \tilde B_N)}= 
-\frac{P(B_M|\tilde B_M, B_N) \P(\tilde B_M|B_N)}
-{P(\tilde B_M|\tilde B_N)}=P(B_M|\tilde B_M, B_N)=e^{o(1)},
+\frac{P(B_M|B_N)}{P(\tilde B_M| \tilde B_N)}= \frac{P(B_M|\tilde B_M, B_N)
+  \P(\tilde B_M|B_N)} {P(\tilde B_M|\tilde B_N)}=P(B_M|\tilde B_M,
+B_N)=e^{o(1)},
 $$
 as $N\to \infty$, independently of $M$.
 \end{proof}
@@ -325,21 +287,21 @@ $$\lim_{N\to \infty} P(A_N)=0.$$
 \end{lem}
 
 \begin{proof}
-Let $M(C)=\inf \{i\in C \}$ and let $S=P(A_N |t[(-\infty, 0]])$.
+  Let $M(C)=\inf \{i\in C \}$ and let $S=P(A_N |t[(-\infty, 0]])$.
 
-We have 
+  We have
 $$P(A_N|t[(-\infty, 0]])\leq K \sum_{k=1}^\infty \frac{C_k}{N+M(C_k)}.$$
-The conclusion follows from  $E(S)<\infty$.
+The conclusion follows from $E(S)<\infty$.
 
-Let $X(C)$ be the number of clusters $C$ that have edges between $C$ and $[N,\infty)$.
-By assuming that $X(C)\sim P_0(\lambda)$, we can make the estimate
+Let $X(C)$ be the number of clusters $C$ that have edges between $C$ and
+$[N,\infty)$. By assuming that $X(C)\sim P_0(\lambda)$, we can make the estimate
 $$P(X(C)\geq 2)\leq c\cdot \lambda^2 \leq c\cdot \frac{|C|^2}{(N+M)^2}\cdot \beta^2,$$
 where $c=\sum_{k=2}^\infty e^{-\lambda} \frac{\lambda^k}{k!}$.
 
-We have 
+We have
 $$E(S) \leq K \sum_{k=1}^\infty \frac{E(C_k^2)}{(N+k E(C_k))^2},$$
-where $C_k$ are clusters in $t[(-\infty, 0])$ ordered after $M(C_k)$, $M(C_k)\geq k$.
-We can make an estimate 
+where $C_k$ are clusters in $t[(-\infty, 0])$ ordered after $M(C_k)$,
+$M(C_k)\geq k$. We can make an estimate
 $$E(S)\leq E(C_k^2)\sum _{k=1}^\infty \frac{1}{(N+k)^2},$$
 which proves the lemma, since $E(C_k^2)<\infty$ by \cite{kesten}.
 
@@ -347,95 +309,140 @@ which proves the lemma, since $E(C_k^2)<\infty$ by \cite{kesten}.
 
 \section{The random cluster model for ferromagnetic Ising spin models}
 
-Given a finite graph $G=(V,E)$ and a potential $H(x)$ for $x\in\X_V=\{-1,1\}^V$ of the form 
-\[ H(x) = \beta \sum_{ij\in E}  J_{ij} x_i x_j, \]
-where $J_{ij}\geq 0$ gives the interaction strength along edge $ij\in E$. The Ising model on $G$ is the probability measure $\mu$ on $\X_V$ given by 
+\def\SI{\{\pm1\}}
+\def\SB{\{0,1\}}
+\def\b{b}
+
+Given a finite graph $G=(V,E)$ and edge probabilities $p:E\to[0,1]$, $ij\mapsto p_{ij}$, the
+Bernoulli graph model $\xi = \xi_p$ is a probability on the set of spanning subgraphs
+$t\subset E$ viewed as functions $t:E\to\{0,1\}$ such that the probability of each
+$t\in\{0,1\}^E$ is given by
+\[ \xi(t) = p^t(1-t)^{1-t} := \prod_{ij}\, p_{ij}^{t_{ij}}\cdot
+  (1-p_{ij})^{1-t_{ij}}. \] The expectation of a function $f(t)$, $t\in\SI^V$,
+with respect to $\xi$ is written $\xi(f(t))$, i.e.\
+\(\xi(f) = \sum_{t} \xi(t)\cdot f(t)\).
+
+An Ising spin vector on $G$ is a vector $x\in\SI^V$ indexed by vertices in $G$.
+Consider a potential of the form
+\[ H(x) = \beta \sum_{ij\in E} J_{ij} x_i x_j, \] where $J_{ij}\geq 0$ gives the
+interaction strength along edge $ij\in E$. The corresponding (ferromagnetic)
+Ising model on $G$ is the probability measure $\mu$ where the probability of
+$x\in \SI^V$ is given by
 \[ \mu(x) = \frac 1{Z} e^{-H(x)}. \]
 
-We can construct The Ising model from a Bernoulli random graph model $\xi(t)=\xi(p)(t)$, i.e. a random vector $t\in\{0,1\}^E$ indicating a spanning subgraph $t$ of $G$ and where each edge $ij$ edges is independently chosen with the edge probability $p_{ij}$. We use the edge probability 
-\( p_{ij} := 0- e^{-\beta J_{ij}} \) for $ij\in E$. 
-
-We take such a random graph $t$ and simultaneously a uniformly chosen $x\in\{+1,-1\}^V$ and \emph{condition} on the event $B(t,x)$ that $t$ is \emph{compatible} with $x$, i.e.~ there is no path in $t$ connecting spins of different sign. 
-It is the easy to see that the distribution of $x$ is the Ising model above. 
-In fact, the probability of a spin configuration $x\in\X_V$ is proportional to the probability that a $t\sim\xi(p)$ satisfies $B(t,x)=1$, which is proportional to $e^{-H(x)}$. 
-Moreover, the distribution of $t$ is given by 
-\[ 
-\xi'( t ) = \xi(t) \frac{2^{\omega(t)}}{\xi(2^{\omega(t)})},
+The \emph{random cluster model} relates the Ising model with a Bernoulli random graph model as follows:
+Consider a $t$ having Bernoulli distribution $\xi=\xi_p$, where the edge probabilities
+are
+\[ p_{ij} = 1 - e^{-\beta J_{ij}} \quad \text{for $ij\in E$}\] and a uniformly
+chosen spin configuration $x\in\SI^V$, i.e.\ where the spins $x_i$ are chosen
+from $\SI$ according to a fair coin. We say that $x\in \SI^V$ and $t\in\SB^E$
+are \emph{compatible} if no path in the graph $t$ connects a spin $x_i=+1$ with
+a spin $x_j=-1$, $i\not=j$. We write $\b(t,x)$ to indicate the event that $t$
+and $x$ are compatible. The joint distribution of $x$ and $t$ \emph{conditioned}
+on the event that they are compatible is what is named the random cluster model
+$\rho(x,t)$. One readily verify that the marginal distribution of $x$ equals the
+Ising model on $\SI^V$ with potential $H$ as above. The marginal distribution of
+$t$ is given by
+\[
+  \tl\xi(t) = \frac{2^{\omega(t)}\xi(t)}{\xi(2^{\omega(t)})}
 \]
-where $\omega(t)$ denotes the number of components (``clusters'') in $t$. 
+where $\omega(t)$ denotes the number of connected components in the graph $t$.
 
-Fix disjoint subsets $S,T$ of $V$ and let $t_S$ denote the graph $t[S]$ induced on $S$ from $t$ and let $t'_S=t\setminus t_S$. For a cluster $C$ let
-\[ X_S(C,t) = \min\left( |E(C,S;t)| - 1, 0\right) \]
-and let 
+In fact, the probability of a spin configuration $x\in\X_V$ is
+proportional to the probability that a $t\sim\xi(p)$ satisfies $B(t,x)=1$, which
+is proportional to $e^{-H(x)}$. Moreover, the distribution of $t$ is given by
+\[
+  \xi'( t ) = \xi(t) \frac{2^{\omega(t)}}{\xi(2^{\omega(t)})},
+\]
+where $\omega(t)$ denotes the number of components (a.k.a.~``clusters'') in $t$.
+
+For a subset $S\subset V$ of vertices, consider the spin sub-configuration $x_S=
+x\vert_{S}\in\SI^S$. The conditional distribution of $x_S$, given the graph $t$,
+is then clearly
+\[ \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot b(t,x_S)\] 
+where $\tl\omega_S(t)$ denote the number of clusters in $t$ that intersects $S$.
+Thus
+\(\omega(t)=\ol\omega_S(t)+\tl\omega_S(t)\) where $\ol\omega_S(t)$ gives the
+number of clusters in $t$ that are disjoint with $S$. We obtain that the
+marginal distribution of such a subvector is 
+\[
+  \mu(x_S) = \frac{\xi\left(2^{\ol\omega_S(t)} b(t,x_s)\right)}{\xi\left( 2^{\omega(t)} \right)}
+\]
+
+
+
+Fix disjoint subsets $S,T$ of $V$ and let $t_S$ denote the graph $t[S]$ induced
+on $S$ from $t$ and let $t'_S=t\setminus t_S$. For a cluster $C$ let
+\[ X_S(C,t) = \min\left( |E(C,S;t)| - 1, 0\right) \] and let
 \[ X_S(T)(t) = \sum_{C\subset T} X_S(C,t). \]
 
-Our main computations concerns the distribution of $x_S\in \X_S$. 
-Let $\tl\omega_S(t)$ be the number of different clusters of $t$ that that 
-intersects $S$. 
-Then 
-\[
-    \tl\omega_S(t) = \omega(t_S) - \kappa_S(t),
-\]
-where $\kappa_S(t)\ge 0$ is reduction of the number of components
-by the fact that some components of $t_S$ are connected by paths outside $S$. 
 
-We have 
-\[
-    \kappa_S(t) \le X_S(t)
-\]
-where $X_S$ denote the number of edges minus one sent from components in $S^c$ that sends at least \emph{two} edges to $S$. 
 
-Similarly, 
+Our main computations concerns the distribution of $x_S\in \X_S$. Let
+$\tl\omega_S(t)$ be the number of different clusters of $t$ that that intersects
+$S$. Then
 \[
-\omega(t) = \omega(t_S)+\omega(t'_S) - \rho_S(t)
+  \tl\omega_S(t) = \omega(t_S) - \kappa_S(t),
 \]
-where $t'_S = t\setminus G[S]$ is independent under $\xi$ of $t_S$ and where 
+where $\kappa_S(t)\ge 0$ is reduction of the number of components by the fact
+that some components of $t_S$ are connected by paths outside $S$.
+
+We have
 \[
-    \rho_S(t) 
+  \kappa_S(t) \le X_S(t)
 \]
-Note also that 
+where $X_S$ denote the number of edges minus one sent from components in $S^c$
+that sends at least \emph{two} edges to $S$.
+
+Similarly,
 \[
-    B(t,x_S) = B(t_S,x_S) B(t'_S,x_S) 
+  \omega(t) = \omega(t_S)+\omega(t'_S) - \rho_S(t)
+\]
+where $t'_S = t\setminus G[S]$ is independent under $\xi$ of $t_S$ and where
+\[
+  \rho_S(t)
+\]
+Note also that
+\[
+  B(t,x_S) = B(t_S,x_S) B(t'_S,x_S)
 \]
  
 
-We clearly have 
-\[ 
-    \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot B(t,x_S) 
-    = 2^{-\omega(t_S) + \kappa_S(t)} \cdot B(t_S,x_S) B(t'_S,x_S).
-\]
-Hence, since  $\mu(x_S)=\xi'(\mu(x_S|t))$, i.e.\
+We clearly have
 \[
-\mu(x_S) = \frac1{\xi(2^{\omega(t)})} \, 
-\xi\left(\mu(x_S|t) 2^{\omega(t)}\right)
-\] 
-we can compute the marginal distribution of $x_S$ as 
+  \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot B(t,x_S) = 2^{-\omega(t_S) +
+    \kappa_S(t)} \cdot B(t_S,x_S) B(t'_S,x_S).
+\]
+Hence, since $\mu(x_S)=\xi'(\mu(x_S|t))$, i.e.\
+\[
+  \mu(x_S) = \frac1{\xi(2^{\omega(t)})} \, \xi\left(\mu(x_S|t)
+    2^{\omega(t)}\right)
+\]
+we can compute the marginal distribution of $x_S$ as
 \begin{equation}
-\mu(x_S) = 
-\xi'\left(B(x_S,t_S)\cdot B(x_S,t'_S)\cdot 2^{\omega(t'_S)}\right)
+  \mu(x_S) = 
+  \xi'\left(B(x_S,t_S)\cdot B(x_S,t'_S)\cdot 2^{\omega(t'_S)}\right)
 \end{equation}
 
-To apply to the one-dimensional Dyson model, we let $V=(-M,M)\subset\ZZ$ and $S=[0,M)\subset V$. The one-sided Gibbs measure $\nu$ and the two-sided $\mu$ on $\mscr F_S$ are obtained for $x=x_S\in \X_S$
+To apply to the one-dimensional Dyson model, we let $V=(-M,M)\subset\ZZ$ and
+$S=[0,M)\subset V$. The one-sided Gibbs measure $\nu$ and the two-sided $\mu$ on
+$\mscr F_S$ are obtained for $x=x_S\in \X_S$
 \[
-\nu_M(x) = 
-\frac
-{\xi\left(B(x,t_S)\cdot 2^{\omega(t_S)}\right)}
-{\xi(2^{\omega(t_S)})}.
+  \nu_M(x) = \frac {\xi\left(B(x,t_S)\cdot 2^{\omega(t_S)}\right)}
+  {\xi(2^{\omega(t_S)})}.
 \]
-and 
+and
 \[
-\mu_M(x) = 
-\frac
-{\xi\left(B(x,t)\cdot 2^{\omega_S(t)}\right)}
-{\xi(2^{\omega(t)})}.
+  \mu_M(x) = \frac {\xi\left(B(x,t)\cdot 2^{\omega_S(t)}\right)}
+  {\xi(2^{\omega(t)})}.
 \]
-Our aim is to show that the ratio 
+Our aim is to show that the ratio
 \[
-    h_M(x) = \frac{\mu_M(x)}{\nu_M(x)}
+  h_M(x) = \frac{\mu_M(x)}{\nu_M(x)}
 \]
-converge to a continuous function as $M\to\infty$, i.e.\ that 
+converge to a continuous function as $M\to\infty$, i.e.\ that
 \[
-    \sup_{M\ge N} \var_N h_M(x) = \ordo1 \quad\text{as $N\to\infty$}.
+  \sup_{M\ge N} \var_N h_M(x) = \ordo1 \quad\text{as $N\to\infty$}.
 \]
 
 
@@ -445,77 +452,74 @@ converge to a continuous function as $M\to\infty$, i.e.\ that
 \begin{thebibliography}{999}
 
 \bibitem{ACCN} M.\ Aizenman, J.\ Chayes, L.\ Chayes and C.\ Newman,
-  Discontinuity of the magnetization in the one-dimensional
-  $1/|x-y|^2$ Ising and Potts models, {\em J.\ Statist.\ Phys.\ } {\bf
-    50} (1988), 1--40.
+  Discontinuity of the magnetization in the one-dimensional $1/|x-y|^2$ Ising
+  and Potts models, {\em J.\ Statist.\ Phys.\ } {\bf 50} (1988), 1--40.
 
-\bibitem{berger} N.\ Berger, C.\ Hoffman and V.\ Sidoravicius,
-  Nonuniqueness for specifications in $\ell^{2+\epsilon}$, to appear (2017)
-  in {\em Ergodic Theory Dynam.\ Systems}.
+\bibitem{berger} N.\ Berger, C.\ Hoffman and V.\ Sidoravicius, Nonuniqueness for
+  specifications in $\ell^{2+\epsilon}$, to appear (2017) in {\em Ergodic Theory
+    Dynam.\ Systems}.
 
-\bibitem{berbee1} H. Berbee, Chains with Infinite Connections:
-  Uniqueness and Markov Representation, {\em Probab.\ Theory Related
-    Fields} {\bf 76} (1987), 243--253.
+\bibitem{berbee1} H. Berbee, Chains with Infinite Connections: Uniqueness and
+  Markov Representation, {\em Probab.\ Theory Related Fields} {\bf 76} (1987),
+  243--253.
  
-\bibitem{berbee2} H. Berbee, Uniqueness of Gibbs measures and
-  absorption probabilities, {\em Ann.\ Probab.\ } {\bf 17} (1989),
-  no.\ 4, 1416--1431.
+\bibitem{berbee2} H. Berbee, Uniqueness of Gibbs measures and absorption
+  probabilities, {\em Ann.\ Probab.\ } {\bf 17} (1989), no.\ 4, 1416--1431.
  
-\bibitem{lop1} L.\ Cioletti and A.\ Lopes, Interactions,
-  Specifications, DLR probabilities and the Ruelle Operator in the
-  One-Dimensional Lattice, preprint, arXiv:1404.3232.
+\bibitem{lop1} L.\ Cioletti and A.\ Lopes, Interactions, Specifications, DLR
+  probabilities and the Ruelle Operator in the One-Dimensional Lattice,
+  preprint, arXiv:1404.3232.
  
-\bibitem{lop3} L.\ Cioletti and A.\ Lopes, Ruelle Operator for
-  Continuous Potentials and DLR-Gibbs Measures, preprint,
-  arXiv:1608.03881v1.
+\bibitem{lop3} L.\ Cioletti and A.\ Lopes, Ruelle Operator for Continuous
+  Potentials and DLR-Gibbs Measures, preprint, arXiv:1608.03881v1.
  
-\bibitem{FS} J.\ Fr\"olich and T.\ Spencer, The phase transition in
-  the one-dimensional Ising Model with $1/r^2$ interaction energy,
-  {\em Comm.\ Math.\ Phys.\ } {\bf 4} (1982), no.\ 1, 87--101.
+\bibitem{FS} J.\ Fr\"olich and T.\ Spencer, The phase transition in the
+  one-dimensional Ising Model with $1/r^2$ interaction energy, {\em Comm.\
+    Math.\ Phys.\ } {\bf 4} (1982), no.\ 1, 87--101.
 
-\bibitem{johob} A.\ Johansson and A.\ \"Oberg, Square summability of
-  variations of $g$-functions and uniqueness of $g$-measures, {\em
-    Math.\ Res.\ Lett.\ } {\bf 10} (2003), no.\ 5--6, 587--601.
+\bibitem{johob} A.\ Johansson and A.\ \"Oberg, Square summability of variations
+  of $g$-functions and uniqueness of $g$-measures, {\em Math.\ Res.\ Lett.\ }
+  {\bf 10} (2003), no.\ 5--6, 587--601.
     
-\bibitem{jop1} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Countable
-  state shifts and uniqueness of $g$-measures, {\em Amer.\ J.\ Math.\
-  } {\bf 129} (2007), 1501--1511.
+\bibitem{jop1} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Countable state
+  shifts and uniqueness of $g$-measures, {\em Amer.\ J.\ Math.\ } {\bf 129}
+  (2007), 1501--1511.
 
-\bibitem{jop2} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Unique
-  Bernoulli $g$-measures, {\em J.\ Eur.\ Math.\ Soc.\ } {\bf 14}
-  (2012), 1599--1615.
+\bibitem{jop2} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Unique Bernoulli
+  $g$-measures, {\em J.\ Eur.\ Math.\ Soc.\ } {\bf 14} (2012), 1599--1615.
   
-\bibitem{jop3} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Phase transitions in long-range Ising models and an optimal condition for factors of $g$-measures, {\em Ergodic Theory \& Dynam.\ Systems}
-{\bf 39} (2019, 1317--1330.
+\bibitem{jop3} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Phase transitions
+  in long-range Ising models and an optimal condition for factors of
+  $g$-measures, {\em Ergodic Theory \& Dynam.\ Systems} {\bf 39} (2019,
+  1317--1330.
   
-\bibitem{keane} M.\ Keane, Strongly mixing $g$-measures, {\em Invent.\
-    Math.\ } {\bf 16} (1972), 309--324.
+\bibitem{keane} M.\ Keane, Strongly mixing $g$-measures, {\em Invent.\ Math.\ }
+  {\bf 16} (1972), 309--324.
     
-\bibitem{kesten}
-M.\ Aizenman, H.\ Kesten and C.M.\ Newman, Uniqueness of the Infinite Cluster and Continuity of Connectivity Functions for Short and Long Range Percolation, {\em Commun.\ Math.\ Phys.\ } {\bf 111} (1987), 505--531.
+\bibitem{kesten} M.\ Aizenman, H.\ Kesten and C.M.\ Newman, Uniqueness of the
+  Infinite Cluster and Continuity of Connectivity Functions for Short and Long
+  Range Percolation, {\em Commun.\ Math.\ Phys.\ } {\bf 111} (1987), 505--531.
 
-\bibitem{sin}
-Ya.G.\ Sinai, Gibbs measures in ergodic theory, {\em Russian Mathematical Surveys} {\bf 27}(4) (1972), 21--69. 
+\bibitem{sin} Ya.G.\ Sinai, Gibbs measures in ergodic theory, {\em Russian
+    Mathematical Surveys} {\bf 27}(4) (1972), 21--69.
 
-\bibitem{walters1}
-P.\ Walters, Ruelle's operator theorem and $g$-measures, {\em Trans.\ Amer.\ Math.\ Soc.\ } {\bf 214} (1975), 375--387.
+\bibitem{walters1} P.\ Walters, Ruelle's operator theorem and $g$-measures, {\em
+    Trans.\ Amer.\ Math.\ Soc.\ } {\bf 214} (1975), 375--387.
 
-\bibitem{walters3}
-P.\ Walters, Convergence of the Ruelle Operator, {\em Trans.\ Amer.\ Math.\ Soc.\ } {\bf 353} (2000), 
-no.\ 1, 327--347.
+\bibitem{walters3} P.\ Walters, Convergence of the Ruelle Operator, {\em Trans.\
+    Amer.\ Math.\ Soc.\ } {\bf 353} (2000), no.\ 1, 327--347.
 \end{thebibliography}
 
 \noindent
 \newline
 
 \noindent
-Anders Johansson, Department of Mathematics, University of G\"avle,
-801 76 G\"avle, Sweden. Email-address: ajj@hig.se\newline
+Anders Johansson, Department of Mathematics, University of G\"avle, 801 76
+G\"avle, Sweden. Email-address: ajj@hig.se\newline
 
 \noindent
-Anders \"Oberg, Department of Mathematics, Uppsala University, P.O.\
-Box 480, 751 06 Uppsala, Sweden. E-mail-address:
-anders@math.uu.se\newline
+Anders \"Oberg, Department of Mathematics, Uppsala University, P.O.\ Box 480,
+751 06 Uppsala, Sweden. E-mail-address: anders@math.uu.se\newline
 
 \end{document}
 
