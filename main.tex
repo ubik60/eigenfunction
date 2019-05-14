@@ -312,6 +312,8 @@ which proves the lemma, since $E(C_k^2)<\infty$ by \cite{kesten}.
 \def\SI{\{\pm1\}}
 \def\SB{\{0,1\}}
 \def\b{b}
+G
+\def\XI#1{\xi\left(#1\right)}
 
 Given a finite graph $G=(V,E)$ and edge probabilities $p:E\to[0,1]$, $ij\mapsto p_{ij}$, the
 Bernoulli graph model $\xi = \xi_p$ is a probability on the set of spanning subgraphs
@@ -319,8 +321,8 @@ $t\subset E$ viewed as functions $t:E\to\{0,1\}$ such that the probability of ea
 $t\in\{0,1\}^E$ is given by
 \[ \xi(t) = p^t(1-t)^{1-t} := \prod_{ij}\, p_{ij}^{t_{ij}}\cdot
   (1-p_{ij})^{1-t_{ij}}. \] The expectation of a function $f(t)$, $t\in\SI^V$,
-with respect to $\xi$ is written $\xi(f(t))$, i.e.\
-\(\xi(f) = \sum_{t} \xi(t)\cdot f(t)\).
+with respect to $\xi$ is written $\XI(f(t))$, i.e.\
+\(\XI(f) = \sum_{t} \xi(t)\cdot f(t)\).
 
 An Ising spin vector on $G$ is a vector $x\in\SI^V$ indexed by vertices in $G$.
 Consider a potential of the form
@@ -364,12 +366,40 @@ where $\tl\omega_S(t)$ denote the number of clusters in $t$ that intersects $S$.
 Thus
 \(\omega(t)=\ol\omega_S(t)+\tl\omega_S(t)\) where $\ol\omega_S(t)$ gives the
 number of clusters in $t$ that are disjoint with $S$. We obtain that the
-marginal distribution of such a subvector is 
+marginal distribution of the subvector $x_S$ is 
+\[\mu(x_S) = \frac{\XI{ 2^{\ol\omega_S(t)} b(t,x_S)}}{\XI{2^{\omega(t)}}}. \]
+If $R\subset S$ then we have
+\[\mu(x_S\mid x_R) =
+  \frac{\XI{2^{\ol\omega_S(t)} \cdot b(t,x_S)}}
+  {\XI{2^{\ol\omega_R(t)} \cdot b(t,x_R)}}. \]
+
+In the one-dimensional Ising-Dyson model let $V=[-L,L]\subset \ZZ$ and
+\[ J_{ij} = \frac \beta{|i-j|^\alpha}.\]
+We can
+partition $V$ as $V_- \cup V_+$, where $V_+=[0,L]$. The random graph $t'$ is the
+graph $t$ induced on $V_+$, i.e. $t_{ij}=1$ only if both ends, $i$ and $j$, are
+in the integer interval $V_+=[0,L]$. By the independence of the Bernoulli graph
+model $\xi(t)$, we may write the \emph{one-sided Ising model} as
 \[
-  \mu(x_S) = \frac{\xi\left(2^{\ol\omega_S(t)} b(t,x_s)\right)}{\xi\left( 2^{\omega(t)} \right)}
+  \nu(x_S) = \frac{\XI{ 2^{\ol\omega_S(t')} \cdot b(t',x_S)}}{\XI{2^{\omega(t')}}}.
 \]
 
+Let $M=[0,M)$ and $N=[0,N)$, where $N\le M \le L$.
+Our aim is to show that for all $x\in\SI^{[0,\infty)}$
+\[
+  \lim_{M,L\to\infty} \frac{\mu(x_M\mid x_N)}{\nu(x_M \mid x_N)} = 1+\ordo N \quad\text{as $N\to\infty$.}
+\]
 
+From the computations above we deduce that 
+\[
+  \frac{\mu(x_M\mid x_N)}{\nu(x_M \mid x_N)} =
+  \frac{\XI{2^{\ol\omega_N(t')} \cdot b(t',x_N)}}
+  {\XI{2^{\ol\omega_N(t)} \cdot b(t,x_N)}} \cdot
+  \frac{\XI{2^{\ol\omega_M(t)} \cdot b(t,x_M)}}
+  {\XI{2^{\ol\omega_M(t')} \cdot b(t',x_M)}} 
+\]
+
+\end{document}
 
 Fix disjoint subsets $S,T$ of $V$ and let $t_S$ denote the graph $t[S]$ induced
 on $S$ from $t$ and let $t'_S=t\setminus t_S$. For a cluster $C$ let
