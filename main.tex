@@ -332,9 +332,9 @@ Ising model on $G$ is the probability measure $\mu$ where the probability of
 $x\in \SI^V$ is given by
 \[ \mu(x) = \frac 1{Z} e^{-H(x)}. \]
 
-The \emph{random cluster model} relates the Ising model with a Bernoulli random graph model as follows:
-Consider a $t$ having Bernoulli distribution $\xi=\xi_p$, where the edge probabilities
-are
+The \emph{random cluster model} relates the Ising model with a Bernoulli random
+graph model as follows: Consider a $t$ having Bernoulli distribution
+$\xi=\xi_p$, where the edge probabilities are
 \[ p_{ij} = 1 - e^{-\beta J_{ij}} \quad \text{for $ij\in E$}\] and a uniformly
 chosen spin configuration $x\in\SI^V$, i.e.\ where the spins $x_i$ are chosen
 from $\SI$ according to a fair coin. We say that $x\in \SI^V$ and $t\in\SB^E$
@@ -358,198 +358,77 @@ is proportional to $e^{-H(x)}$. Moreover, the distribution of $t$ is given by
 \]
 where $\omega(t)$ denotes the number of components (a.k.a.~``clusters'') in $t$.
 
-For a subset $S\subset V$ of vertices, consider the spin sub-configuration $x_S=
-x\vert_{S}\in\SI^S$. The conditional distribution of $x_S$, given the graph $t$,
-is then clearly
-\[ \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot b(t,x_S)\] 
+\def\cy#1{[x]_{#1}}
+
+For a subset $S\subset V$ of vertices, consider the spin cylinder $\cy S$.
+The conditional distribution of $\cy S$, given the graph $t$, is then clearly
+\[ \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot b(t, \cy S)\] 
 where $\tl\omega_S(t)$ denote the number of clusters in $t$ that intersects $S$.
 Thus
 \(\omega(t)=\ol\omega_S(t)+\tl\omega_S(t)\) where $\ol\omega_S(t)$ gives the
 number of clusters in $t$ that are disjoint with $S$. We obtain that the
-marginal distribution of the subvector $x_S$ is 
-\[\mu(x_S) = \frac{\XI{ 2^{\ol\omega_S(t)} b(t,x_S)}}{\XI{2^{\omega(t)}}}. \]
+marginal distribution of the cylinder $\cy S$ is 
+\[\mu(\cy S) = \frac{\XI{ 2^{\ol\omega_S(t)} b(t,\cy S)}}{\XI{2^{\omega(t)}}}. \]
 If $R\subset S$ then we have
-\[\mu(x_S\mid x_R) =
-  \frac{\XI{2^{\ol\omega_S(t)} \cdot b(t,x_S)}}
-  {\XI{2^{\ol\omega_R(t)} \cdot b(t,x_R)}}. \]
+\[\mu(\cy S\mid \cy R) =
+  \frac{\XI{2^{\ol\omega_S(t)} \cdot b(t,\cy S)}}
+  {\XI{2^{\ol\omega_R(t)} \cdot b(t,\cy R)}}. \]
 
 In the one-dimensional Ising-Dyson model let $V=[-L,L]\subset \ZZ$ and
 \[ J_{ij} = \frac \beta{|i-j|^\alpha}.\]
 We can
-partition $V$ as $V_- \cup V_+$, where $V_+=[0,L]$. The random graph $t'$ is the
+partition $V$ as $V_- \cup V_+$, where $V_+=[0,L]$. The random graph $t^+$ is the
 graph $t$ induced on $V_+$, i.e. $t_{ij}=1$ only if both ends, $i$ and $j$, are
-in the integer interval $V_+=[0,L]$. By the independence of the Bernoulli graph
-model $\xi(t)$, we may write the \emph{one-sided Ising model} as
-\[
-  \nu(x_S) = \frac{\XI{ 2^{\ol\omega_S(t')} \cdot b(t',x_S)}}{\XI{2^{\omega(t')}}}.
-\]
+in the integer interval $V_+=[0,L]$.
 
-Let $M=[0,M)$ and $N=[0,N)$, where $N\le M \le L$.
+By the independence of the Bernoulli graph model $\xi(t)$,
+the graph $t'':= t\setminus t^+$ is independent of $t^+=t[S]$. 
+Hence, we may write the marginal for the \emph{one-sided Ising model} as
+\[
+  \nu(\cy S) = \frac{\XI{ 2^{\ol\omega_S(t^+) + f(t'')} \cdot b(t^+,\cy S)}}{\XI{2^{\omega(t^+)+f(t'')}}}.
+\]
+where $f(t'')$ denote any function of the graph $t''$. 
+
+\def\M{{M}}
+\def\N{{N}}
+
+For $N\ge 0$, let $N$ denote the integer interval $[0,N)$ so that $\cy M = \cy
+{[0,M)}$, and $\ol\omega_N = \ol\omega_{[0,N)}$, etc. We also use $\ol N$ to
+denote the interval $[N,\infty)$
 Our aim is to show that for all $x\in\SI^{[0,\infty)}$
 \[
-  \lim_{M,L\to\infty} \frac{\mu(x_M\mid x_N)}{\nu(x_M \mid x_N)} = 1+\ordo N \quad\text{as $N\to\infty$.}
+  \lim_{M,L\to\infty} \frac{\mu(\cy \M \mid \cy \N)}{\nu(\cy\M \mid \cy\N)} = 1+\ordo N \quad\text{as $N\to\infty$.}
 \]
 
 From the computations above we deduce that 
 \[
-  \frac{\mu(x_M\mid x_N)}{\nu(x_M \mid x_N)} =
-  \frac{\XI{2^{\ol\omega_N(t')} \cdot b(t',x_N)}}
-  {\XI{2^{\ol\omega_N(t)} \cdot b(t,x_N)}} \cdot
-  \frac{\XI{2^{\ol\omega_M(t)} \cdot b(t,x_M)}}
-  {\XI{2^{\ol\omega_M(t')} \cdot b(t',x_M)}} 
+  \frac{\mu(\cy\N)}{\nu(\cy\N)} = \text{const.} \times
+  \frac{\XI{2^{\ol\omega_\N(t)} \cdot b(t,\cy\N)}}
+  {\XI{2^{\ol\omega_\N(t^+) + f(t'')} \cdot b(t^+,\cy\N)}}
 \]
+where the constant is \({\XI{2^{\omega(t^+)}}}/{\XI{2^{\omega(t)}}}\).
 
-\end{document}
+Let $\mscr L_\pm = \{C^\pm_1,C^\pm_2,\dots \}$ denote the set of clusters of the
+graph induced on the positive (negative) axis, i.e. the components in the graphs
+$t^\pm$ induced by $t$ on $[0,\infty)$ and $(-\infty,0)$, respectively. Let
+$\mscr R_\pm$ be those that do not send any edges to $[0,N)$. Thus
+$\ol\omega(t^\pm)=|\mscr R_\pm|$. Let also $\mscr R''_N$ be the clusters in the
+graph $t''=t\setminus t^+$ that do not contain any vertex from $[0,N)$.
 
-Fix disjoint subsets $S,T$ of $V$ and let $t_S$ denote the graph $t[S]$ induced
-on $S$ from $t$ and let $t'_S=t\setminus t_S$. For a cluster $C$ let
-\[ X_S(C,t) = \min\left( |E(C,S;t)| - 1, 0\right) \] and let
-\[ X_S(T)(t) = \sum_{C\subset T} X_S(C,t). \]
+\[\includegraphics[page=1,width=0.9\textwidth]{fig.pdf}\]
 
-
-
-Our main computations concerns the distribution of $x_S\in \X_S$. Let
-$\tl\omega_S(t)$ be the number of different clusters of $t$ that that intersects
-$S$. Then
-\[
-  \tl\omega_S(t) = \omega(t_S) - \kappa_S(t),
-\]
-where $\kappa_S(t)\ge 0$ is reduction of the number of components by the fact
-that some components of $t_S$ are connected by paths outside $S$.
-
-We have
-\[
-  \kappa_S(t) \le X_S(t)
-\]
-where $X_S$ denote the number of edges minus one sent from components in $S^c$
-that sends at least \emph{two} edges to $S$.
-
-Similarly,
-\[
-  \omega(t) = \omega(t_S)+\omega(t'_S) - \rho_S(t)
-\]
-where $t'_S = t\setminus G[S]$ is independent under $\xi$ of $t_S$ and where
-\[
-  \rho_S(t)
-\]
-Note also that
-\[
-  B(t,x_S) = B(t_S,x_S) B(t'_S,x_S)
-\]
- 
-
-We clearly have
-\[
-  \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot B(t,x_S) = 2^{-\omega(t_S) +
-    \kappa_S(t)} \cdot B(t_S,x_S) B(t'_S,x_S).
-\]
-Hence, since $\mu(x_S)=\xi'(\mu(x_S|t))$, i.e.\
-\[
-  \mu(x_S) = \frac1{\xi(2^{\omega(t)})} \, \xi\left(\mu(x_S|t)
-    2^{\omega(t)}\right)
-\]
-we can compute the marginal distribution of $x_S$ as
+Then
 \begin{equation}
-  \mu(x_S) = 
-  \xi'\left(B(x_S,t_S)\cdot B(x_S,t'_S)\cdot 2^{\omega(t'_S)}\right)
+  \ol\omega_N(t) = \ol\omega_N(t^+) + \ol\omega_N(t'') - X_N(t'') + Z_N(t)
 \end{equation}
-
-To apply to the one-dimensional Dyson model, we let $V=(-M,M)\subset\ZZ$ and
-$S=[0,M)\subset V$. The one-sided Gibbs measure $\nu$ and the two-sided $\mu$ on
-$\mscr F_S$ are obtained for $x=x_S\in \X_S$
+where $X_N(t'')$ are the number of edges between clusters in $\mscr R''_N$ and
+$\ol N$ and $Z_N(t)$ is a correction term which is not independent of $t^+$.
+However, we claim that 
+\[ Z_N(t) \le Y_N(t'')\]
+where $Y_N(t)$ is the number
 \[
-  \nu_M(x) = \frac {\xi\left(B(x,t_S)\cdot 2^{\omega(t_S)}\right)}
-  {\xi(2^{\omega(t_S)})}.
-\]
-and
-\[
-  \mu_M(x) = \frac {\xi\left(B(x,t)\cdot 2^{\omega_S(t)}\right)}
-  {\xi(2^{\omega(t)})}.
-\]
-Our aim is to show that the ratio
-\[
-  h_M(x) = \frac{\mu_M(x)}{\nu_M(x)}
-\]
-converge to a continuous function as $M\to\infty$, i.e.\ that
-\[
-  \sup_{M\ge N} \var_N h_M(x) = \ordo1 \quad\text{as $N\to\infty$}.
+  Y_N(t) = \sum_{C\in\mscr R''_N} \max\{|E(C,\ol N)|-1,0\} 
 \]
 
-
-
-
-
-\begin{thebibliography}{999}
-
-\bibitem{ACCN} M.\ Aizenman, J.\ Chayes, L.\ Chayes and C.\ Newman,
-  Discontinuity of the magnetization in the one-dimensional $1/|x-y|^2$ Ising
-  and Potts models, {\em J.\ Statist.\ Phys.\ } {\bf 50} (1988), 1--40.
-
-\bibitem{berger} N.\ Berger, C.\ Hoffman and V.\ Sidoravicius, Nonuniqueness for
-  specifications in $\ell^{2+\epsilon}$, to appear (2017) in {\em Ergodic Theory
-    Dynam.\ Systems}.
-
-\bibitem{berbee1} H. Berbee, Chains with Infinite Connections: Uniqueness and
-  Markov Representation, {\em Probab.\ Theory Related Fields} {\bf 76} (1987),
-  243--253.
- 
-\bibitem{berbee2} H. Berbee, Uniqueness of Gibbs measures and absorption
-  probabilities, {\em Ann.\ Probab.\ } {\bf 17} (1989), no.\ 4, 1416--1431.
- 
-\bibitem{lop1} L.\ Cioletti and A.\ Lopes, Interactions, Specifications, DLR
-  probabilities and the Ruelle Operator in the One-Dimensional Lattice,
-  preprint, arXiv:1404.3232.
- 
-\bibitem{lop3} L.\ Cioletti and A.\ Lopes, Ruelle Operator for Continuous
-  Potentials and DLR-Gibbs Measures, preprint, arXiv:1608.03881v1.
- 
-\bibitem{FS} J.\ Fr\"olich and T.\ Spencer, The phase transition in the
-  one-dimensional Ising Model with $1/r^2$ interaction energy, {\em Comm.\
-    Math.\ Phys.\ } {\bf 4} (1982), no.\ 1, 87--101.
-
-\bibitem{johob} A.\ Johansson and A.\ \"Oberg, Square summability of variations
-  of $g$-functions and uniqueness of $g$-measures, {\em Math.\ Res.\ Lett.\ }
-  {\bf 10} (2003), no.\ 5--6, 587--601.
-    
-\bibitem{jop1} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Countable state
-  shifts and uniqueness of $g$-measures, {\em Amer.\ J.\ Math.\ } {\bf 129}
-  (2007), 1501--1511.
-
-\bibitem{jop2} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Unique Bernoulli
-  $g$-measures, {\em J.\ Eur.\ Math.\ Soc.\ } {\bf 14} (2012), 1599--1615.
-  
-\bibitem{jop3} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Phase transitions
-  in long-range Ising models and an optimal condition for factors of
-  $g$-measures, {\em Ergodic Theory \& Dynam.\ Systems} {\bf 39} (2019,
-  1317--1330.
-  
-\bibitem{keane} M.\ Keane, Strongly mixing $g$-measures, {\em Invent.\ Math.\ }
-  {\bf 16} (1972), 309--324.
-    
-\bibitem{kesten} M.\ Aizenman, H.\ Kesten and C.M.\ Newman, Uniqueness of the
-  Infinite Cluster and Continuity of Connectivity Functions for Short and Long
-  Range Percolation, {\em Commun.\ Math.\ Phys.\ } {\bf 111} (1987), 505--531.
-
-\bibitem{sin} Ya.G.\ Sinai, Gibbs measures in ergodic theory, {\em Russian
-    Mathematical Surveys} {\bf 27}(4) (1972), 21--69.
-
-\bibitem{walters1} P.\ Walters, Ruelle's operator theorem and $g$-measures, {\em
-    Trans.\ Amer.\ Math.\ Soc.\ } {\bf 214} (1975), 375--387.
-
-\bibitem{walters3} P.\ Walters, Convergence of the Ruelle Operator, {\em Trans.\
-    Amer.\ Math.\ Soc.\ } {\bf 353} (2000), no.\ 1, 327--347.
-\end{thebibliography}
-
-\noindent
-\newline
-
-\noindent
-Anders Johansson, Department of Mathematics, University of G\"avle, 801 76
-G\"avle, Sweden. Email-address: ajj@hig.se\newline
-
-\noindent
-Anders \"Oberg, Department of Mathematics, Uppsala University, P.O.\ Box 480,
-751 06 Uppsala, Sweden. E-mail-address: anders@math.uu.se\newline
 
 \end{document}
-
