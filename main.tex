@@ -312,17 +312,18 @@ which proves the lemma, since $E(C_k^2)<\infty$ by \cite{kesten}.
 \def\SI{\{\pm1\}}
 \def\SB{\{0,1\}}
 \def\b{b}
-G
 \def\XI#1{\xi\left(#1\right)}
+\def\t{G}
 
-Given a finite graph $G=(V,E)$ and edge probabilities $p:E\to[0,1]$, $ij\mapsto p_{ij}$, the
+Given a finite graph $(V,E)$ and edge probabilities $p:E\to[0,1]$, $ij\mapsto p_{ij}$, the
 Bernoulli graph model $\xi = \xi_p$ is a probability on the set of spanning subgraphs
-$t\subset E$ viewed as functions $t:E\to\{0,1\}$ such that the probability of each
-$t\in\{0,1\}^E$ is given by
-\[ \xi(t) = p^t(1-t)^{1-t} := \prod_{ij}\, p_{ij}^{t_{ij}}\cdot
-  (1-p_{ij})^{1-t_{ij}}. \] The expectation of a function $f(t)$, $t\in\SI^V$,
-with respect to $\xi$ is written $\XI(f(t))$, i.e.\
-\(\XI(f) = \sum_{t} \xi(t)\cdot f(t)\).
+$\t\subset E$ viewed as functions $\t:E\to\{0,1\}$ such that the probability of each
+$\t\in\{0,1\}^E$ is given by
+\[ \xi(\t) = p^\t(1-\t)^{1-\t} := \prod_{ij}\, p_{ij}^{\t_{ij}}\cdot
+  (1-p_{ij})^{1-\t_{ij}}. \]
+The expectation of a function $f(\t)$, $\t\in\SI^V$,
+with respect to $\xi$ is written $\XI(f(\t))$, i.e.\
+\(\XI(f) = \sum_{\t} \xi(\t)\cdot f(\t)\).
 
 An Ising spin vector on $G$ is a vector $x\in\SI^V$ indexed by vertices in $G$.
 Consider a potential of the form
@@ -333,68 +334,85 @@ $x\in \SI^V$ is given by
 \[ \mu(x) = \frac 1{Z} e^{-H(x)}. \]
 
 The \emph{random cluster model} relates the Ising model with a Bernoulli random
-graph model as follows: Consider a $t$ having Bernoulli distribution
+graph model as follows: Consider a $\t$ having Bernoulli distribution
 $\xi=\xi_p$, where the edge probabilities are
 \[ p_{ij} = 1 - e^{-\beta J_{ij}} \quad \text{for $ij\in E$}\] and a uniformly
 chosen spin configuration $x\in\SI^V$, i.e.\ where the spins $x_i$ are chosen
-from $\SI$ according to a fair coin. We say that $x\in \SI^V$ and $t\in\SB^E$
-are \emph{compatible} if no path in the graph $t$ connects a spin $x_i=+1$ with
-a spin $x_j=-1$, $i\not=j$. We write $\b(t,x)$ to indicate the event that $t$
-and $x$ are compatible. The joint distribution of $x$ and $t$ \emph{conditioned}
+from $\SI$ according to a fair coin. We say that $x\in \SI^V$ and $\t\in\SB^E$
+are \emph{compatible} if no path in the graph $\t$ connects a spin $x_i=+1$ with
+a spin $x_j=-1$, $i\not=j$. We write $\b(\t,x)$ to indicate the event that $\t$
+and $x$ are compatible. The joint distribution of $x$ and $\t$ \emph{conditioned}
 on the event that they are compatible is what is named the random cluster model
-$\rho(x,t)$. One readily verify that the marginal distribution of $x$ equals the
+$\rho(x,\t)$. One readily verify that the marginal distribution of $x$ equals the
 Ising model on $\SI^V$ with potential $H$ as above. The marginal distribution of
-$t$ is given by
+$\t$ is given by
 \[
-  \tl\xi(t) = \frac{2^{\omega(t)}\xi(t)}{\xi(2^{\omega(t)})}
+  \tl\xi(\t) = \frac{2^{\omega(\t)}\xi(\t)}{\xi(2^{\omega(\t)})}
 \]
-where $\omega(t)$ denotes the number of connected components in the graph $t$.
+where $\omega(\t)$ denotes the number of connected components in the graph $\t$.
 
 In fact, the probability of a spin configuration $x\in\X_V$ is
-proportional to the probability that a $t\sim\xi(p)$ satisfies $B(t,x)=1$, which
-is proportional to $e^{-H(x)}$. Moreover, the distribution of $t$ is given by
+proportional to the probability that a $\t\sim\xi(p)$ satisfies $B(\t,x)=1$, which
+is proportional to $e^{-H(x)}$. Moreover, the distribution of $\t$ is given by
 \[
-  \xi'( t ) = \xi(t) \frac{2^{\omega(t)}}{\xi(2^{\omega(t)})},
+  \xi'( \t ) = \xi(\t) \frac{2^{\omega(\t)}}{\xi(2^{\omega(\t)})},
 \]
-where $\omega(t)$ denotes the number of components (a.k.a.~``clusters'') in $t$.
+where $\omega(\t)$ denotes the number of components (a.k.a.~``clusters'') in $\t$.
 
 \def\cy#1{[x]_{#1}}
 
 For a subset $S\subset V$ of vertices, consider the spin cylinder $\cy S$.
-The conditional distribution of $\cy S$, given the graph $t$, is then clearly
-\[ \mu(x_S|t) = 2^{-\tl\omega_S(t)} \cdot b(t, \cy S)\] 
-where $\tl\omega_S(t)$ denote the number of clusters in $t$ that intersects $S$.
+The conditional distribution of $\cy S$, given the graph $\t$, is then clearly
+\[ \mu(x_S|\t) = 2^{-\tl\omega_S(\t)} \cdot b(\t, \cy S)\] 
+where $\tl\omega_S(\t)$ denote the number of clusters in $\t$ that intersects $S$.
 Thus
-\(\omega(t)=\ol\omega_S(t)+\tl\omega_S(t)\) where $\ol\omega_S(t)$ gives the
-number of clusters in $t$ that are disjoint with $S$. We obtain that the
+\(\omega(\t)=\ol\omega_S(\t)+\tl\omega_S(\t)\) where $\ol\omega_S(\t)$ gives the
+number of clusters in $\t$ that are disjoint with $S$. We obtain that the
 marginal distribution of the cylinder $\cy S$ is 
-\[\mu(\cy S) = \frac{\XI{ 2^{\ol\omega_S(t)} b(t,\cy S)}}{\XI{2^{\omega(t)}}}. \]
+\[\mu(\cy S) = \frac{\XI{ 2^{\ol\omega_S(\t)} b(\t,\cy S)}}{\XI{2^{\omega(\t)}}}. \]
 If $R\subset S$ then we have
 \[\mu(\cy S\mid \cy R) =
-  \frac{\XI{2^{\ol\omega_S(t)} \cdot b(t,\cy S)}}
-  {\XI{2^{\ol\omega_R(t)} \cdot b(t,\cy R)}}. \]
+  \frac{\XI{2^{\ol\omega_S(\t)} \cdot b(\t,\cy S)}}
+  {\XI{2^{\ol\omega_R(\t)} \cdot b(\t,\cy R)}}. \]
+
+\subsection{The one-dimensional Ising-Dyson model}
 
 In the one-dimensional Ising-Dyson model let $V=[-L,L]\subset \ZZ$ and
-\[ J_{ij} = \frac \beta{|i-j|^\alpha}.\]
-We can
-partition $V$ as $V_- \cup V_+$, where $V_+=[0,L]$. The random graph $t^+$ is the
-graph $t$ induced on $V_+$, i.e. $t_{ij}=1$ only if both ends, $i$ and $j$, are
-in the integer interval $V_+=[0,L]$.
-
-By the independence of the Bernoulli graph model $\xi(t)$,
-the graph $t'':= t\setminus t^+$ is independent of $t^+=t[S]$. 
-Hence, we may write the marginal for the \emph{one-sided Ising model} as
-\[
-  \nu(\cy S) = \frac{\XI{ 2^{\ol\omega_S(t^+) + f(t'')} \cdot b(t^+,\cy S)}}{\XI{2^{\omega(t^+)+f(t'')}}}.
-\]
-where $f(t'')$ denote any function of the graph $t''$. 
-
-\def\M{{M}}
-\def\N{{N}}
+\[ J_{ij} = \frac \beta{|i-j|^\alpha}.\] We can partition $V$ as $V_- \cup V_+$,
+where $V_+=[0,L]$ and $V_-=[-L,-1]$. The random graph $\t^\pm$ is the graph $\t$
+induced on $V_\pm$, i.e. $\t_{ij}=1$ only if both ends, $i$ and $j$, are in the
+integer interval $V_\pm$. Note that the graphs $\t^+$ and $\t^-$ are independent
+under $\xi$. In fact, under the Bernoulli graph model, the graph $\t^+$ is
+independent of the graph $\t'=\t\setminus\t^+$.
 
 For $N\ge 0$, let $N$ denote the integer interval $[0,N)$ so that $\cy M = \cy
 {[0,M)}$, and $\ol\omega_N = \ol\omega_{[0,N)}$, etc. We also use $\ol N$ to
 denote the interval $[N,\infty)$
+
+Let $\mscr L^\pm = \{ C^\pm_1,C^\pm_2, \dots \}$ denote the set of clusters of
+the graphs $\t^\pm$ induced on the positive (negative) axis, i.e. the components in the
+graphs $\t^\pm$ induced by $\t$ on $V_+$ and $V_-$, respectively. Let $\mscr
+R^\pm_N$ be those clusters in $\mscr L^\pm$, respectively, that do not send any
+edges to the interval $N=[0,N)$. Thus $\ol\omega_N(\t^\pm)=|\mscr R^\pm_N|$. Let
+also $\mscr R''_N$ be the clusters in the graph $\t'=\t\setminus \t^+$ that do
+not contain any vertex from $[0,N)$.
+
+
+\[\includegraphics[page=1,width=0.9\textwidth]{fig.pdf}\]
+
+The one-sided Ising model $\nu(x)$ is obtained from the random cluster model with respect
+to spins in $V_+$ and the Bernoulli graph model of $\t^+$. 
+We may write the marginal of the cylinder $\cy N$ for the \emph{one-sided Ising model} as
+\[
+  \nu(\cy N) =
+  \frac{\XI{ 2^{\ol\omega_S(\t^+)} \cdot b(\t^+,\cy N)}}{\XI{2^{\omega(\t^+)}}}
+  = \frac{\XI{ 2^{\ol\omega_S(\t^+) + f(\t')} \cdot b(\t^+,\cy N)}}{\XI{2^{\omega(\t^+)+f(\t')}}}.
+\]
+where $f(\t')$ denote any function of the graph $\t'$. 
+
+\def\M{{M}}
+\def\N{{N}}
+
 Our aim is to show that for all $x\in\SI^{[0,\infty)}$
 \[
   \lim_{M,L\to\infty} \frac{\mu(\cy \M \mid \cy \N)}{\nu(\cy\M \mid \cy\N)} = 1+\ordo N \quad\text{as $N\to\infty$.}
@@ -403,32 +421,33 @@ Our aim is to show that for all $x\in\SI^{[0,\infty)}$
 From the computations above we deduce that 
 \[
   \frac{\mu(\cy\N)}{\nu(\cy\N)} = \text{const.} \times
-  \frac{\XI{2^{\ol\omega_\N(t)} \cdot b(t,\cy\N)}}
-  {\XI{2^{\ol\omega_\N(t^+) + f(t'')} \cdot b(t^+,\cy\N)}}
+  \frac{\XI{2^{\ol\omega_\N(\t)} \cdot b(\t,\cy\N)}}
+  {\XI{2^{\ol\omega_\N(\t^+) + f(\t')} \cdot b(\t^+,\cy\N)}}
 \]
-where the constant is \({\XI{2^{\omega(t^+)}}}/{\XI{2^{\omega(t)}}}\).
+where the constant is \({\XI{2^{\omega(\t^+)}}}/{\XI{2^{\omega(\t)}}}\).
 
-Let $\mscr L_\pm = \{C^\pm_1,C^\pm_2,\dots \}$ denote the set of clusters of the
-graph induced on the positive (negative) axis, i.e. the components in the graphs
-$t^\pm$ induced by $t$ on $[0,\infty)$ and $(-\infty,0)$, respectively. Let
-$\mscr R_\pm$ be those that do not send any edges to $[0,N)$. Thus
-$\ol\omega(t^\pm)=|\mscr R_\pm|$. Let also $\mscr R''_N$ be the clusters in the
-graph $t''=t\setminus t^+$ that do not contain any vertex from $[0,N)$.
-
-\[\includegraphics[page=1,width=0.9\textwidth]{fig.pdf}\]
 
 Then
 \begin{equation}
-  \ol\omega_N(t) = \ol\omega_N(t^+) + \ol\omega_N(t'') - X_N(t'') + Z_N(t)
+  \ol\omega_N(\t) = \ol\omega_N(\t^+) + \ol\omega_N(\t^-) - X_N(\t') + Z_N(\t)
 \end{equation}
-where $X_N(t'')$ are the number of edges between clusters in $\mscr R''_N$ and
-$\ol N$ and $Z_N(t)$ is a correction term which is not independent of $t^+$.
-However, we claim that 
-\[ Z_N(t) \le Y_N(t'')\]
-where $Y_N(t)$ is the number
+where $X_N(\t')$ are the number of edges between clusters in $\mscr R^-_N$ and
+$\ol N$. The term $Z_N(\t)$ is a correction term which is not independent of $\t^+$.
+However, we have
+\[ Z_N(\t) \le Y_N(\t')\]
+where $Y_N(\t)$ is the number
 \[
-  Y_N(t) = \sum_{C\in\mscr R''_N} \max\{|E(C,\ol N)|-1,0\} 
+  Y_N(\t') = \sum_{C\in\mscr R^-_N} \max\{|E(C,\ol N)|-1,0\}
 \]
+We claim that $Y_N(\t')$ has distribution bounded by a Poisson variable
+$\opn{Po}(\lambda_N)$ where $\lambda_N\to 0$ as $N\to\infty$. 
+
+Similarly, we have for $0<N<M<L$ that
+\[ b(\t,\cy M) = b(\t',\cy M) b(\t^+,\cy M)\cdot J(\t) \]
+where $J(\t,\cy M)=0$ only if there is a component $C\in\mscr L^-$ such that
+\[ |\t'(C,\ol N)| \ge 1 \quad\text{and}\quad |\t'(C,V_+)| \ge 2\]
+
+
 
 
 \end{document}
