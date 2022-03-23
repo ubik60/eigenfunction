@@ -1,11 +1,6 @@
-\documentclass[11pt, a4paper, oneside]{article} 
-% use "amsart" instead of "article" for AMSLaTeX format
-%\usepackage{mydefs,mythm}
+\documentclass[11pt, a4paper, oneside]{scrartcl}
 \usepackage[textsize=footnotesize,textwidth=3cm]{todonotes}
-% \geometry{landscape} % Activate for rotated page geometry
-% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
-\setlength{\parindent}{0pt}
-\addtolength{\parskip}{7pt}
+\usepackage[parfill]{parskip} % Begin paragraphs with an empty line rather than an indent
 
 \newcommand{\Lam}{\Lambda}
 \newcommand{\Lamc}{{\bar{\Lambda}}}
@@ -129,32 +124,33 @@
 \def\T{\opn{\msf{T}}}
 
 
-\def\ilim{\varinjlim}
-\def\plim{\varprojlim}
-\def\lover#1{\overset{#1}{\longleftarrow}}
-\def\rover#1{\overset{#1}{\longrightarrow}} 
-\def\npair#1#2{\left\langle\, #1\mid #2\,\right\rangle}
 \def\F{\mscr F}
 
 \def\scp#1#2{\left\langle #1 , #2 \right\rangle}
 
+\usepackage{biblatex}
+\addbibresource{main.bib}
+
 \title{Existence for an eigenfunction for the critical phase of the Dyson model}
 
+\author{Anders Johansson, Anders \"Oberg, Mark Pollicott, \\ and Evgeny Verbitskiy}
 \date{}
 \begin{document}
+
 \maketitle
+
+\def\h{h}
 
 
 \section{Introduction}\noindent
 
 It is well-known that there exists a continuous and strictly positive
 eigenfunction $h$ for any transfer operator defined on a symbolic shift space
-with finitely many symbols such that the potential has summable variations. Here
-we prove the existence of an eigenfunction for the important special class of
-Dyson potentials close to the critical phase, when the potential does not
+with a finite number of symbols such that the potential has summable variations.
+Here we prove the existence of an eigenfunction for the important special class
+of Dyson potentials close to the critical phase, when the potential does not
 satisfy the condition of summable variations.
 
-\def\h{h}
 More precisely, let $T$ be the left shift on the space $X_+=S^{{\mathbb Z}_+}$,
 where $S$ is a finite set. Define a transfer operator ${\mathcal L}$ on
 continuous functions $f$ by
@@ -174,8 +170,8 @@ summable variations of $\phi$,
 where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that
 $x$ and $y$ coincide in the first $n$ entries), then existence of a continuous
 eigenfunction follows from the typical ``cone-argument'' used in {\em e.g.},
-Walters \cite{walters1}, which to date is the only known method for providing the
-existence of an eigenfunction.
+Walters \cite{waltersConvergenceRuelleOperator2001}, which to date is the only
+known method for providing the existence of an eigenfunction.
 
 If $\mu$ is the equilibrium measure (translation invariant Gibbs measure) for
 the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then (with
@@ -203,20 +199,22 @@ equilibrium measure) and where ${\mathcal L}^*\nu=\lambda \nu$, and $h>0$ is a
 H\"older continuous eigenfunction. We are interested in the boundary case
 $\alpha=2$, when there exists a unique equilibrium measure for $\psi$ for
 $\beta<\beta_c$. In this case the summable variations condition is not satisfied
-for neither $\psi$ nor $\phi$; we may have multiple eigenmeasures for ${\mathcal
-  L}^*$. In this context we have $\var_n(\phi)=O(\frac{1}{n})$ and it is not
-clear if there exists an eigenfunction even in the cases we have a unique
-equilibrium measure, such as in the case of the Berbee condition \cite{berbee2}.
-Berbee proved that there exists a unique equlibrium measure whenever
+for neither $\psi$ nor $\phi$; we may have multiple eigenmeasures for
+${\mathcal L}^*$. In this context we have $\var_n(\phi)=O(\frac{1}{n})$ and it
+is not clear if there exists an eigenfunction even in the cases we have a unique
+equilibrium measure, such as in the case of the Berbee condition
+(\cite{berbeeUniquenessGibbsMeasures1989}) Berbee proved that there exists a
+unique equlibrium measure whenever
 \begin{equation}\label{berbee}
   \sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,    
 \end{equation}
-where $r_n=\var_n \log \psi$, or if $r_n=\var_n \log \phi$. Berbee's condition is
-very robust in the sense that it gives uniqueness for both the two-sided and
-one-sided potentials, whereas square summable variations (see \cite{johob}) only
-gives a unique $g$-measure, ${\mathcal L}_g^* \mu=\mu$. Since we have proved in
-\cite{jop3} that for all $\epsilon>0$ we can find a one-sided potential $\phi$
-with
+where $r_n=\var_n \log \psi$, or if $r_n=\var_n \log \phi$. Berbee's condition
+is very robust in the sense that it gives uniqueness for both the two-sided and
+one-sided potentials, whereas square summable variations (see
+\cite{johanssonSquareSummabilityVariations2003}) only gives a unique
+$g$-measure, ${\mathcal L}_g^* \mu=\mu$. Since we have proved in
+\cite{johanssonPhaseTransitionsLongrange2017}
+that for all $\epsilon>0$ we can find a one-sided potential $\phi$ with
 $$\sum_{n=1}^\infty (\var_n \phi)^{1+\epsilon}<\infty$$
 such that ${\mathcal L}^* \nu=\lambda \nu$ has multiple solutions $\nu$, it
 seems that the existence of a at least a very regular eigenfunction of
@@ -226,10 +224,9 @@ corresponding to multiple one-sided Gibbs measures.
 Here we prove that if the inverse critical temperature is small enough, close to
 the critical phase, then we still have an eigenfunction of ${\mathcal L}$.
 
-\begin{thm}\label{main}
-  Let $\mu$ be the Gibbs equilibrium measure with respect to the Dyson potential
-  $\phi$ and let $\nu$ be the one-sided Gibbs measure, i.e., ${\mathcal
-    L}^*\mu=\lambda \mu$. Define
+\begin{thm}\label{main} Let $\mu$ be the Gibbs equilibrium measure with respect
+to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure,
+i.e., ${\mathcal L}^*\mu=\lambda \mu$. Define
 $$h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n},$$
 and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$. If
 $\beta<\beta_c$, then $h$ is a continuous function on $X_+$, and which is also
@@ -239,77 +236,7 @@ an eigenfunction of ${\mathcal L}$.
 We conjecture that there exists a continuous eigenfunction for a potential
 $\phi$ that satisfies Berbee's condition \eqref{berbee}.
 
-\section{Proof of the main results}\noindent
-\begin{lem}
-  There exists a continuous eigenfunction $h$ of ${\mathcal L}$, if
-$$\frac{\mu[x_0,\ldots x_N, \ldots, x_n]}{\nu[x_0,\ldots, x_N, \ldots, x_n]}=(1+o(1)) \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]},$$
-as $N\to \infty$.
-\end{lem}
-\begin{proof}
-  Let $\lambda=1$. By the assumption, the measure $\mu= \h \nu$ is translation
-  invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have $(h\nu)\circ
-  T^{-1}=h\nu$ and it suffices to show that $(h\nu)\circ T^{-1}=({\mathcal
-    L}h)\nu$. Let $A$ be any Borel subset of $X_+$. Then
-$$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
-\end{proof}
-
-\begin{lem}
-  If $$\frac{\mu[x_0,\ldots x_N, \ldots, x_n]}{\nu[x_0,\ldots, x_N, \ldots,
-    x_n]}=e^{\xi}\; \; \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]},$$
-then $|\xi|=O(P(A_N))$, where $A_N$ is the event that there exists a cluster
-$C\subset [(-\infty, 0]$ with two edges that goes from $C$ into $[N,\infty)$.
-\end{lem}
-\begin{proof}
-For the random cluster model, we have that
-$$\mu[x_0,\ldots, x_N]\propto P((t_{ij} \sim [x_0, \ldots, x_N]),$$
-where $\sim$ means that the graph $t_{ij}$ is compatible with the cylinder
-$[x_0,\ldots, x_N]$.
-
-We will study conditional probabilities $P(B_M|B_N)$, where $B_M$ means
-$t_{ij}\sim [x_0,\ldots, x_M]$.
-
-We have
-$$e^{\xi}=\frac{K(x_0,\ldots, x_N)P(B_M|B_N)}{\tl K(x_0,\ldots, x_N)P(\tilde B_M|\tilde B_N)}.$$
-
-We make a coupling with the one-sided system $\tilde t=t[0,\infty)$ and use the
-corresponding events $\tilde B_M: \tilde t \sim [x_0,\ldots, x_M]$. Notice that
-$B_M\subset \tilde B_M$.
-
-We have
-$$ 
-\frac{P(B_M|B_N)}{P(\tilde B_M| \tilde B_N)}= \frac{P(B_M|\tilde B_M, B_N)
-  \P(\tilde B_M|B_N)} {P(\tilde B_M|\tilde B_N)}=P(B_M|\tilde B_M,
-B_N)=e^{o(1)},
-$$
-as $N\to \infty$, independently of $M$.
-\end{proof}
-
-\begin{lem}
-$$\lim_{N\to \infty} P(A_N)=0.$$
-\end{lem}
-
-\begin{proof}
-  Let $M(C)=\inf \{i\in C \}$ and let $S=P(A_N |t[(-\infty, 0]])$.
-
-  We have
-$$P(A_N|t[(-\infty, 0]])\leq K \sum_{k=1}^\infty \frac{C_k}{N+M(C_k)}.$$
-The conclusion follows from $E(S)<\infty$.
-
-Let $X(C)$ be the number of clusters $C$ that have edges between $C$ and
-$[N,\infty)$. By assuming that $X(C)\sim P_0(\lambda)$, we can make the estimate
-$$P(X(C)\geq 2)\leq c\cdot \lambda^2 \leq c\cdot \frac{|C|^2}{(N+M)^2}\cdot \beta^2,$$
-where $c=\sum_{k=2}^\infty e^{-\lambda} \frac{\lambda^k}{k!}$.
-
-We have
-$$E(S) \leq K \sum_{k=1}^\infty \frac{E(C_k^2)}{(N+k E(C_k))^2},$$
-where $C_k$ are clusters in $t[(-\infty, 0])$ ordered after $M(C_k)$,
-$M(C_k)\geq k$. We can make an estimate
-$$E(S)\leq E(C_k^2)\sum _{k=1}^\infty \frac{1}{(N+k)^2},$$
-which proves the lemma, since $E(C_k^2)<\infty$ by \cite{kesten}.
-
-\end{proof}
-
-\section{The random cluster model for ferromagnetic Ising spin models}
+\subsection{The random cluster model for ferromagnetic Ising spin models}
 
 \def\SI{\{\pm1\}}
 \def\SB{\{0,1\}}
@@ -365,12 +292,12 @@ where $\omega(\t)$ denotes the number of components (a.k.a.~``clusters'') in $\t
 
 For a subset $S\subset V$ of vertices, consider the spin cylinder $\cy S$.
 The conditional distribution of $\cy S$, given the graph $\t$, is then clearly
-\[ \mu(x_S|\t) = 2^{-\tl\omega_S(\t)} \cdot b(\t, \cy S)\] 
+\[ \mu(x_S|\t) = 2^{-\tl\omega_S(\t)} \cdot b(\t, \cy S)\]
 where $\tl\omega_S(\t)$ denote the number of clusters in $\t$ that intersects $S$.
 Thus
 \(\omega(\t)=\ol\omega_S(\t)+\tl\omega_S(\t)\) where $\ol\omega_S(\t)$ gives the
 number of clusters in $\t$ that are disjoint with $S$. We obtain that the
-marginal distribution of the cylinder $\cy S$ is 
+marginal distribution of the cylinder $\cy S$ is
 \[\mu(\cy S) = \frac{\XI{ 2^{\ol\omega_S(\t)} b(\t,\cy S)}}{\XI{2^{\omega(\t)}}}. \]
 If $R\subset S$ then we have
 \[\mu(\cy S\mid \cy R) =
@@ -403,14 +330,14 @@ not contain any vertex from $[0,N)$.
 \[\includegraphics[page=1,width=0.9\textwidth]{fig.pdf}\]
 
 The one-sided Ising model $\nu(x)$ is obtained from the random cluster model with respect
-to spins in $V_+$ and the Bernoulli graph model of $\t^+$. 
+to spins in $V_+$ and the Bernoulli graph model of $\t^+$.
 We may write the marginal of the cylinder $\cy N$ for the \emph{one-sided Ising model} as
 \[
   \nu(\cy N) =
   \frac{\XI{ 2^{\ol\omega_S(\t^+)} \cdot b(\t^+,\cy N)}}{\XI{2^{\omega(\t^+)}}}
   = \frac{\XI{ 2^{\ol\omega_S(\t^+) + f(\t')} \cdot b(\t^+,\cy N)}}{\XI{2^{\omega(\t^+)+f(\t')}}}.
 \]
-where $f(\t')$ denotes an arbitrary function of the graph $\t'$. 
+where $f(\t')$ denotes an arbitrary function of the graph $\t'$.
 
 \def\M{{M}}
 \def\N{{N}}
@@ -426,21 +353,21 @@ We have
 \[
 \mu([x]_M|[x]_N)\propto \frac{\XI{ 2^{\ol\omega_M(\t)} \cdot b(\cy M,\t)}}{\XI{ 2^{\ol\omega_N(\t)} \cdot b(\cy N,\t)}},
 \]
-where we have $\ol\omega_M(\t)=\ol\omega_N(\t)-K_{M,N}(\t)$ and 
+where we have $\ol\omega_M(\t)=\ol\omega_N(\t)-K_{M,N}(\t)$ and
 $b(\cy M),\t)=b(\cy N,\t)\cdot \tilde b_{M,N}(\t)$. Similarly, we have
 \[
 \nu([x]_M|[x]_N)\propto \frac{\XI{ 2^{\ol\omega_M(\t^+)} \cdot b(\cy M,\t^+)}}{\XI{ 2^{\ol\omega_N(\t^+)} \cdot b(\cy N,\t^+)}},
 \]
-where $\ol\omega_M(\t^+)=\ol\omega_N(\t^+)-K_{M,N}(\t^+)$ and 
-$b(\cy M,\t^+)=b(\cy N,\t^+)\cdot \tilde b_{M,N}(x,\t^+)=\tilde b_{M,N}(x,\t)$. 
+where $\ol\omega_M(\t^+)=\ol\omega_N(\t^+)-K_{M,N}(\t^+)$ and
+$b(\cy M,\t^+)=b(\cy N,\t^+)\cdot \tilde b_{M,N}(x,\t^+)=\tilde b_{M,N}(x,\t)$.
 
 We now prove that $\XI{T<N}=1-o(1)$, as $N\to \infty$.
 
-We define a correction term $C_N(\t',\t^+)$ by the identity $$\ol\omega_N(\t)-\ol\omega_N(\t^+)=f(\t')+C_N(\t',\t^+).$$ 
+We define a correction term $C_N(\t',\t^+)$ by the identity $$\ol\omega_N(\t)-\ol\omega_N(\t^+)=f(\t')+C_N(\t',\t^+).$$
 
-We can prove that this correction term is bounded, which follows from the inequality 
+We can prove that this correction term is bounded, which follows from the inequality
 $$
-C_N(\t',\t^+)\leq 
+C_N(\t',\t^+)\leq
 E(C_k^2) \cdot \sum _{k=1}^\infty \frac{1}{(N+k)k}<\infty,
 $$
 where $C_k$ are clusters in $\t[(-\infty, 0])$ ordered after $M(C_k)$,
@@ -448,7 +375,7 @@ $M(C_k)\geq k$, and $M(C)=\min \{-i : i\in C \}$.
 
 Conditioned on the event $N>T$, we have that $K_{M,N}(\t^+)=K_{M,N}(\t)$ and that $\tilde b_{M,N}(\t^+)=\tilde b_{M,N}(\t)$.
 
-From the computations above we deduce that 
+From the computations above we deduce that
 \[
   \frac{\mu(\cy\N)}{\nu(\cy\N)} = \text{const.} \times
   \frac{\XI{2^{\ol\omega_\N(\t)} \cdot b(\t,\cy\N)}}
@@ -470,10 +397,10 @@ where $Y_N(\t)$ is the number
   Y_N(\t') = \sum_{C\in\mscr R^-_N} \max\{|E(C,\ol N)|-1,0\}
 \]
 We claim that $Y_N(\t')$ has distribution bounded by a Poisson variable
-$\opn{Po}(\lambda_N)$ where $\lambda_N\to 0$ as $N\to\infty$. 
+$\opn{Po}(\lambda_N)$ where $\lambda_N\to 0$ as $N\to\infty$.
 
 
-We let 
+We let
 $$A_N^{(m)}= \int 2^{\overline{\omega}([0,N), G^{(m)}}\cdot B([x]_N,G^{(m)}) \; d\xi (G),$$
 $$E=\{(i,j): i<0 \wedge j\geq 0\},$$
 $$G^{(m)}=G^+ \cup G^- \cup \{(i,j)\in E: |i|+|j|\leq m\},$$
@@ -483,42 +410,120 @@ We claim that there exist uniform constants $c_1$ and $c_2$ such that
 $$0<c_1\frac{A_N^{(m)}}{A_N^{(0)}}<c_2<\infty,$$
 where we study $A_N^{(m)}$ such that we have in the extremes
 $$A_N^{(0)}=\nu([x]_N)$$
-and 
+and
 $$A_N^{(\infty)}=K\cdot \mu([x]_N).$$
 
-We have 
+We have
 $$X^{(m)}=K\cdot \int 2^{\overline{\omega}_n(G^{(m)})-r^{(m)}(G)}\cdot B([x]_m, G^{(m)})\; d\xi(G),$$
 so that
 $$X^{(0)}=\nu([x]_n)$$
 and
-$$\lim_{m \to \infty} X^{(m)}=C\cdot \mu([x]_n).$$ 
+$$\lim_{m \to \infty} X^{(m)}=C\cdot \mu([x]_n).$$
 We have furthermore
 $$X^{(0)}\geq X^{(1)}\geq \ldots,$$
 but we need to prove that the monotone sequence is bounded away from zero.
 
 We have
 $$\nu([x]_n)=\frac{ \int 2^{\omega_n(G^+)}\cdot 2^{-\omega_n(G^+)}\cdot B([x]_n, G^+)\; d\xi(G)}{\int 2^{\omega_n(G)} \; d\xi(G)  },$$
-where $G^+=G^{(0)}$, and 
+where $G^+=G^{(0)}$, and
 $$\mu([x]_n)=\frac{ \int 2^{\omega_n(G)}\cdot 2^{-\omega_n(G^)}\cdot B([x]_n, G)\; d\xi(G)}{\int 2^{\omega_n(G)} \; d\xi(G)  }.$$
 
 
 
-Let 
+Let
 $$K_m=\min \{|i|: i\in C_m\},$$
 where $C_m$ is the $m$th cluster. Note that $K_m\geq m$.
 
 We will prove that if $A_n$ is the event that we send one edge from the negative to the positive side (beyond 0), as well as one edge from the negative side beyond $n$, then $P(A_n)\to 0$.
 
 The probability of an edge from cluster $C_i$ (e.g.\ on the negative side) to cluster $C_j$ (e.g.\ on the positive side) is
-$$1-e^{-\sum_{C_i} \frac{\beta}{|i-j|^{\alpha}}}.$$ 
+$$1-e^{-\sum_{C_i} \frac{\beta}{|i-j|^{\alpha}}}.$$
 
 We have
 $$\sum_{-k\in C}\frac{\beta}{n+k}\leq |C|\cdot \frac{1}{K_C}\cdot \beta.$$
-Hence the probability of valence $\geq 2$ is 
+Hence the probability of valence $\geq 2$ is
 $$\leq  |C|^2\cdot \frac{1}{K_C^2}\cdot \beta^2.$$
 Since then
 $$\sum \frac{C_m^2}{K_m^2}<\infty,$$
-we have by the Borel--Cantelli lemma only finitely many clusters with valence $\geq 2$.
+we have by the Borel--Cantelli lemma only finitely many clusters with valence
+$\geq 2$.
+
+
+\section{Proof of the main results}\noindent
+
+\begin{lem}
+  There exists a continuous eigenfunction $h$ of ${\mathcal L}$, if
+$$\frac{\mu[x_0,\ldots x_N, \ldots, x_n]}{\nu[x_0,\ldots, x_N, \ldots, x_n]}=(1+o(1)) \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]},$$
+as $N\to \infty$.
+\end{lem}
+\begin{proof}
+  Let $\lambda=1$. By the assumption, the measure $\mu= \h \nu$ is translation
+  invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have $(h\nu)\circ
+  T^{-1}=h\nu$ and it suffices to show that $(h\nu)\circ T^{-1}=({\mathcal
+    L}h)\nu$.
+
+  Let $A$ be any Borel subset of $X_+$. Then
+  $$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
+\end{proof}
+
+\begin{lem}
+  If $$\frac{\mu[x_0,\ldots x_N, \ldots, x_n]}{\nu[x_0,\ldots, x_N, \ldots, x_n]}=e^{\xi}\; \; \frac{\mu[x_0,\ldots, x_N]}{\nu[x_0, \ldots, x_N]},$$
+  then $|\xi|=O(P(A_N))$, where $A_N$ is the event that there exists a cluster
+  $C\subset [(-\infty, 0]$ with two edges that goes from $C$ into $[N,\infty)$.
+\end{lem}
+\begin{proof}
+  For the random cluster model, we have that
+  \[
+    \mu[x_0,\ldots, x_N]\propto P((t_{ij} \sim [x_0, \ldots, x_N]),
+  \]
+  where $\sim$ means that the graph $t_{ij}$ is compatible with the cylinder
+  $[x_0,\ldots, x_N]$.
+
+  We will study conditional probabilities $P(B_M|B_N)$, where $B_M$ means
+  $t_{ij}\sim [x_0,\ldots, x_M]$.
+
+  We have
+  \[
+    e^{\xi}=
+    \frac{K(x_0,\ldots, x_N)P(B_M|B_N)}{\tl K(x_0,\ldots, x_N)P(\tilde B_M|\tilde B_N)}.
+  \]
+
+  We make a coupling with the one-sided system $\tilde t=t[0,\infty)$ and use
+  the corresponding events $\tilde B_M: \tilde t \sim [x_0,\ldots, x_M]$. Notice
+  that $B_M\subset \tilde B_M$.
+
+  We have
+  \[
+    \frac{P(B_M|B_N)}{P(\tilde B_M| \tilde B_N)} = \frac{P(B_M|\tilde B_M, B_N) \P(\tilde B_M|B_N)} {P(\tilde B_M|\tilde B_N)} = \P(B_M|\tilde B_M, B_N)=e^{o(1)},
+  \]
+  as $N\to \infty$, independently of $M$.
+\end{proof}
+
+\begin{lem}
+$$\lim_{N\to \infty} P(A_N)=0.$$
+\end{lem}
+
+\begin{proof}
+  Let $M(C)=\inf \{i\in C \}$ and let $S=P(A_N |t[(-\infty, 0]])$.
+
+  We have
+$$P(A_N|t[(-\infty, 0]])\leq K \sum_{k=1}^\infty \frac{C_k}{N+M(C_k)}.$$
+The conclusion follows from $E(S)<\infty$.
+
+Let $X(C)$ be the number of clusters $C$ that have edges between $C$ and
+$[N,\infty)$. By assuming that $X(C)\sim P_0(\lambda)$, we can make the estimate
+$$P(X(C)\geq 2)\leq c\cdot \lambda^2 \leq c\cdot \frac{|C|^2}{(N+M)^2}\cdot \beta^2,$$
+where $c=\sum_{k=2}^\infty e^{-\lambda} \frac{\lambda^k}{k!}$.
+
+We have
+$$E(S) \leq K \sum_{k=1}^\infty \frac{E(C_k^2)}{(N+k E(C_k))^2},$$
+where $C_k$ are clusters in $t[(-\infty, 0])$ ordered after $M(C_k)$,
+$M(C_k)\geq k$. We can make an estimate
+$$E(S)\leq E(C_k^2)\sum _{k=1}^\infty \frac{1}{(N+k)^2},$$
+which proves the lemma, since $E(C_k^2)<\infty$ by
+\cite{aizenmanUniquenessInfiniteCluster1987}.
+
+\end{proof}
 
 
 
@@ -531,7 +536,7 @@ Let $G=(G^+, G^- , E)$, $\gamma=(G^+,G^-)$.
 
 We have
 $$d\tl\nu(G)=2^{\omega(G^+)+\omega(G^-)-|E|-\rho_{|E|}}\; d\xi(G),$$
-where $\xi$ is the Bernoulli measure, and $E$ is the set of edges from the minus side to the plus side. The term $\rho_{|E|}$ normalises, i.e.\ 
+where $\xi$ is the Bernoulli measure, and $E$ is the set of edges from the minus side to the plus side. The term $\rho_{|E|}$ normalises, i.e.\
 \[
 \rho_{|E|} = 
 \log \int 2^{\omega(G^+)+\omega(G^-)-|E|}\; d\xi(G).
@@ -598,12 +603,10 @@ let the measure $\nu(\cdot;[x]_n)$ be defined by
 \d\nu(\gamma; [x]_n) =
 B(\gamma,[x]_n) 2^{\ol\w_n(\gamma)} \d\eta(\gamma).
 \]
-That is, $\nu(\gamma; [x]_n)$ is $\nu(\gamma)$ conditioned on $\gamma$ 
-and $[x]_n$ being compatible. 
-Note that $\nu\ii n \prec \nu\ii {n-1}$ in the stochastic dominance order since 
-$B(\gamma; [x]_n)$ is a decreasing event. 
-Thus $\tau\ii {n+1} (k) \le \tau\ii n (k) \le \tau(n)$. 
-We have
+That is, $\nu(\gamma; [x]_n)$ is $\nu(\gamma)$ conditioned on $\gamma$ and
+$[x]_n$ being compatible. Note that $\nu\ii n \prec \nu\ii {n-1}$ in the
+stochastic dominance order since $B(\gamma; [x]_n)$ is a decreasing event. Thus
+$\tau\ii {n+1} (k) \le \tau\ii n (k) \le \tau(n)$. We have
 \[
 \nu([x]_n) = \int \d\nu\ii n(\gamma)
 \]
@@ -616,7 +619,7 @@ We consider
 \log {\int \int b_n(\gamma,E)\, 2^{q(\gamma,E)} \, 2^{|E|}\, \d\eta(E)\, d\nu\ii n (\gamma; [x]_n)} \\
 -  \log {\int \int 2^{|E|} \d\eta(E)\, d\nu\ii n(\gamma; [x]_n) } + \text{constant}
 \end{gather*}
-We aim to show that this is bounded, i.e.\ that for all $n$ 
+We aim to show that, for all $n$,
 \begin{equation}
   |\log \frac{d\mu([x]_n)}{d\nu([x]_n)}| \le K 
 \end{equation}
@@ -636,28 +639,127 @@ we have
 $$f_n=\frac{\int h_n(\gamma)2^{\omega_n^+}\cdot B^+\; d\nu}{\int 2^{\omega_n^+} B^+\; d\nu},$$
 and we can obtain an upper bound of $f_n$ by bounding $g(\gamma)$.
 
-\subsection{Continuity}
+\section{New october 2021}
+
+
+Let
+$$
+\tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon).
+$$
+Note that both $\eta(\cdot)$ and $\tilde\eta (\cdot)$ are Bernoulli measures.
+Let also
+$$
+d\tilde \nu_n(\gamma) =
+\frac{d\nu(\gamma_-)\otimes \tilde \eta(\epsilon)\otimes \nu(\gamma_+)}{\nu(B([x]_n,\gamma_+))}
+$$
+
+Let $R_n$ be the number of correcting edges, i.e.,
+$$
+R_n=\# \{ij\in \epsilon: \omega (G_{< ij}+ij)=\omega (G_{ij}\},\quad j>n.
+$$
+Let $B_n(\g)=C([x]_n,\gamma)$ be the indicator of the event that cylinder $[x]_n$ is compatible with graph $\g=(\g_-,\e,\g_+)$.
+Let also $B'_n(\g) = B_n(\g) + (1-B_n(\g_+))$ indicate compatibility of $[x]_n$ with $\g$ or not compatible with $\g_+$.
+We then have
+\[
+  h_n(x) = \frac{\mu [x]_n}{\nu [x]_n}=\int B_n(\g) \cdot 2^{R_n(\g)} \cdot 2^{-r_n}\; d\tilde \nu_n (\gamma)
+\]
+
+Note that
+$$ R_n(\g) \le Q_n(\g_-,\e) $$
+where $Q_n$ denotes the number of edges in $\e$ that connects a vertex $j\ge n$ to a
+cluster in $\g_-$ with at least one more edge from the cluster to $[0,n-1]$. That is,
+$$  Q_n=\# \{ij \in \epsilon \mid  \exists k\, \exists l\, kl\in\e,  i \sim_{\gamma-} k, k>i, j > n\}.$$
+Notice that $Q_n$ only depends on $(\gamma_-,\epsilon)$.
+
+For $0\leq m\leq n$, let
+$$B_n(x,\gamma)=B([x]_m,\gamma)\frac{B([x]_n,\gamma)}{B([x]_m, \gamma)},$$
+and define
+$$D_{[m,n]}(x,\gamma)=\frac{B([x]_n,\gamma)}{B([x]_m, \gamma)}.$$ We have
+$$1\geq D_{[m,n]}(x,\gamma)\geq 1_{\{Q_m>0\}}=D'_m(x,\gamma).$$
+We now have
+$$ \int B_m D'_m \; d\tilde \nu \leq f_n(x)\leq \int B_m \cdot 1 \cdot 2^{Q_n} \; d\tilde \nu \leq (1+\ordo{1})\int B_m \; d\tilde \nu .$$
+We also have
+$$B_m\geq \tilde B_m \cdot D'_m,$$
+where $\tilde B_m$ is 1 minus the indicator for the event that
+Notice that $\tilde B_m$ is independent of $\gamma_+$.
+
+We will now show the continuity of the eigenfunction by proving that
+$$f_n(x)=(1+\ordo{1})f_m(x),$$
+as $m,n \to \infty$.
+
+We have
+$$f_n=\int B_n \cdot 2^{R_n} \; d\tilde \nu_m=(1+\ordo{1})\int B_m \cdot 2^{Q_m} \; d\tilde \nu_m.$$
+We can write
+$$f_n=\int \hat B_m \cdot X_{m,n} \cdot 2^{Z_{m,n}}\cdot 2^{R_m}\; d\tilde \nu_n=(1+\ordo{1})\int B_m \cdot 2^{R_m}\; d\tilde \nu_m=f_m(1+\ordo{1}).$$
+We get
+$$\int \hat B_m \cdot X_{m,n} \cdot 2^{Z_{m,n}} \; d\tilde \nu_n \leq f_n\leq \int \hat B_m \cdot 2^{Q_m} \; d\tilde \nu_n,$$
+and hence
+$$\int B_m \; d\tilde \mu_m \leq f_n \leq \int  B_m \cdot 2^{Q_m} \; d\tilde \mu_m,$$
+and where both the leftmost and rightmost expressions are $(1+\ordo{1})f_m$, as $m\to \infty$.
+
+The conclusion that $$f_n(x)=(1+\ordo{1})f_m(x),$$
+as $m,n \to \infty$, follows from the observations that ($0\leq R_m \leq Q_m$)
+$$1-D'_m\leq X\leq 1$$
+and
+$$\int B_m \cdot 2^{R_m} \; d\tilde \nu_m =(1+\ordo{1})\int \hat B_m \; d\tilde \nu_m,$$
+hence
+$$\int B_m \cdot 2^{R_m} \; d\tilde \nu_m =(1+\ordo{1})\int \hat B_m \cdot 2^{Q_m} \; d\tilde \nu_m.$$
+
+
+
+\section{Continuity}
 
 \begin{center}
 \begin{tabular}{rp{0.8\textwidth}}
-  $B_n(\g)$ & The indicator of the event $[x]_n$ compatible with $\g$.
-  \\
-  $B'_n(\g)$ & The indicator of the event $[x]_n$ compatible with $\g$ or not compatible with $\g_+$.
-  \\
-  $\hat B_n(\g)$ & The indicator of the event that there is no two edges from some cluster in $\g_-$ to an $i,j\in[0,n)$ where $x_i x_j = -1$.
-  \\
-  $R_n$ & Correction term so that
-          $$
-          d\mu(\g|[B_n)
-          = 2^{R_n(\g)} \ltimes d\nu(\g_-) \otimes  d\tilde\eta(\e) \otimes d\nu(\g_+)
-          $$
-  \\
-  $Q_n$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $(n,\infty)$ such that there is at least
-          one more edge in $\e$ from the same cluster to $[0,\infty)$
+  $d\tilde\eta(\eta)$ & The bernouilli measure $2^{-|\e|}\ltimes d\eta(\e)$ \\
+  $B_n$  & The indicator of the event $[x]_n$ compatible with $\g$. \\
+  $B_n^+$  & The indicator of the event $[x]_n$ compatible with $\g_+$. \\
+  $B'_n(\g)$ & The indicator of the event $[x]_n$ is
+               compatible with $\g$ or not compatible with $\g_+$. \\
+  $\hat B_n(\g_-,\e)$ & The indicator of the event that there are
+                   no two edges from some cluster $C$ in $\g_-$
+                   to a pair $i,j\in[0,n)$ having opposite spins,
+                   i.e. such that $x_i x_j = -1$. \\
+  $\hat X_n(\g_-,\e)$ & The indicator of the event that $Q_n=0$. \\
+  $R_n(\g)$ & Correction term so that
+              $$ d\mu(\g|B^+_n) = B'_n \cdot 2^{R_n(\g)} \ltimes
+              d\nu(\g_-) \d\tilde\eta(\e) \d\nu(\g_+|B_n) $$ \\
+  $Q_n(\g_-,\e)$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $(n,\infty)$
+                   such that there is at least one more edge in $\e$ from the same cluster to $[0,\infty)$
 \end{tabular}
 \end{center}
 
-We use the following lemma.
+
+Our aim is to show that the limit $h(x)=\lim_{n\to\infty} h_n(x)$ is continuous where, form $m\ge1$
+\(h_m(x) = \dfrac{\mu([x]_m)}{\nu([x]_m)}\).
+Recall that
+\begin{equation}\label{eq:3}
+  h_m(x) =  \int B'_m 2^{R_m} \d \nu(\g_-)\d\tl\eta(\e) \d \nu(\g_+|B_m^+).
+\end{equation}
+For $n\le m$, we have
+$$ \hat B_n \hat X_n \le B'_m \le \hat B_n $$
+and, since $1\le 2^{R_m}\le 2^{Q_m}$, it follows that
+\begin{equation}
+  \label{eq:4}
+  \int \hat B_n \hat X_n \d \nu(\g_-) \d\tl\eta(\e)
+  \le h_m(x) \le \int \hat B_n 2^{Q_m} \d\nu(\g_-) \d\tl\eta(\e).
+\end{equation}
+We have used that $\hat B_n$, $\hat X_n$ and $Q_m$ are independent of $\g_+$ and that
+$$\int\d\nu(\g_+|B_m^+)=1. $$
+
+Since both $\hat B_n$ and $\hat X_n$ are decreasing in $(\g_-,\e)$ it follows
+from the FKG inequality that
+\begin{equation}
+  \label{eq:5}
+  I_n \cdot \int \hat X_n \d\nu(\g_-) \d\tl\eta(\e) \le h_m(x) \le I_n \cdot \int 2^{Q_m} \d\nu(\g_-) \d\tl\eta(\e).
+\end{equation}
+where
+\begin{equation}
+  \label{eq:6}
+  I_n = \int \hat B_n \d\nu(\g_-) \d\tl\eta(\e).
+\end{equation}
+
+We prove later the following lemma.
 \begin{lemma}\label{lem:qn}
   The integral
   \[
@@ -665,51 +767,18 @@ We use the following lemma.
   \]
   as $n\to\infty$.
 \end{lemma}
-
-
-
-Our aim is to show that
-\[
-  h_m(x) = \frac{\mu([x]_m)}{\nu([x]_m)}  = \frac{\mu([x]_n)}{\nu([x]_n)} \cdot (1+\ordo 1)
-\]
-for all $m\ge n$ as $n\to\infty$. In fact we aim to show that
-\[
-   h_m(x) = \frac{\mu([x]_m)}{\nu([x]_m)} = (1+\ordo1) \iint \hat B_n \d\nu(\g_-) \d\tl\eta(\e)
-\]
-as $n\to\infty$.
-
-According to earlier result we have that
-\begin{equation}\label{eq:hm}
-  h_m(x) = \frac{\mu([x]_m)}{\nu([x]_n)}
-  = \int B'_m(\g) 2^{R_m(\g)} \d\nu(\g_-) \d\tilde\eta(\e) \d\tilde\nu_m(\g_+)
-\end{equation}
-where $\d\tilde\nu_m(\g_+)$ is the distribution of $\g_+$ conditioned
-on the event $B_m(x,\g_+)=1$.
-
-Let $X_n(\g_-,\e)\in\{0,1\}$ indicate the event that $Q_n=0$.
-Then for $m\ge n$
+From \eqref{eq:5} and this lemma we deduce that
 \begin{equation}
-  \label{eq:Bnm}
-  B'_m \ge \hat B_m X_m \ge \hat B_n X_n,
+  \label{eq:2}
+  h_m(x) = (1+\ordo1) I_n = h_n(x) \cdot (1+\ordo1)
 \end{equation}
-since the event that $B'_m=0$ but $\hat B_m=1$ implies that $X_m=0$. By the same
-argument $\hat B_m \ge \hat B_n X_n$. Furthermore, since $Q_n$ is increasing in
-$n$ we have $X_nX_m = X_n$.
+if $m\ge n$ as $n\to\infty$. It follows that $\log h_n(x)$ is a Cauchy sequence
+and hence that the limit $h(x)$ is continuous.
 
-From \eqref{eq:Bnm} we deduce that
-\begin{equation}\label{eq:1}
-  h_m(x) \geq \int B'_m(\g) \d\nu(\g_-) \d\tilde\eta(\e) \d\tilde\nu_m(\g_+)
-  \geq \int \hat B_n \cdot X_n \d\nu(\g_-) \d\tilde\eta(\e) \d\tilde\nu_m(\g_+).
-\end{equation}
-The integrand in the right hand side is the product of two decreasing functions
-of $(\g_-,\e)$ and --- by positive association of
-$\d\nu(\g_-)\otimes \d\tilde\eta(\e)$ --- the right hand side is greater or equal to
-\begin{equation}\label{eq:1}
-  h_m(x) \geq \iint \int \hat B_m(\g) \d\nu(\g_-) \d\tilde\eta(\e)
-  \cdot (1+\ordo 1)
-\end{equation}
-since the integral of $X_n=2^{Q_n}\ett_{\{Q_n=0\}}$ is clearly $1+\ordo 1$ by
-Lemma~\ref{lem:qn}.
+
+\begin{proof}[Proof of Lemma~\ref{lem:qn}]
+
+\end{proof}
 
 
 \section{New April 21}
@@ -718,16 +787,18 @@ We think we also can have a finite
 $$\frac{d\mu(\gamma)}{d\nu(\gamma)}= 2^{r(\gamma)}-c$$
 where $r(\gamma)\leq \beta \sum \frac{\tau (n)}{n}$.
 
-Let $X$ be the number of components in $\gamma_{-}$, where $d(E,\gamma)\geq 2$. Then we have (something like)
+Let $X$ be the number of components in $\gamma_{-}$, where $d(E,\gamma)\geq 2$.
+Then we have (something like)
 $$E(X)\leq \beta^2 \sum_{k=1}^\infty\left(\sum_{j=k}^\infty \frac{\tau(j)}{j}\right)^2\cdot K.$$
 
-We define $\rho_j$ as the probability of having a path from 
-$-j$ to some vertex in $[0,\infty)$. The number of corrections we need to do gives a contribution 
+We define $\rho_j$ as the probability of having a path from $-j$ to some vertex
+in $[0,\infty)$. The number of corrections we need to do gives a contribution
 $$\frac{\beta}{(i+j)^2}\cdot \rho_j,$$
-where we have $\rho_j^{i}\leq \frac{\beta}{(i+j)^2} \cdot \rho_j$. We get a sum 
+where we have $\rho_j^{i}\leq \frac{\beta}{(i+j)^2} \cdot \rho_j$. We get a sum
 $$\sum_{i=1}^\infty \sum_{j=1}^\infty \frac{\beta \rho_j}{(i+j)^2}.$$ 
 
-Let $C(0)$ be the cluster that contains $0$. We have for a uniformly chosen cluster $C$ that $|C_+(0)|<|C|$.
+Let $C(0)$ be the cluster that contains $0$. We have for a uniformly chosen
+cluster $C$ that $|C_+(0)|<|C|$.
 
 We can now study
 $$\frac{dP(|C(0)|)}{dP(|C|)}$$
@@ -745,7 +816,8 @@ A crude estimate gives
  
  (We have stochastic dominance order as we move to the left, e.g.,  $Y_2 \prec Y_1$.
  
- We will from these considerations derive uniform convergence of $h_n$ to $h$, which then needs to be a continuous function (Cauchy's theorem):
+ We will from these considerations derive uniform convergence of $h_n$ to $h$,
+ which then needs to be a continuous function (Cauchy's theorem):
  $$ \|h_n(x)-h_m(x)\|_{\infty}\leq K\cdot \sum_{k=n}^\infty \frac{\rho_k}{k}.$$
  
  We consider $\omega(G)=\omega (\gamma)-|\epsilon|+ R(\gamma, \epsilon)$, where $G=\gamma \cup \epsilon$, and we have 
@@ -798,131 +870,9 @@ A crude estimate gives
 
 
  \end{proof}
- 
-\newline
-
-\noindent
-NEW Oct 2021
-\newline
-
-\noindent
-Let $R_n$ be the number of correcting edges, i.e., 
-$$R_n=\# \{ij\in \epsilon: \omega (G_{< ij}+ij)=\omega (G_{ij}\},$$
-$j>n$. Let $Q_n$ be all other edges,
-$$Q_n=\# \{ij\in \epsilon: \exists k,l\in \epsilon;  i\sim_{\gamma} k;  j>n; i,k\leq -1 \}.$$
-Notice that $Q_n$ only depends on $(\epsilon, \gamma_-)$.
-
-Let $B_n=B([x]_n,\gamma)$, $0\leq B_n\leq 1$. We have
-$$f_n=\frac{\mu [x]_n}{\nu [x]_n}=\int B_n\cdot 2^{R_n} \; d\tilde \nu (\gamma_-,\epsilon,\gamma_+)=2^{\ordo{1}}\int B_n \; d\tilde \nu(\gamma),$$
-where
-$$d\tilde \nu(\gamma_-,\epsilon, \gamma_+)=\frac{d\nu(\gamma_-)\otimes \tilde \eta(\epsilon)\otimes \nu(\gamma_+)}{\nu(B([x]_n,\gamma_+))},$$
-where
-$$\tilde \eta(\epsilon)=\eta (\epsilon)\cdot 2^{-|\epsilon|},$$
-and where both $\eta(\cdot)$ and $|\cdot |$ are Bernoulli measures.
-\newline
-
-\noindent
-Lemma
-\newline
-
-\noindent
-For $0\leq m\leq n$, let
-$$B_n(x,\gamma)=B([x]_m,\gamma)\frac{B([x]_n,\gamma)}{B([x]_m, \gamma)},$$
-and define 
-$$D_{[m,n]}(x,\gamma)=\frac{B([x]_n,\gamma)}{B([x]_m, \gamma)}.$$ We have
-$$1\geq D_{[m,n]}(x,\gamma)\geq 1_{\{Q_m>0\}}=D'_m(x,\gamma).$$
-We now have 
-$$ \int B_m D'_m \; d\tilde \nu \leq f_n(x)\leq \int B_m \cdot 1 \cdot 2^{Q_n} \; d\tilde \nu \leq (1+\ordo{1})\int B_m \; d\tilde \nu .$$
-We also have 
-$$B_m\geq \tilde B_m \cdot D'_m,$$
-where $\tilde B_m$ is 1 minus the indicator for the event that 
-Notice that $\tilde B_m$ is independent of $\gamma_+$.
-
-We will now show the continuity of the eigenfunction by proving that 
-$$f_n(x)=(1+\ordo{1})f_m(x),$$
-as $m,n \to \infty$.
-
-We have 
-$$f_n=\int B_n \cdot 2^{R_n} \; d\tilde \nu_m=(1+\ordo{1})\int B_m \cdot 2^{Q_m} \; d\tilde \nu_m.$$
-We can write
-$$f_n=\int \hat B_m \cdot X_{m,n} \cdot 2^{Z_{m,n}}\cdot 2^{R_m}\; d\tilde \nu_n=(1+\ordo{1})\int B_m \cdot 2^{R_m}\; d\tilde \nu_m=f_m(1+\ordo{1}).$$
-We get 
-$$\int \hat B_m \cdot X_{m,n} \cdot 2^{Z_{m,n}} \; d\tilde \nu_n \leq f_n\leq \int \hat B_m \cdot 2^{Q_m} \; d\tilde \nu_n,$$
-and hence 
-$$\int B_m \; d\tilde \mu_m \leq f_n \leq \int  B_m \cdot 2^{Q_m} \; d\tilde \mu_m,$$
-and where both the leftmost and rightmost expressions are $(1+\ordo{1})f_m$, as $m\to \infty$.
-
-The conclusion that $$f_n(x)=(1+\ordo{1})f_m(x),$$
-as $m,n \to \infty$, follows from the observations that ($0\leq R_m \leq Q_m$)
-$$1-D'_m\leq X\leq 1$$
-and 
-$$\int B_m \cdot 2^{R_m} \; d\tilde \nu_m =(1+\ordo{1})\int \hat B_m \; d\tilde \nu_m,$$
-hence
-$$\int B_m \cdot 2^{R_m} \; d\tilde \nu_m =(1+\ordo{1})\int \hat B_m \cdot 2^{Q_m} \; d\tilde \nu_m.$$
-
- 
 
 
-\begin{thebibliography}{999}
-
-\bibitem{ACCN} M.\ Aizenman, J.\ Chayes, L.\ Chayes and C.\ Newman,
-  Discontinuity of the magnetization in the one-dimensional
-  $1/|x-y|^2$ Ising and Potts models, {\em J.\ Statist.\ Phys.\ } {\bf
-    50} (1988), 1--40.
-
-\bibitem{berger} N.\ Berger, C.\ Hoffman and V.\ Sidoravicius,
-  Nonuniqueness for specifications in $\ell^{2+\epsilon}$, to appear (2017)
-  in {\em Ergodic Theory Dynam.\ Systems}.
-
-\bibitem{berbee87} H. Berbee, Chains with Infinite Connections:
-  Uniqueness and Markov Representation, {\em Probab.\ Theory Related
-    Fields} {\bf 76} (1987), 243--253.
- 
-\bibitem{berbee89} H. Berbee, Uniqueness of Gibbs measures and
-  absorption probabilities, {\em Ann.\ Probab.\ } {\bf 17} (1989),
-  no.\ 4, 1416--1431.
- 
-\bibitem{lop1} L.\ Cioletti and A.\ Lopes, Interactions,
-  Specifications, DLR probabilities and the Ruelle Operator in the
-  One-Dimensional Lattice, preprint, arXiv:1404.3232.
- 
-\bibitem{lop3} L.\ Cioletti and A.\ Lopes, Ruelle Operator for
-  Continuous Potentials and DLR-Gibbs Measures, preprint,
-  arXiv:1608.03881v1.
- 
-\bibitem{FS} J.\ Fr\"olich and T.\ Spencer, The phase transition in
-  the one-dimensional Ising Model with $1/r^2$ interaction energy,
-  {\em Comm.\ Math.\ Phys.\ } {\bf 4} (1982), no.\ 1, 87--101.
-
-\bibitem{johob} A.\ Johansson and A.\ \"Oberg, Square summability of
-  variations of $g$-functions and uniqueness of $g$-measures, {\em
-    Math.\ Res.\ Lett.\ } {\bf 10} (2003), no.\ 5--6, 587--601.
-    
-\bibitem{jop1} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Countable
-  state shifts and uniqueness of $g$-measures, {\em Amer.\ J.\ Math.\
-  } {\bf 129} (2007), 1501--1511.  
-
-
-\bibitem{jop2} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Unique
-  Bernoulli $g$-measures, {\em J.\ Eur.\ Math.\ Soc.\ } {\bf 14}
-  (2012), 1599--1615.
-  
-\bibitem{keane} M.\ Keane, Strongly mixing $g$-measures, {\em Invent.\
-    Math.\ } {\bf 16} (1972), 309--324.
-
-\bibitem{sin}
-Ya.G.\ Sinai, Gibbs measures in ergodic theory, {\em Russian Mathematical Surveys} {\bf 27}(4) (1972), 21--69. 
-
-\bibitem{walters1}
-P.\ Walters, Ruelle's operator theorem and $g$-measures, {\em Trans.\ Amer.\ Math.\ Soc.\ } {\bf 214} (1975), 375--387.
-
-\bibitem{walters3}
-P.\ Walters, Convergence of the Ruelle Operator, {\em Trans.\ Amer.\ Math.\ Soc.\ } {\bf 353} (2000), 
-no.\ 1, 327--347.
-\end{thebibliography}
-
-\noindent
-\newline
+\printbibliography
 
 \noindent
 Anders Johansson, Department of Mathematics, University of G\"avle,
@@ -945,3 +895,7 @@ Niels Bohrweg 1, 2333 CA Leiden, The Netherlands. E-mail address: evgeny@math.le
 
 
 \end{document}
+
+% Local Variables:
+% ispell-local-dictionary'': "british"
+% End:

@@ -1,0 +1,12 @@
+/.auctex-auto/
+/*.fdb_latexmk
+/*.fls
+*.gz
+*.aux
+*.log
+*.out
+/gmeasures.bib
+/*.bbl
+/tomark.bcf
+/*.blg
+/tomark.run.xml
