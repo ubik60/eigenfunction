@@ -1,0 +1,101 @@
+\documentclass[12pt]{scrartcl}
+
+\usepackage{mydefs}
+
+\addtolength{\parskip}{12pt}
+\setlength{\parindent}{0pt}
+
+\usepackage{lmodern}
+
+\title{Käenmäki example}
+\begin{document}
+
+\section*{Käenmäki example}
+This example provides a $g$-measure $\mu$ such that the ratio
+\[
+  \frac{\mu([x_1,x_2,\dots,x_m,y_1,y_2,\dots,y_m])}
+  {\mu([x_1,x_2,\dots,x_m])\cdot \mu([y_1,y_2,\dots,y_m])}
+\]
+is uniformly bounded from above but not from below. A restatement says that the
+likelihood ratios between any conditioning of the measure and measure itself,
+i.e.  
+\[
+\frac{\mu([x_1,x_2,\dots,x_m] \mid y)}{\mu([x_1,x_2,\dots,x_m])} = 
+\frac{\mu([x_1,x_2,\dots,x_m] \mid y)}{\int\mu([x_1,x_2,\dots,x_m \mid z])\d\mu(z)},
+\]
+are bounded from above but not from below. 
+
+Let $X=\{0,1\}^S$, $S=\{0,1,2,\dots\}$, and let $\mu\in\CM(X)$ be the unique
+Hofbauer-type $g$-measure with
+\[ g(0x) = e^{-s_{W(x)}},\quad g(1x) = 1 - e^{-s_{W(x)}} \]
+where $W(x)$ is the number of initial zeros in $x\in X$ and 
+\[
+  s_k = 2-\frac1{1+k}.
+\]
+Note that $\mu$ is sandwiched (in stochastic dominance ordering) between two iid
+Bernouilli sequences with $p=1-e^{-1}$ and $p=1-e^{-2}$.
+
+For the Hofbauer-type measure a likelihood ratio only
+depends on the span of the zero-sequence, i.e., if we set $V=W(y)$ then 
+\[
+  \frac{\mu([x_1,x_2,\dots,x_m]| y)}{\mu([x_1,x_2,\dots,x_m])} 
+  = \frac{\mu\left([0_{k}] \mid [0_{V}, 1]\right)}{\mu([0]_k)}
+\]
+where $0_k$ denotes a
+sequence of $k$ zeros and where $k$ is given by the condition that either $k=m$
+or else
+\[
+  x_{m-k}=1,\quad x_{m-k+1}=x_{m-k+2}=\dots=x_{m}=0.
+\]
+Hence, it is enough to
+consider the case $(x_1,\dots,x_m)=0_m$.
+
+Let $V=W(y)$ be the waiting time for the sequence $y$. Note that the ratio
+\begin{align*}
+  \frac{\mu(0_m)}{\mu(0_m\mid y)}
+  &=
+    \int \exp\left\{ (s_V-s_W) + (s_{V+1}-s_{W+1}) + \dots + (s_{V+m-1}-s_{W+m-1}) 
+    \right\} \d\mu(z)
+  \\
+  &=
+    \int \exp\left\{ \sum_{k=W+1}^{W+m} \frac 1k - \sum_{k=V+1}^{V+m}\frac 1k \right\}
+    \d\mu(z),
+\end{align*}
+where $W=W(z)$. 
+
+Since $\sum_{k=1}^N \frac 1k = \ln N + \gamma +\ordo1$ as
+$N\to\infty$, we can deduce that
+\begin{align*}
+  \frac{\mu([0_m])}{\mu([0_m]\mid y)}
+  &= 
+  \int \exp\left\{ \sum_{k=W+1}^{W+m} \frac 1k - \sum_{k=V+1}^{V+m}\frac 1k \right\} \d\mu(z) \\
+  &\simeq 
+  \frac{V+1}{V/m+1}\cdot \int \frac{W/m+1}{W+1} \d\mu(z).
+\end{align*}
+where $f \simeq g$ here means that $|f/g|$ is bounded away from $0$ and $\infty$
+as for all $m$.
+
+Since $W(z)$ is sandwiched between two geometric distributions with $
+p=1-e^{-2}$ and $p=1-e^{-1}$, it is clear that the integral 
+\[
+  I=\int \frac{W/m+1}{W+1} \d\mu(z) = \frac 1m
+  + (1-\frac1m) \cdot \E\left(\frac{1}{W+1}\right)
+\]
+satisfies 
+\[
+ (1-e^{-1}) <  I < 1. 
+\]
+
+Thus, we obtain the following expression for the likelihood ratios 
+\[
+  \frac{\mu([0_m]\mid y)}{\mu([0_m])} \simeq \frac1I \cdot \frac{V/m+1}{V+1}.
+\] 
+The right hand side is less than $1/I$. Hence
+the likelihood ratios are bounded from above. On the other hand, if we let
+$V\to\infty$ then
+$$  \frac{\mu([0_m]\mid y)}{\mu([0_m])} \to \frac1I \cdot \OrdoTheta{\frac 1m} $$
+and the likelihood-ratios are thus not bounded away from zero since $m$ is
+arbitrary.
+
+\end{document}
+
