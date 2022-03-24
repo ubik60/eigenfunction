@@ -711,7 +711,7 @@ $$\int B_m \cdot 2^{R_m} \; d\tilde \nu_m =(1+\ordo{1})\int \hat B_m \cdot 2^{Q_
 
 \begin{center}
 \begin{tabular}{rp{0.8\textwidth}}
-  $d\tilde\eta(\eta)$ & The bernouilli measure $2^{-|\e|}\ltimes d\eta(\e)$ \\
+  $d\tilde\eta(\e)$ & The bernouilli measure $2^{-|\e|}\ltimes d\eta(\e)$ \\
   $B_n$  & The indicator of the event $[x]_n$ compatible with $\g$. \\
   $B_n^+$  & The indicator of the event $[x]_n$ compatible with $\g_+$. \\
   $B'_n(\g)$ & The indicator of the event $[x]_n$ is
@@ -722,10 +722,16 @@ $$\int B_m \cdot 2^{R_m} \; d\tilde \nu_m =(1+\ordo{1})\int \hat B_m \cdot 2^{Q_
                    i.e. such that $x_i x_j = -1$. \\
   $\hat X_n(\g_-,\e)$ & The indicator of the event that $Q_n=0$. \\
   $R_n(\g)$ & Correction term so that
-              $$ d\mu(\g|B^+_n) = B'_n \cdot 2^{R_n(\g)} \ltimes
-              d\nu(\g_-) \d\tilde\eta(\e) \d\nu(\g_+|B_n) $$ \\
-  $Q_n(\g_-,\e)$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $(n,\infty)$
-                   such that there is at least one more edge in $\e$ from the same cluster to $[0,\infty)$
+              $$ d\mu(\g|B^+_n) = B'_n \cdot 2^{R_n(\g)} \ltimes d\nu(\g_-) \d\tilde\eta(\e) \d\nu(\g_+|B_n) $$ \\
+  $Q_{>n}(\g_-,\e)$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $(n,\infty)$
+                      such that there is at least one more edge in $\e$ from the same cluster to $[0,\infty)$
+                      preceding it in some order\\
+  $Q(\g_-,\e)$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $[0,\infty)$
+                 such that there is at least one more edge in $\e$ from the same cluster to $[0,\infty)$
+                 preceding it in some order\\
+  $X(C)$ & For a cluster $C\subset \g_{-}$ it is the number of edges in $\e$ to $[0,\infty]$. \\
+  $i(C)$ & For a cluster $C\subset \g_{-}$ it is the rightmost vertex, i.e.\ $i(C)=\max \{j\in C\}$. \\
+  $\lambda(C)$ & The sum $\lambda(C) = \frac{\beta}{2} \sum_{j\in C} \frac 1j$. \\
 \end{tabular}
 \end{center}
 
@@ -736,22 +742,32 @@ Recall that
 \begin{equation}\label{eq:3}
   h_m(x) =  \int B'_m 2^{R_m} \d \nu(\g_-)\d\tl\eta(\e) \d \nu(\g_+|B_m^+).
 \end{equation}
+Since $R_m$ is the number of edges in $\e$ that do not reduce (with respect to
+some order) the number of components in $\g\triangleright [0,n]$, it is clear
+that
+\begin{equation}\label{eq:RleQ}
+  R_m \le Q_{>m}
+\end{equation}
+where \(Q_{>m}\) is the number of edges $ij\in\e$ where $i>n$ and $-j$ belongs
+to a cluster $C$ in $\g_-$ that sends at least one more edge to $[0,\infty)$.
+
 For $n\le m$, we have
 $$ \hat B_n \hat X_n \le B'_m \le \hat B_n $$
-and, since $1\le 2^{R_m}\le 2^{Q_m}$, it follows that
-\begin{equation}
-  \label{eq:4}
+and, on account of \eqref{eq:RleQ}, it follows that
+\begin{equation}\label{eq:4}
   \int \hat B_n \hat X_n \d \nu(\g_-) \d\tl\eta(\e)
-  \le h_m(x) \le \int \hat B_n 2^{Q_m} \d\nu(\g_-) \d\tl\eta(\e).
+  \le h_m(x) \le \int \hat B_n 2^{Q_{>n}} \d\nu(\g_-) \d\tl\eta(\e).
 \end{equation}
-We have used that $\hat B_n$, $\hat X_n$ and $Q_m$ are independent of $\g_+$ and that
+We have used that $\hat B_n$, $\hat X_n$ and $Q_{>m}$ are independent of $\g_+$ and that
 $$\int\d\nu(\g_+|B_m^+)=1. $$
 
 Since both $\hat B_n$ and $\hat X_n$ are decreasing in $(\g_-,\e)$ it follows
 from the FKG inequality that
 \begin{equation}
   \label{eq:5}
-  I_n \cdot \int \hat X_n \d\nu(\g_-) \d\tl\eta(\e) \le h_m(x) \le I_n \cdot \int 2^{Q_m} \d\nu(\g_-) \d\tl\eta(\e).
+  I_n \cdot \int \hat X_n \d\nu(\g_-) \d\tl\eta(\e)
+  \le h_m(x)
+  \le I_n \cdot \int 2^{Q_{>n}} \d\nu(\g_-) \d\tl\eta(\e).
 \end{equation}
 where
 \begin{equation}
@@ -759,14 +775,15 @@ where
   I_n = \int \hat B_n \d\nu(\g_-) \d\tl\eta(\e).
 \end{equation}
 
-We prove later the following lemma.
+We prove the following lemma.
 \begin{lemma}\label{lem:qn}
   The integral
   \[
-    \int 2^{Q_n} \d\nu(\g_-)\, \d\tilde\eta(\e) = 1+\ordo{1}.
+    \int 2^{Q_{>n}} \d\nu(\g_-)\, \d\tilde\eta(\e) = 1+\ordo{1}.
   \]
   as $n\to\infty$.
 \end{lemma}
+
 From \eqref{eq:5} and this lemma we deduce that
 \begin{equation}
   \label{eq:2}
@@ -776,9 +793,70 @@ if $m\ge n$ as $n\to\infty$. It follows that $\log h_n(x)$ is a Cauchy sequence
 and hence that the limit $h(x)$ is continuous.
 
 
-\begin{proof}[Proof of Lemma~\ref{lem:qn}]
+\subsubsection*{Proof of Lemma~\ref{lem:qn}}
 
-\end{proof}
+
+We condition on a fixed graph $\g_-$ with distribution $\nu_-$. Let $C$ be a cluster of $\g_-$.
+Note that
+$$
+Q=(X(C_1) -1)_{+} +(X(C_2)-1)_{+} + \ldots
+$$
+where $X(C_i)$, is a sum of independent Bernoulli variables
+$$
+X(C) = \sum_{-j\in C} \sum_{i=0}^\infty \e_{ji}
+$$
+where
+$$
+\P(\e_{ij}=1) = \frac{1- \exp\{-\frac \beta{(i+j)^2}\}}{2}
+$$
+It follows that we can approximate $X(C)$ with a Poisson variable
+$\tl X(C) \sim \opn{Po}(\lambda(C))$ with
+$$
+\lambda(C) = \frac{\beta}{2} \sum_{j\in C} \frac 1j
+\approx \frac{\beta}{2} \sum_{j\in C} \sum_{i=0}^\infty \P(\e_{ij}=1).
+$$
+Note that
+\begin{equation}
+  \label{eq:lambdabound}
+    \lambda(C) \leq \log \left(1+\frac{|C|}{i(C)}\right)
+\end{equation}
+where $-i(C)=\max C$.
+
+Order the clusters of $\g_-$ as $C_1,C_2,\dots$ etc. so that
+$i(C_1)<i(C_2)<\dots$. For each clister $C_i$ we can from stochastic dominance
+construct a random cluster $\tl C_i$ such that (i) $C_i\subset \tl C_i$ and (ii)
+$i(\tl C_i)=i(C_i)$. We can further assume that the $\tl C_i$s are \emph{independent}.
+
+Let now
+\[
+  \tl Q = \sum_{C_i} (\tl X(\tl C_i) - 1)_+.
+\]
+where $\P(\tl X(\tl C)| \tl C) = \opn{Po}(\lambda(\tl C))$ which stochastically
+dominates $X(C)$. Note that for a poissonvariable $X\sim\opn{Po}(\lambda)$ we have
+\[
+  \E(2^{(X-1)_+}) = \frac{\exp(\lambda(e^{\ln 2}-1)) + e^{\lambda}}{2} = \cosh(\lambda)
+\]
+
+We then have
+$$
+A := \E(2^Q | \gamma_- )\leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).
+$$
+We obtain ($i(C_k)\leq k$)
+$$E(A)\leq \prod_{k=1}^\infty \left(1+\frac{E(|\tilde C_k|^2)}{k^2}\right)\cdot K,$$
+where $K$ is a constant.
+
+
+If $|C_k|\leq 0.1 k$, then
+$$\cosh (\lambda (\tilde C_k))\leq 1+\left( \frac{|\tilde C_k|}{i(\tilde C_k)}\right)^2,$$
+so
+$$E[2^Q]\leq \prod_{k=1}^\infty E \left(\cosh \left(\log \left(1+\frac{|\tilde C_k |}{k} \right) \right) \right).$$
+
+
+
+
+We have (with $\tilde C_k$ independent)
+$$E\left(\frac{1}{2}(1+\frac{|\tilde C_k|}{k}+\frac{1}{1+\frac{|\tilde C_k|}{k}}) \right)$$
+$$=E\left(\frac{1}{2}(1+\frac{|\tilde C_k|^2}{k^2}-\frac{|\tilde C_k|^3}{k^3}+\cdots )\right).$$
 
 
 \section{New April 21}

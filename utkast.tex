@@ -1,0 +1,57 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%SetFonts
+
+%SetFonts
+
+
+
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+%\section{}
+%\subsection{}
+Let 
+$$Q=(X_1 -1)_+ +(X_2-1)_+ +\ldots$$
+where $X_i \sim Po(\lambda(C_i))\leq Po(\lambda(\tilde C_i))$ and where $\tilde X_i \sim Po(\lambda(\tilde C_i))$ and where all 
+$\lambda(\tilde C_i)$ are independent, 
+$$Q\leq \tilde Q =(\tilde X_1-1)_+ +(\tilde X_2-1 )_+ +\ldots,$$
+and
+$$\lambda(C)=\sum_{j\in C} \frac{1}{j}\leq \log \left(1+\frac{|\tilde C|}{i}\right).$$
+
+We then have 
+$$A:=E(2^Q | \gamma_- )\leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).$$
+We obtain ($i(C_k)\leq k$)
+$$E(A)\leq \prod_{k=1}^\infty \left(1+\frac{E(|\tilde C_k|^2)}{k^2}\right)\cdot K,$$
+where $K$ is a constant.
+
+---------------------------
+
+If $|C_k|\leq 0.1 k$, then 
+$$\cosh (\lambda (\tilde C_k))\leq 1+\left( \frac{|\tilde C_k|}{i(\tilde C_k)}\right)^2,$$
+so
+$$E[2^Q]\leq \prod_{k=1}^\infty E \left(\cosh \left(\log \left(1+\frac{|\tilde C_k |}{k} \right) \right) \right).$$
+
+---------------------------
+
+We want to prove that 
+$$E[2^{Q-Q_n}]=1+o(1),$$
+as $n\to \infty$.
+
+----------------------------
+
+We have (with $\tilde C_k$ independent)
+$$E\left(\frac{1}{2}(1+\frac{|\tilde C_k|}{k}+\frac{1}{1+\frac{|\tilde C_k|}{k}}) \right)$$
+$$=E\left(\frac{1}{2}(1+\frac{|\tilde C_k|^2}{k^2}-\frac{|\tilde C_k|^3}{k^3}+\cdots )\right).$$
+
+
+
+
+\end{document}  
