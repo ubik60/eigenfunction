@@ -129,7 +129,7 @@
 \def\scp#1#2{\left\langle #1 , #2 \right\rangle}
 
 \usepackage{biblatex}
-\addbibresource{main.bib}
+%\addbibresource{main.bib}
 
 \title{Existence for an eigenfunction for the critical phase of the Dyson model}
 
@@ -823,7 +823,7 @@ Note that
 where $-i(C)=\max C$.
 
 Order the clusters of $\g_-$ as $C_1,C_2,\dots$ etc. so that
-$i(C_1)<i(C_2)<\dots$. For each clister $C_i$ we can from stochastic dominance
+$1=i(C_1)<i(C_2)<\dots$. For each cluster $C_i$ we can from stochastic dominance
 construct a random cluster $\tl C_i$ such that (i) $C_i\subset \tl C_i$ and (ii)
 $i(\tl C_i)=i(C_i)$. We can further assume that the $\tl C_i$s are \emph{independent}.
 
@@ -834,16 +834,17 @@ Let now
 where $\P(\tl X(\tl C)| \tl C) = \opn{Po}(\lambda(\tl C))$ which stochastically
 dominates $X(C)$. Note that for a poissonvariable $X\sim\opn{Po}(\lambda)$ we have
 \[
-  \E(2^{(X-1)_+}) = \frac{\exp(\lambda(e^{\ln 2}-1)) + e^{\lambda}}{2} = \cosh(\lambda)
+  \E(2^{(X-1)_+}) = \frac{\exp(\lambda(e^{\ln 2}-1)) + \exp(-\lambda) }{2} = \cosh(\lambda)
 \]
 
 We then have
-$$
-A := \E(2^Q | \gamma_- )\leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).
-$$
-We obtain ($i(C_k)\leq k$)
-$$E(A)\leq \prod_{k=1}^\infty \left(1+\frac{E(|\tilde C_k|^2)}{k^2}\right)\cdot K,$$
-where $K$ is a constant.
+\[
+  \E(2^Q | \gamma_- )\leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).
+\]
+Since clearly $i(C_k)\leq k$ the bound \eqref{eq:lambdabound} gives that
+\[
+  \E(2^Q)\le\prod_k \E\left(\cosh\left( \log\left(1+\frac{|\tilde C_k|}{k}\right)\right)\right)
+\]
 
 
 If $|C_k|\leq 0.1 k$, then
@@ -859,95 +860,6 @@ $$E\left(\frac{1}{2}(1+\frac{|\tilde C_k|}{k}+\frac{1}{1+\frac{|\tilde C_k|}{k}}
 $$=E\left(\frac{1}{2}(1+\frac{|\tilde C_k|^2}{k^2}-\frac{|\tilde C_k|^3}{k^3}+\cdots )\right).$$
 
 
-\section{New April 21}
-
-We think we also can have a finite 
-$$\frac{d\mu(\gamma)}{d\nu(\gamma)}= 2^{r(\gamma)}-c$$
-where $r(\gamma)\leq \beta \sum \frac{\tau (n)}{n}$.
-
-Let $X$ be the number of components in $\gamma_{-}$, where $d(E,\gamma)\geq 2$.
-Then we have (something like)
-$$E(X)\leq \beta^2 \sum_{k=1}^\infty\left(\sum_{j=k}^\infty \frac{\tau(j)}{j}\right)^2\cdot K.$$
-
-We define $\rho_j$ as the probability of having a path from $-j$ to some vertex
-in $[0,\infty)$. The number of corrections we need to do gives a contribution
-$$\frac{\beta}{(i+j)^2}\cdot \rho_j,$$
-where we have $\rho_j^{i}\leq \frac{\beta}{(i+j)^2} \cdot \rho_j$. We get a sum
-$$\sum_{i=1}^\infty \sum_{j=1}^\infty \frac{\beta \rho_j}{(i+j)^2}.$$ 
-
-Let $C(0)$ be the cluster that contains $0$. We have for a uniformly chosen
-cluster $C$ that $|C_+(0)|<|C|$.
-
-We can now study
-$$\frac{dP(|C(0)|)}{dP(|C|)}$$
-where
-$$\frac{P(|C(0)|=x)}{P(|C|=x)}=\frac{x}{E(|C|)}.$$
-
-We let $X$ be the number of components in $\gamma_{-}$ so that $d(E,\gamma)\geq 2$ and $Y=|C_+(0)|$. 
-
-A crude estimate gives
- $$ 
- \E(X)\leq \sum_{k=1}^\infty E \left( \frac{Y_k}{k}\right)^2<\infty.  
- $$ 
- We obtain 
- $$\frac{1}{E(|C|)}\cdot E Y^2\leq E \left(\frac{|C|^2}{E(|C|)}\right)=E(C(0))<\infty.$$
- 
- (We have stochastic dominance order as we move to the left, e.g.,  $Y_2 \prec Y_1$.
- 
- We will from these considerations derive uniform convergence of $h_n$ to $h$,
- which then needs to be a continuous function (Cauchy's theorem):
- $$ \|h_n(x)-h_m(x)\|_{\infty}\leq K\cdot \sum_{k=n}^\infty \frac{\rho_k}{k}.$$
- 
- We consider $\omega(G)=\omega (\gamma)-|\epsilon|+ R(\gamma, \epsilon)$, where $G=\gamma \cup \epsilon$, and we have 
- $$\nu(\gamma,\epsilon) \propto 2^{\omega(\gamma)-|\epsilon|}$$
- $$\mu(\gamma,\epsilon)\propto 2^{\omega (G)}= 2^{\omega(\gamma)-|\epsilon |+R(\gamma,\epsilon)}.$$
- We define on all of $G$:
- $$\frac{d\mu(G)}{d\nu(G)}=2^{R(\gamma,\epsilon)-c}.$$
- We have
- $$E \left[2^{R(\gamma, \epsilon)}\right] =
- \Ordo{2^{\beta \sum_{n=1}^\infty \frac{\tau(n)}{n}}}.$$
- 
- In order to avoid bad paths that do not give rise to cycles, we consider now $B_n(x,\gamma)\searrow B_\infty (x,\gamma)$.
- 
- We have $E(B_\infty (x))>c>0$ and 
- $$B_ n(x,G)=C_n(x, \gamma, \epsilon )\cdot B_n(x,\gamma),$$
- where $C_n(x,\gamma, \epsilon)\searrow C_\infty (x,\gamma, \epsilon)$.
- 
- We can write
- $$h_n(x)=\int C_n(x,\gamma,\epsilon) \cdot 2^{Q_n(\gamma,\epsilon) }\; d\eta(\epsilon)\cdot 2^{-|\epsilon|} d\alpha.$$
- That is, 
- $$h_n-h_m=\int C_n(x,\gamma,^{(n)},\epsilon)2^{Q(\gamma^{(n)},\epsilon)}-C_m(x, \gamma^{(m)},\epsilon)2^{Q(\gamma^{(m)},\epsilon)}d\eta(\epsilon)\cdot 2^{-|\epsilon|} d\alpha(\gamma^{(n)},\gamma^{(m)}).$$
- 
- We have $\gamma^{(m)}\subseteq \gamma^{(n)}$ and 
- $$\int |Q_m(\gamma,\e)-Q_n(\gamma,\e)|\; d\mu(\gamma,\epsilon)\leq K\cdot \sum_{j=m}^n \frac{\rho_j}{j}.$$
- Since we also have $0\leq C_m \leq 1$ and 
- $$c_m(\gamma,x)\cdot 2^{q_m(\gamma)}=\int C_m(x,\gamma,\epsilon)2^{Q_m (\gamma,\epsilon)-|\epsilon|}\; 2^{-|\epsilon|} \, d\eta(\epsilon),$$
- we obtain
- $$h_n-h_m=\int c_n(\gamma,x)2^{q_n(\gamma^{(n)})}-c_m(\gamma,x)2^{q_m(\gamma^{(m)})} \; d\alpha(\gamma)$$
- $$=\int \left(c_n(\gamma^{(n)})-c_m(\gamma^{(m)}) \right)2^{q_n(\gamma^{(n)})}\; d\alpha
- +\int c_m(\gamma^{(m)})\left(2^{q_n(\gamma^{(n)})}-2^{q_m(\gamma^{(m)})} \right) \; d\alpha.$$
-
- Observe that $C_n$ is zero if $B_n(x,G)=0$ and $B_n(x,\gamma)=1$; otherwise $C_n$ is equal to $1$.
-
- The following lemma concludes our proof.
- \begin{lemma}\label{bounds}
-   For
-   \[ S_n = \beta \sum_{k=n}^\infty \frac{\rho_k}{k} \]
-   We have that following
-   \begin{align}
-     \label{cnbound}
-     \int \left(c_n(\gamma^{(n)})-c_m(\gamma^{(m)}) \right)2^{q_n(\gamma^{(n)})}\; d\alpha
-     &= \Ordo{S_n - S_m}\\
-     \label{qnbound}
-     \int c_m(\gamma^{(m)})\left(2^{q_n(\gamma^{(n)})}-2^{q_m(\gamma^{(m)})} \right) \; d\alpha
-     &= \Ordo{S_n-S_m}
-   \end{align}
- \end{lemma}
-
- \begin{proof}[Proof of Lemma~\ref{bounds}]
-
-
- \end{proof}
 
 
 \printbibliography
