@@ -264,47 +264,57 @@ $$
 - \log q \cdot\w(\gamma) + 
 \sum_{ij}\gamma(ij)\cdot \log p(ij) + (1-\gamma(ij))\cdot\log (1-p(ij)).
 $$
-The models $\mscr R(V,p,1)$ are referred to as ``Bernoulli percolation''. 
+The models $\mscr R(V,p,1)=\eta(\binom V2,p)$ 
+are referred to as ``Bernoulli percolation''. 
 In the one-dimensional Potts--Dyson random cluster model, 
 $\mscr R(V,\beta,\alpha,q)$,
 we let $V=\ZZ$ (or $V=\ZZ_{\ge0}$ and consider the random cluster model 
-$\mscr R(V,p,q)$ where 
+$\mscr R(V,p_J,q)$ where 
 \begin{equation}\label{eq:Jdef}
-  p(ij) = 1-e^{-J(ij)} \quad\text{where}\quad 
+  p_J(ij) = 1-e^{-J(ij)} \quad\text{where}\quad 
   J({ij}) = \frac \beta{|i-j|^\alpha}.
 \end{equation}
 When $q$
 
-It is well-known that for $\alpha\in(1,2]$ 
-there exists a $\beta_c=\beta_c(\alpha)$ 
-such that for all $\beta$, $0<\beta<\beta_c$, 
-there is with probability 1 no cluster of infinite size and with   
-We will mainly consider the case $1<\alpha\le 2$ and $0<\beta <\beta_c$ and use the following lemma. 
+Percolation is the event that the random graph contains an infinite cluster. 
+It is well-known \cite{accn} that for all $\alpha\in(1,2]$ 
+there exists a critical $\beta_c=\beta_c(\alpha)$ 
+such that, percolation does not occur with probability 1 for $0<\beta<\beta_c$, 
+while for $\beta\in(\beta_c,\infty)$ there is with probability 1
+no infinite cluster.     
+
+We will mainly consider the subcritical case $1<\alpha\le 2$ and $0<\beta <\beta_c(\alpha)$ and use the following lemma. 
 \begin{lem}\label{geometric-bound}
  Let $X=X(C_s)$ denote the size of the cluster $C_s$ 
  containing a specified vertex $s\in V$. Then there are constants 
  $K$ and $r$, $0<r<1$, such that $$\P(X\ge m)\le K r^{m}. $$ 
 \end{lem}
 \begin{proof}
+Note that $\mscr R(V,p,1)$ stochastically dominates $\mscr R(V,p,q)$, $q>1$. 
 Duminil-Copine states that $\beta_c$ are the same for the case $q=1$ and $q>1$. 
 Panagiotis et al.\ states that it holds for $q=1$ when $0<\beta<\beta_c$. 
-Note that $\mscr R(V,p,1)$ stochastically dominates $\mscr R(V,p,q)$, $q>1$. 
 \end{proof}
 
 The extended \emph{random cluster model} with $q=2$ 
-can be obtained as the joint distribution $(x,\gamma)$
-product measure $\d\eta(\g) \otimes \d\eta(x)$ between an independent
-Bernoulli random graph $\g\sim\mscr R(V,p,1)$ random graph on $\mscr G(V)$ and the
-uniform measure $x\sim\ett$ on the spin sequences $x\in\{-1,+1\}^{V}$. The
-extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
+can be obtained as the joint distribution
+of the spin sequences $x\in\{-1,+1\}^{V}$ and a random graph $\gamma\in \{0,1\}^{\binom V2}$. 
+The distribution of $(x,\gamma)$ is obtained by first considering the pair 
+chosen independently: The spin sequence $x\in\{-1,+1\}^{V}$
+according to the uniform Bernoulli measure 
+$x\sim\eta(V,p=\frac12)$ on the spin sequences and the random graph $\gamma$ 
+according to the Bernoulli measure $\eta(\binom V2, p)=\mscr R(V,p_J,1)$. 
+. The extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
+product measure $\d\eta(x;\frac12) \otimes \eta(x;p)$ between an independent
+Bernoulli random graph $\g\sim\mscr R(V,p,1)$ random graph on $\mscr G(V)$ and 
 and $x$ obtained by conditioning on the on the event that $x$ and $\g$ are
-\textemph{compatible}: 
+\emph{compatible}: 
 That is, the event $C(x,\g)$ that no spins $x_i=+1$ and $x_j=-1$ in
 $x$ are connected by a path (edge) in $\g$. One obtains the long range 
 Ising model with the Dyson potential $\phi_{\beta,\alpha}(x)$ as the marginal distribution of $x$ and the random cluster model $\mscr R(V,p,2)$ as the marginal distributions $\g$. 
 
 We now observe that a configuration $\g$ in the two-sided model $\mscr R(\ZZ,\alpha,\beta)$
-difference between the one-sided random cluster model $\nu = \mscr R(V_+,J)$ and
+difference between the one-sided random cluster model
+$\nu = \mscr R(V_+,J)$ and
 the usual two-sided model $\mu = \mscr R(V,J)$. We will use that a configuration
 $\g$ can be factored as $\g = (\g_+, \e, \g_-)$, where $\g_-$ is the induced
 graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and $\g_+=\g[V_+]$ is the graph
