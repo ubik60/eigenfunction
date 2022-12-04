@@ -399,7 +399,7 @@ We prove the following lemma.
 \begin{lemma}\label{lem:qn}
   The integral
   \[
-    \int 2^{Q_{>n}} \d\nu(\g_-)\, \d\tilde\eta(\e) = 1+\ordo{1}.
+    \int 2^{Q_{>n}} \d\nu(\g_-)\, \d\tilde\eta(\e) = 1+o(1).
   \]
   as $n\to\infty$.
 \end{lemma}
@@ -407,7 +407,7 @@ We prove the following lemma.
 From \eqref{eq:5} and this lemma we deduce that
 \begin{equation}
   \label{eq:2}
-  h_m(x) = (1+\ordo1) I_n = h_n(x) \cdot (1+\ordo1)
+  h_m(x) = (1+o(1)) I_n = h_n(x) \cdot (1+o(1))
 \end{equation}
 if $m\ge n$ as $n\to\infty$. It follows that $\log h_n(x)$ is a Cauchy sequence
 and hence that the limit $h(x)$ is continuous.
@@ -418,13 +418,9 @@ and hence that the limit $h(x)$ is continuous.
 
 We condition on a fixed graph $\g_-$ with distribution $\nu_-$. Let $C$ be a cluster of $\g_-$.
 Note that
-$$
-Q=(X(C_1) -1)_{+} +(X(C_2)-1)_{+} + \ldots
-$$
+$$ Q=(X(C_1) -1)_{+} +(X(C_2)-1)_{+} + \ldots $$
 where $X(C_i)$, is a sum of independent Bernoulli variables
-$$
-X(C) = \sum_{-j\in C} \sum_{i=0}^\infty \e_{ji}
-$$
+$$ X(C) = \sum_{-j\in C} \sum_{i=0}^\infty \e_{ji} $$
 where
 $$
 \P(\e_{ij}=1) = \frac{1- \exp\{-\frac \beta{(i+j)^2}\}}{2}
