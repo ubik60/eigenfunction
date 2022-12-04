@@ -215,25 +215,34 @@ equilibrium measure
 
 We prove that if the inverse critical temperature $\beta$ is strictly smaller than the critical inverse temperature $\beta_c$, which will be seen to be the same for the two-sided and one-sided models, then we have a continuous eigenfunction of ${\mathcal L}$.
 
-\begin{thm}\label{main} Let $\mu$ be the Gibbs equilibrium measure with respect
-to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure,
-i.e., ${\mathcal L}^*\nu=\lambda \nu$. Define
-$$h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n]},$$
-and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$ (that exists by virtue of the martingale convergence theorem). If $\beta<\beta_c$, then $h$ is a continuous function on $\X$, and which is also
-an eigenfunction of ${\mathcal L}$.
+Let $\mu$ be the Gibbs equilibrium measure with respect
+to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure.
+Define
+$$
+h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n]},
+$$
+and consider the measurable function $h(x)=\limsup_{n\to \infty}h_n(x)$. 
+
+\begin{thm}\label{main} 
+If $\beta<\beta_c$, i.e.\ in the subcritical phase,  
+then $h(x)$ is a continuous function on $\X$ and it is also an 
+eigenfunction of ${\mathcal L}$.
 \end{thm}
 
 We conjecture that there exists a continuous eigenfunction for a potential
-$\phi$ that satisfies Berbee's condition \eqref{berbee}.
+$\phi$ whenever that potential satisfies Berbee's condition \eqref{berbee}.
 
 The next result is a corollary of Theorem 1:
 
 \begin{thm}
-The critical $\beta_c$ for the two-sided model is the same as for the one-sided model, i.e., 
+The critical $\beta_c$ for the two-sided model 
+is the same as for the one-sided model, i.e., 
 $\beta_c^+=\beta_c$.
 \end{thm}
 
-This improves our result of Theorem 1 in \cite{johob4} that $\beta_c^+\leq 8\beta_c$.
+This improves our result of Theorem 1 in \cite{johob4}
+that $\beta_c^+\leq 8\beta_c$.
+
 \section{The one-dimensional random cluster model and the Ising--Dyson model}
 
 For a finite graph, let $\w(G)$ denote the number of connected components
@@ -245,43 +254,57 @@ coincide outside a \emph{finite} subset $\Lambda\subset \binom V2$.
 
 A random graph $G\sim\alpha$ on a set of vertices $V$ is a probability
 distribution $\alpha$ on the set $\{0,1\}^{\binom V2}$. The random cluster
-models $\mscr R(V,p)$, we consider are specified by a set of vertices $V$ and a
-weight function $p$, $ij\mapsto p(ij)\in[0,1]$, defined on the set of pairs
-$ij\in \binom V2$. The model $\mscr R(V,p)$ is a Gibbs distribution on random
-graphs, i.e.\ configurations i $\{0,1\}^{\binom V2}$, such that a
-
-In the one-dimensional Ising--Dyson model we let $V=\ZZ$ (or $V=V_+=\ZZ_{\ge0}$ for
-the one-sided case) and for $i,j\in V$ let
+models $\mscr R(V,p,q)$ (FK-model \cite{grimmet}), we consider are specified by a set 
+of vertices $V$ and a probabilities $p(ij)\in[0,1]$, defined on the set of pairs
+$ij\in \binom V2$. The model $\mscr R(V,p,q)$ is a Gibbs distribution on random
+graphs, i.e.\ configurations i $\gamma\in\{0,1\}^{\binom V2}$, with 
+non-continuous potential
+$$
+\phi(\gamma) = 
+- \log q \cdot\w(\gamma) + 
+\sum_{ij}\gamma(ij)\cdot \log p(ij) + (1-\gamma(ij))\cdot\log (1-p(ij)).
+$$
+The models $\mscr R(V,p,1)$ are referred to as ``Bernoulli percolation''. 
+In the one-dimensional Potts--Dyson random cluster model, 
+$\mscr R(V,\beta,\alpha,q)$,
+we let $V=\ZZ$ (or $V=\ZZ_{\ge0}$ and consider the random cluster model 
+$\mscr R(V,p,q)$ where 
 \begin{equation}\label{eq:Jdef}
+  p(ij) = 1-e^{-J(ij)} \quad\text{where}\quad 
   J({ij}) = \frac \beta{|i-j|^\alpha}.
 \end{equation}
-We will consider the case $\alpha=2$ and $0<\beta <\beta_c$. For $\beta>0$, let
-\(\g\sim \eta \) be the Bernoulli random graph $\eta \in \mscr G(V)$ with
-$$
-\P(ij \in \g)=1-e^{-\beta J({ij})}.
-$$
+When $q$
 
-The extended \emph{random cluster model} can be obtained by considering the
-product measure $\d\eta(\g) \otimes \d\ett(x)$ between an independent
-Bernoulli distributed $\g\sim\eta_p$ random graph on $\mscr G(V)$ and the
+It is well-known that for $\alpha\in(1,2]$ 
+there exists a $\beta_c=\beta_c(\alpha)$ 
+such that for all $\beta$, $0<\beta<\beta_c$, 
+there is with probability 1 no cluster of infinite size and with   
+We will mainly consider the case $1<\alpha\le 2$ and $0<\beta <\beta_c$ and use the following lemma. 
+\begin{lem}\label{geometric-bound}
+ Let $X=X(C_s)$ denote the size of the cluster $C_s$ 
+ containing a specified vertex $s\in V$. Then there are constants 
+ $K$ and $r$, $0<r<1$, such that $$\P(X\ge m)\le K r^{m}. $$ 
+\end{lem}
+\begin{proof}
+Duminil-Copine states that $\beta_c$ are the same for the case $q=1$ and $q>1$. 
+Panagiotis et al.\ states that it holds for $q=1$ when $0<\beta<\beta_c$. 
+Note that $\mscr R(V,p,1)$ stochastically dominates $\mscr R(V,p,q)$, $q>1$. 
+\end{proof}
+
+The extended \emph{random cluster model} with $q=2$ 
+can be obtained as the joint distribution $(x,\gamma)$
+product measure $\d\eta(\g) \otimes \d\eta(x)$ between an independent
+Bernoulli random graph $\g\sim\mscr R(V,p,1)$ random graph on $\mscr G(V)$ and the
 uniform measure $x\sim\ett$ on the spin sequences $x\in\{-1,+1\}^{V}$. The
 extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
 and $x$ obtained by conditioning on the on the event that $x$ and $\g$ are
-compatible: That is, the event $C(x,\g)$ that no spins $x_i=+1$ and $x_j=-1$ in
-$x$ are connected by a path (edge) in $\g$. One obtains the
-Ising model $\d\mu(x)$ and the random cluster model $\d\mu(\g)$ as the marginal
-distributions of $x$ and $\g$, respectively.
+\textemph{compatible}: 
+That is, the event $C(x,\g)$ that no spins $x_i=+1$ and $x_j=-1$ in
+$x$ are connected by a path (edge) in $\g$. One obtains the long range 
+Ising model with the Dyson potential $\phi_{\beta,\alpha}(x)$ as the marginal distribution of $x$ and the random cluster model $\mscr R(V,p,2)$ as the marginal distributions $\g$. 
 
-We can also introduce the random cluster model $\mu$ as the Gibbs measure on
-$\{0,1\}^{\binom V2}$
-$$ \d\mu = 2^{\w(\g)} \ltimes \d\eta(\g), $$
-where $\w(\g)$ is the potential counting then number of connected components
-(``clusters'') in $\g$. For the values of $\beta$ we consider the Gibbs measure
-is unique. Thus can we parameterise the random clusters models as
-$\mu = \mscr R(V,J)$ where $J(ij)$ is a given weighting on $\binom V2$ such as
-\eqref{eq:Jdef}.
-
-We observe the  difference between the one-sided random cluster model $\nu = \mscr R(V_+,J)$ and
+We now observe that a configuration $\g$ in the two-sided model $\mscr R(\ZZ,\alpha,\beta)$
+difference between the one-sided random cluster model $\nu = \mscr R(V_+,J)$ and
 the usual two-sided model $\mu = \mscr R(V,J)$. We will use that a configuration
 $\g$ can be factored as $\g = (\g_+, \e, \g_-)$, where $\g_-$ is the induced
 graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and $\g_+=\g[V_+]$ is the graph
