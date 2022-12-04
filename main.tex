@@ -88,8 +88,7 @@
 \renewcommand{\L}{\mathscr{L}}
 
 \def\X{X}
-\def\T{\opn{\msf{T}}}
-\def\F{\mscr F}
+\def\T{T}
 
 \def\scp#1#2{\left\langle #1 , #2 \right\rangle}
 
@@ -101,49 +100,71 @@
 
 \maketitle
 \begin{abstract}
-We prove that there exists a continuous eigenfunction of the transfer operator defined by potentials for the so-called Dyson model for all inverse critical temperatures that are strictly less than the critical inverse temperature. This includes all cases when the potential does not have summable variations, the classical condition that ensures the existence of a continuous eigenfunction of the transfer operator. As a consequence the inverse critical temperatures for the one-sided and the two-sided models are the same. We use the random cluster model for our method of proof, so the results also hold in this wider context. In particular, we base our conclusions of this paper by recent results of Duminil-Copin, Garban, and Tassion \cite{duminil}.
+  We prove that there exists a continuous eigenfunction of the transfer operator
+  defined by potentials for the so-called Dyson model for all inverse critical
+  temperatures that are strictly less than the critical inverse temperature.
+  This includes all cases when the potential does not have summable variations,
+  the classical condition that ensures the existence of a continuous
+  eigenfunction of the transfer operator. As a consequence the inverse critical
+  temperatures for the one-sided and the two-sided models are the same. We use
+  the random cluster model for our method of proof, so the results also hold in
+  this wider context. In particular, we base our conclusions of this paper by
+  recent results of Duminil-Copin, Garban, and Tassion \cite{duminil}.
 \end{abstract}
 \def\h{h}
 
 
 \section{Introduction}\noindent
 
-It is well-known \cite{walters1} that there exists a continuous and strictly positive
-eigenfunction $h$ for any transfer operator defined on a symbolic shift space
-with a finite number of symbols such that the potential has summable variations.
-Here we prove the existence of a continuous eigenfunction for the important special class
-of Dyson potentials up to the critical phase, when the potential does not
-satisfy the condition of summable variations. We stress that it is the continuity that is the main difficulty. 
-To see that there is a measurable eigenfunction follows from a simple application of the martingale 
+It is well-known \cite{walters1} that there exists a continuous and strictly
+positive eigenfunction $h$ for any transfer operator defined on a symbolic shift
+space with a finite number of symbols such that the potential has summable
+variations. Here we prove the existence of a continuous eigenfunction for the
+important special class of Dyson potentials up to the critical phase, when the
+potential does not satisfy the condition of summable variations. We stress that
+it is the continuity that is the main difficulty. To see that there is a
+measurable eigenfunction follows from a simple application of the martingale
 convergence theorem.
 
-More precisely, let $T$ be the left shift on the space $X_+=S^{{\mathbb Z}_+}$,
-where $S$ is a finite set. Define a transfer operator ${\mathcal L}$ on
-continuous functions $f$ by
-\begin{equation}\label{trans} {\mathcal L} f(x)= \sum_{y\in T^{-1}x}
-  e^{\phi(y)}f(y),
+More precisely, let $\T$ be the left shift on the space $\X=S^{{\mathbb Z}_+}$,
+where $S$ is a finite set. Let $\phi:\X\to \RR$ be a continuous function defined up
+to an additive constant. We refer to $\phi$ as a one-point \emph{potential}. A
+\emph{Gibbs measure} $\nu$ for $\phi$ is one that minimises the free energy
+$P(\nu;\phi)=\nu(\phi)-H(\nu)$, where $H(\nu)$ denotes the entropy
+$\lim_{n\to\infty} H(\nu\vert_{\CF_n})/n$ per time unit. This measure $\nu$ can also be
+obtained as a Gibbs measure on $\X$ with respect to the potential
+$\sum_{k=0}^\infty \phi(\T^k x)$ on $\X$. The \emph{equilibrium measure} $\mu$ is a minimiser
+of $P(\mu;\phi)$ among all translation invariant measures $\mu\in{\CM}_T(\X)$. Taking the
+natural extension of $\mu$, we can represent $\mu$ as a translation invariant
+measure on the \emph{two-sided} space $\X_0 = S^\ZZ$.
+
+In addition, we can define the transfer operator $\mc L=\mc L_\phi$ on
+continuous functions $f(x)$ by
+\begin{equation}\label{trans}
+  {\mathcal L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}\, f(y),
 \end{equation}
-where $\phi$ is a continuous potential. Since $X_+$ is a compact space, it
-follows automatically from the Schauder--Tychonoff theorem that the dual
-${\mathcal L}^*$, restricted to the probability measures, has an eigenmeasure
-$\nu$: ${\mathcal L}^* \mu=\lambda \nu$, for some $\lambda>0$. The existence of
-a continuous eigenfunction $h$ such that ${\mathcal L}h=\lambda h$, $\lambda>0$,
-is however not automatic. 
+Since $\X$ is a compact space, it follows automatically from the
+Schauder--Tychonoff theorem that the dual ${\mathcal L}^*$, restricted to the
+probability measures, has an eigenmeasure $\nu$: ${\mathcal L}^* \mu=\lambda \nu$, for some
+maximal $\lambda>0$. This eigenmeasure $\nu$ is also the Gibbs measure with respect to $\nu$ constructed above.
+The existence of
+a continuous eigenfunction $h$ such that ${\mathcal L}h=\lambda h$, $\lambda>0$, is however
+not automatic.
 
 If one assumes summable variations of $\phi$,
 \begin{equation}\label{sum}
   \sum_{n=1}^\infty \var_n (\phi)<\infty,
 \end{equation}
-where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that
-$x$ and $y$ coincide in the first $n$ entries), then existence of a continuous
+where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that $x$ and $y$
+coincide in the first $n$ entries), then the existence of a continuous
 eigenfunction follows from the typical ``cone-argument'' used in {\em e.g.},
-Walters \cite{walters1}, which to date is the only
-known method for providing the existence of a continuous eigenfunction.
+Walters \cite{walters1}, which to date is the only known method for providing
+the existence of a continuous eigenfunction. (??)
 
-If $\mu$ is the equilibrium measure (translation invariant Gibbs measure) for
-the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then (with
-slight abuse of notation) $\mu$ is recovered on $X_+$ as an eigenmeasure for the
-probability potential
+If $\mu$ is the corresponding equilibrium measure (translation invariant Gibbs
+measure) for the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then
+(with slight abuse of notation) $\mu$ is recovered on $\X$ as an eigenmeasure for
+the probability potential
 \begin{equation}\label{g}
   g(x)= \frac{h(x) e^{\phi(y)}}{\lambda h(Tx)}.
 \end{equation} 
@@ -174,12 +195,12 @@ one-sided potentials
 Here, however, we study only the Dyson potential: Fix $\alpha>1$ and $\beta>0$. Let the one-point potential $\phi$ be given by
 $$\phi(x_0, x_1,\ldots)=x_0\cdot \beta \sum_{j=1}^\infty \frac{x_j}{j^\alpha},$$
 and define the one-sided and two-sided 
-Dyson potentials, $\phi:\X_+\to \RR$ and $\psi:\X\to\RR$, respectively, as 
+Dyson potentials, $\phi:\X\to \RR$ and $\psi:\X\to\RR$, respectively, as
 $$
 \phi(x)=\sum_{k=0}^\infty x_k \theta (T^k x) \quad
 \psi(x)=\sum_{k=-\infty}^\infty x_k \theta(T^k x).
 $$
-Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$ and $\CM(\X_+)$, corresponding to $\psi$ and $\phi$, respectively.  
+Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$ and $\CM(\X)$, corresponding to $\psi$ and $\phi$, respectively.
 
 We then have for $\alpha>2$
 $$\mu\vert_{{\mathcal F}_{[0,\infty)}}= h\nu,$$
@@ -198,7 +219,7 @@ We prove that if the inverse critical temperature $\beta$ is strictly smaller th
 to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure,
 i.e., ${\mathcal L}^*\nu=\lambda \nu$. Define
 $$h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n]},$$
-and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$ (that exists by virtue of the martingale convergence theorem). If $\beta<\beta_c$, then $h$ is a continuous function on $X_+$, and which is also
+and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$ (that exists by virtue of the martingale convergence theorem). If $\beta<\beta_c$, then $h$ is a continuous function on $\X$, and which is also
 an eigenfunction of ${\mathcal L}$.
 \end{thm}
 
@@ -314,7 +335,7 @@ for all $m\geq n$, as $n\to \infty$.
   T^{-1}=h\nu$ and it suffices to show that $(h\nu)\circ T^{-1}=({\mathcal
     L}h)\nu$.
 
-  Let $A$ be any Borel subset of $X_+$. Then
+  Let $A$ be any Borel subset of $\X$. Then
   $$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
 \end{proof}
 
