@@ -92,7 +92,8 @@
 
 \def\scp#1#2{\left\langle #1 , #2 \right\rangle}
 
-\title[Existence of continuous eigenfunction]{Existence of continuous eigenfunctions for the Dyson model in the critical phase}
+\title[Existence of continuous eigenfunction]{Existence of continuous
+  eigenfunctions for the Dyson model in the critical phase}
 
 \author{Anders Johansson, Anders \"Oberg, and Mark Pollicott}
 \date{}
@@ -128,92 +129,111 @@ convergence theorem.
 
 More precisely, let $\T$ be the left shift on the space $\X=S^{{\mathbb Z}_+}$,
 where $S$ is a finite set. Let $\phi:\X\to \RR$ be a continuous function defined up
-to an additive constant. We refer to $\phi$ as a one-point \emph{potential}. A
-\emph{Gibbs measure} $\nu$ for $\phi$ is one that minimises the free energy
+to an additive constant. We refer to $\phi$ as the \emph{one-point potential}. A
+\emph{Gibbs measure} $\nu\in\CM(\X)$ for $\phi$ is one that minimises the free energy
 $P(\nu;\phi)=\nu(\phi)-H(\nu)$, where $H(\nu)$ denotes the entropy
 $\lim_{n\to\infty} H(\nu\vert_{\CF_n})/n$ per time unit. This measure $\nu$ can also be
-obtained as a Gibbs measure on $\X$ with respect to the potential
-$\sum_{k=0}^\infty \phi(\T^k x)$ on $\X$. The \emph{equilibrium measure} $\mu$ is a minimiser
-of $P(\mu;\phi)$ among all translation invariant measures $\mu\in{\CM}_T(\X)$. Taking the
-natural extension of $\mu$, we can represent $\mu$ as a translation invariant
-measure on the \emph{two-sided} space $\X_0 = S^\ZZ$.
-
-In addition, we can define the transfer operator $\mc L=\mc L_\phi$ on
-continuous functions $f(x)$ by
+obtained as the Gibbs measure on $\X$ obtained from the full potential
+$$ \Phi(x)=\sum_{k=0}^\infty \phi(\T^k x) $$
+on $\X$. A Gibbs measure $\nu$ is also obtained as an eigenmeasure of the dual of
+the \emph{transfer operator} $\mc L=\mc L_\phi$ defined on continuous functions by
 \begin{equation}\label{trans}
-  {\mathcal L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}\, f(y),
+  \mc{L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}\, f(y).
 \end{equation}
-Since $\X$ is a compact space, it follows automatically from the
-Schauder--Tychonoff theorem that the dual ${\mathcal L}^*$, restricted to the
-probability measures, has an eigenmeasure $\nu$: ${\mathcal L}^* \mu=\lambda \nu$, for some
-maximal $\lambda>0$. This eigenmeasure $\nu$ is also the Gibbs measure with respect to $\nu$ constructed above.
-The existence of
-a continuous eigenfunction $h$ such that ${\mathcal L}h=\lambda h$, $\lambda>0$, is however
-not automatic.
+Such an eigenmeasure $\nu$ satisfies $\mc{L}^* \mu=\lambda \nu$, for some maximal positive
+eigenvalue $\lambda>0$.
 
-If one assumes summable variations of $\phi$,
+
+The \emph{equilibrium measure} $\mu$ is a minimiser of $P(\mu;\phi)$ among all
+\emph{translation invariant} measures $\mu\in{\CM}_\T(\X)$. Taking the natural
+extension of $\mu$, we can also represent $\mu$ as a translation invariant measure
+on the \emph{two-sided} space $\ol\X = S^\ZZ$ and we can alternatively construct
+the measure $\mu\in\CM_\T(\ol\X)$ as the Gibbs measure to the full two-sided potential
+\[
+  \ol \Phi(x)=\sum_{k=-\infty}^\infty \phi(\T^k x)
+\]
+defined on $x\in\ol\X$.
+If there exists a continuous eigenfunction $h(x)$ to the transfer operator, the
+measure $\mu$ can be recovered as the Doeblin measure \cite{berger2} (a.k.a.\
+$g$-measure in the terminology of Keane \cite{keane}) corresponding to the
+\emph{Doeblin function} $g(x)$ where
+\begin{equation}\label{g}
+  g(x)= \frac{h(x) e^{\phi(y)}}{\lambda h(\T x)}.
+\end{equation}
+
+The existence of a continuous eigenfunction $h$ to $\mc{L}$, such that
+$\mc{L}h=\lambda h$, is however not automatic in same way the existence of the
+eigenmeasure $\nu$ is. If one assumes summable variations of $\phi$,
 \begin{equation}\label{sum}
   \sum_{n=1}^\infty \var_n (\phi)<\infty,
 \end{equation}
 where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that $x$ and $y$
 coincide in the first $n$ entries), then the existence of a continuous
-eigenfunction follows from the typical ``cone-argument'' used in {\em e.g.},
-Walters \cite{walters1}, which to date is the only known method for providing
-the existence of a continuous eigenfunction. (??)
+eigenfunction $h(x)$ follows from the typical ``cone-argument'' used in {\em
+  e.g.}, Walters \cite{walters1}, which to date is the only known method for
+providing the existence of a continuous eigenfunction. (??) In this paper, we
+prove in a lemma that if there is a translation invariant measure $\mu$ which is
+absolutely continuous with respect to the Gibbs measure $\mu$ the Radon--Nikodym
+derivative $h(x)=\dfrac{\partial\mu}{\partial\nu}$ is an eigenfunction of $\mscr L$.
 
-If $\mu$ is the corresponding equilibrium measure (translation invariant Gibbs
-measure) for the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then
-(with slight abuse of notation) $\mu$ is recovered on $\X$ as an eigenmeasure for
-the probability potential
-\begin{equation}\label{g}
-  g(x)= \frac{h(x) e^{\phi(y)}}{\lambda h(Tx)}.
-\end{equation} 
-More precisely, for a transfer operator ${\mathcal L}_g$, defined on continuous functions $f$ by
-\begin{equation} {\mathcal L}_g f(x)=\sum_{y\in T^{-1}x} g(y) f(y)
-\end{equation}
-we have ${\mathcal L}_g^*\mu=\mu$, and also the invariance $\mu\circ
-T^{-1}=\mu$. In \cite{johob} it was proved that uniqueness of such $g$-measures (in the terminology of Keane \cite{keane}) follows if
-we have
-$$\sum_{n=1}^\infty (\var_n g)^2<\infty,$$
-and more recently Berger et al.\  \cite{berger2} proved that for such {\em Doeblin measures} uniqueness follows if
-$\var_n \log g <2/\sqrt{n}$ (see also \cite{johob3} for a slightly stronger condition). This is in contrast to Dyson's counterexample in \cite{dyson} where it is shown that there are examples of multiple equilibrium measures for $\phi$ whenever 
-$$\sum_{n=1}^\infty (\var_n \phi)^{1+\epsilon}<\infty,$$
-where $\epsilon>0$. Dyson's example is for a two-sided model, but we showed in \cite{johob4} that the inverse critical temperature $\beta_c^+$ satisfies $\beta_c^+\leq 8\beta_c$, where  $\beta_c$ is the inverse critical temperature for the two-sided model, and this show that Dyson's example of multiple equilibrium measures can be formulated for a one-sided model as above.
-
-Since we have the ``translation'' via \eqref{g} between the case for general potentials and for Doeblin measures, we may guess that the existence of a continuous eigenfunction cannot be moved very far away from the summability of variations condition for a potential.
-
-One possibility for the existence of a continuous eigenfunction in general could be the Berbee condition.
-Berbee proved (\cite{berbee89}) that there exists a
-unique equilibrium measure whenever
+Both the question of uniqueness and the question about the a continuous
+eigenfunction seems related to the smoothness of the potential. One possibility
+for the existence of a continuous eigenfunction in general could be the
+\emph{Berbee condition}. Berbee proved (\cite{berbee89}) that the Gibbs measure
+$\nu$ and the equilibrium measure $\mu$ are unique if we have
 \begin{equation}\label{berbee}
-  \sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,    
+  \sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,
 \end{equation}
-where $r_n=\var_n \log \phi$. Berbee's condition
-gives uniqueness for both the two-sided and
-one-sided potentials
+where $r_n=\var_n \phi$.
 
-Here, however, we study only the Dyson potential: Fix $\alpha>1$ and $\beta>0$. Let the one-point potential $\phi$ be given by
+
+In \cite{johob} it was proved that uniqueness of Doeblin measures follows
+whenever
+$$ \sum_{n=1}^\infty (\var_n g)^2<\infty, $$
+and more recently Berger et al.\ \cite{berger2} proved that for such Doeblin
+measures uniqueness follows if $\var_n \log g <2/\sqrt{n}$ (see also
+\cite{johob3} for a slightly stronger condition).
+This connects to Dyson's counterexample in \cite{dyson} where it is shown that
+there are examples of multiple equilibrium measures for $\phi$ whenever
+$$\sum_{n=1}^\infty (\var_n \phi)^{1+\epsilon}<\infty,$$
+where $\epsilon>0$.
+
+Dyson's example is for a two-sided model, but we showed in \cite{johob4} that
+the inverse critical temperature $\beta_c^+$ satisfies $\beta_c^+\leq 8\beta_c$, where $\beta_c$ is
+the inverse critical temperature for the two-sided model, and this show that
+Dyson's example of multiple equilibrium measures can be formulated for a
+one-sided model as above.
+
+Since we have the ``translation'' via \eqref{g} between the case for general
+potentials and for Doeblin measures, we may guess that the existence of a
+continuous eigenfunction cannot be moved very far away from the summability of
+variations condition for a potential.
+
+Here, however, we study only the Dyson potential: Fix $\alpha>1$ and $\beta>0$. Let the
+one-point long-range Ising potential $\phi=\phi_{\alpha,\beta}$ be given by
 $$\phi(x_0, x_1,\ldots)=x_0\cdot \beta \sum_{j=1}^\infty \frac{x_j}{j^\alpha},$$
-and define the one-sided and two-sided 
-Dyson potentials, $\phi:\X\to \RR$ and $\psi:\X\to\RR$, respectively, as
-$$
-\phi(x)=\sum_{k=0}^\infty x_k \theta (T^k x) \quad
-\psi(x)=\sum_{k=-\infty}^\infty x_k \theta(T^k x).
-$$
-Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$ and $\CM(\X)$, corresponding to $\psi$ and $\phi$, respectively.
+and define the one-sided and two-sided Dyson potentials, $\Phi:\X\to \RR$ and
+$\bar\Phi:\ol\X\to\RR$ as above. Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$
+and $\CM(\ol\X)$, corresponding to $\Phi$ and $\ol\Phi$, respectively.
 
 We then have for $\alpha>2$
-$$\mu\vert_{{\mathcal F}_{[0,\infty)}}= h\nu,$$
-where $\mu$ is the two-sided translation invariant Gibbs measure (the
-equilibrium measure) and where ${\mathcal L}^*\nu=\lambda \nu$, and $h>0$ is a
-H\"older continuous eigenfunction. We are interested in the boundary case
-$\alpha=2$, when there exists a unique equilibrium measure for $\psi$ for
-$\beta<\beta_c$ \cite{ACCN}. In this case the summable variations condition is not satisfied
-for neither $\psi$ nor $\phi$; hence we may have multiple eigenmeasures for
-${\mathcal L}^*$. In this context we have $\var_n(\phi)=O(\frac{1}{n})$, but as we noted earlier, in the general setting above, is not clear that there exists a continuous eigenfunction even in the cases we have a unique
-equilibrium measure
+$$ \mu= h\nu, $$
+where $h>0$ is a H\"older continuous eigenfunction. We are interested in the
+boundary cases where $1<\alpha\le2$, when there exists a unique equilibrium measure for
+$\ol\Phi$ for $\beta<\beta_c$ \cite{ACCN} and multiple equilibrium measures when $\beta>\beta_c$,
+where the critical parameter $\beta_c=\beta_c(\alpha)>0$ for $1\le\alpha\le2$. We show here that the
+same uniqueness properties holds for the ``one-sided'' Gibbs measure $\nu$.
 
-We prove that if the inverse critical temperature $\beta$ is strictly smaller than the critical inverse temperature $\beta_c$, which will be seen to be the same for the two-sided and one-sided models, then we have a continuous eigenfunction of ${\mathcal L}$.
+In this case the summable variations condition is not satisfied for neither
+$\ol\Phi$ nor $\Phi$; hence we may have multiple eigenmeasures for $\mc{L}^*$. In
+this context we have $\var_n(\phi)=O(\frac{1}{n})$, but as we noted earlier, in the
+general setting above, is not clear that there exists a continuous eigenfunction
+even in the cases we have a unique equilibrium measure
+
+We prove that if the inverse critical temperature $\beta$ is strictly smaller than
+the critical inverse temperature $\beta_c$, which will be seen to be the same for
+the two-sided and one-sided models, then we have a continuous eigenfunction of
+$\mc{L}$.
 
 Let $\mu$ be the Gibbs equilibrium measure with respect
 to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure.
@@ -226,7 +246,7 @@ and consider the measurable function $h(x)=\limsup_{n\to \infty}h_n(x)$.
 \begin{thm}\label{main} 
 If $\beta<\beta_c$, i.e.\ in the subcritical phase,  
 then $h(x)$ is a continuous function on $\X$ and it is also an 
-eigenfunction of ${\mathcal L}$.
+eigenfunction of $\mc{L}$.
 \end{thm}
 
 We conjecture that there exists a continuous eigenfunction for a potential
@@ -277,7 +297,7 @@ $\mscr R(V,p_J,q)$ where
 When $q$
 
 Percolation is the event that the random graph contains an infinite cluster. 
-It is well-known \cite{accn} that for all $\alpha\in(1,2]$ 
+It is well-known \cite{ACCN} that for all $\alpha\in(1,2]$
 there exists a critical $\beta_c=\beta_c(\alpha)$ 
 such that, percolation does not occur with probability 1 for $0<\beta<\beta_c$, 
 while for $\beta\in(\beta_c,\infty)$ there is with probability 1
@@ -290,92 +310,48 @@ We will mainly consider the subcritical case $1<\alpha\le 2$ and $0<\beta <\beta
  $K$ and $r$, $0<r<1$, such that $$\P(X\ge m)\le K r^{m}. $$ 
 \end{lem}
 \begin{proof}
-Note that $\mscr R(V,p,1)$ stochastically dominates $\mscr R(V,p,q)$, $q>1$. 
-Duminil-Copine states that $\beta_c$ are the same for the case $q=1$ and $q>1$. 
-Panagiotis et al.\ states that it holds for $q=1$ when $0<\beta<\beta_c$. 
+  As surveyed by Panagiotis \cite{panagiotis} (Theorem 1.2.1), we know that it
+  holds for Bernoulli percolation ($q=1$) when $0<\beta<\beta_c$. Since $\mscr R(V,p,1)$
+  stochastically dominates $\mscr R(V,p,q)$, $q>1$, it also holds for the
+  FK-model. Finally, Duminil-Copine (\cite{duminil}) proves that $\beta_c(\alpha,q)$ are
+  the same for the case $q=1$ and $q>1$.
 \end{proof}
 
-The extended \emph{random cluster model} with $q=2$ 
-can be obtained as the joint distribution
-of the spin sequences $x\in\{-1,+1\}^{V}$ and a random graph $\gamma\in \{0,1\}^{\binom V2}$. 
-The distribution of $(x,\gamma)$ is obtained by first considering the pair 
-chosen independently: The spin sequence $x\in\{-1,+1\}^{V}$
-according to the uniform Bernoulli measure 
-$x\sim\eta(V,p=\frac12)$ on the spin sequences and the random graph $\gamma$ 
-according to the Bernoulli measure $\eta(\binom V2, p)=\mscr R(V,p_J,1)$. 
-. The extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
-product measure $\d\eta(x;\frac12) \otimes \eta(x;p)$ between an independent
-Bernoulli random graph $\g\sim\mscr R(V,p,1)$ random graph on $\mscr G(V)$ and 
-and $x$ obtained by conditioning on the on the event that $x$ and $\g$ are
-\emph{compatible}: 
-That is, the event $C(x,\g)$ that no spins $x_i=+1$ and $x_j=-1$ in
-$x$ are connected by a path (edge) in $\g$. One obtains the long range 
-Ising model with the Dyson potential $\phi_{\beta,\alpha}(x)$ as the marginal distribution of $x$ and the random cluster model $\mscr R(V,p,2)$ as the marginal distributions $\g$. 
+\subsubsection{The extended random cluster model}
+The extended \emph{random cluster model} with $\mscr R_e(V,p,q)$ can be obtained
+as the joint distribution of the spin sequences $x\in\{1,2,\dots,q\}^{V}$ and a
+random graph $\gamma\in\{0,1\}^{\binom V2}$. The distribution of $(x,\gamma)$ is obtained by
+first considering the pair chosen independently: The spin sequence
+$x\in\{0,1,\dots,q\}^{V}$ according to the uniform Bernoulli measure
+$x\sim\eta(V,p=\frac1q)$ on the spin sequences and the random graph $\gamma$ according to
+the Bernoulli measure $\eta(\binom V2, p)=\mscr R(V,p,1)$. Then $\mscr R_e(V,p,q)$
+is the distribution of $(x,\gamma)$ \emph{conditioned on} $x$ and $\gamma$ being
+\emph{compatible}: That is, the event $C(x,\g)$ that no spins $x_i=+1$ and
+$x_j=-1$ in $x$ are connected by a path (edge) in $\g$.
 
-We now observe that a configuration $\g$ in the two-sided model $\mscr R(\ZZ,\alpha,\beta)$
-difference between the one-sided random cluster model
-$\nu = \mscr R(V_+,J)$ and
-the usual two-sided model $\mu = \mscr R(V,J)$. We will use that a configuration
-$\g$ can be factored as $\g = (\g_+, \e, \g_-)$, where $\g_-$ is the induced
-graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and $\g_+=\g[V_+]$ is the graph
-induced on vertices $i\in V_+=\ZZ_{\ge0}$. The graph $\e=\g\cap E(V_+,V-)$
-consists of edges $ji$, $i\ge0$ and $j\ge 1$, connecting vertices $-j\in V_-$
-with vertices $i\in V_+$. Note that we often use positive indices $i,j$, $i\ge0$
-and $j>0$, as labels for edges in $\e$. Thus $J(ij)=\beta/(i+j)^\alpha$ with
-this labelling.
+Assume $(x,\mu)\sim\mu=\mscr R_e(V,p,q)$. Then marginal distribution $\mu\circ x^{-1}$ of $x$
+is the Potts model with interactions given by $J(ij)=\log(1-p(ij))$ and the
+marginal distribution $\mu\circ\gamma^{-1}$ of $\gamma$ is the random cluster model
+$\mscr R(V,p,q)$ described above.
 
-Let
-$$
-\tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon).
-$$
-Note that both $\eta(\cdot)$ and $\tilde\eta (\cdot)$ are Bernoulli measures.
-Let also
-$$
-d\tilde \nu_n(\gamma) =
-\frac{d\nu(\gamma_-)\otimes \tilde \eta(\epsilon)\otimes \nu(\gamma_+)}{\nu(B([x]_n,\gamma_+))}
-$$
+Let $S\subset V$ be a finite subset.
+We need to establish the probability $\mu([x]_S)$ of a cylinder $[x]_S$ under
+$\mu=\mscr R_e(V,p,q)$. We have the following lemma.
 
-Let $R_n$ be the number of correcting edges, i.e.,
-$$
-R_n=\# \{ij\in \epsilon: \omega (\gamma_{< ij}+ij)=\omega (\gamma_{ij}\},\quad j>n.
-$$
-Let $B_n(\g)=C([x]_n,\gamma)$ be the indicator of the event that cylinder $[x]_n$ is compatible with graph $\g=(\g_-,\e,\g_+)$.
-Let also $B'_n(\g) = B_n(\g) + (1-B_n(\g_+))$ indicate compatibility of $[x]_n$ with $\g$ or not compatible with $\g_+$.
-We then have
-\[
-  h_n(x) = \frac{\mu [x]_n}{\nu [x]_n}\propto \int B_n(\g) \cdot 2^{R_n(\g)} \; d\tilde \nu_n (\gamma)
-\]
-
-Note that
-$$ R_n(\g) \le Q_n(\g_-,\e) $$
-where $Q_n$ denotes the number of edges in $\e$ that connects a vertex $j\ge n$ to a
-cluster in $\g_-$ with at least one more edge from the cluster to $[0,n-1]$. That is,
-$$  Q_n=\# \{ij \in \epsilon \mid  \exists k\, \exists l\, kl\in\e,  i \sim_{\gamma-} k, k>i, j > n\}.$$
-Notice that $Q_n$ only depends on $(\gamma_-,\epsilon)$.
-
-
-
-\section{Proofs of the main results}\noindent
-
-\begin{lem}
-  There exists a continuous eigenfunction $h$ of ${\mathcal L}$, if, 
-$$\frac{\mu[x_0,\ldots x_n, \ldots, x_m]}{\nu[x_0,\ldots, x_n, \ldots, x_m]}=(1+o(1)) \frac{\mu[x_0,\ldots, x_n]}{\nu[x_0, \ldots, x_n]},$$
-for all $m\geq n$, as $n\to \infty$.
+\begin{lem}[Probability of cylinder]
+  We have
+  \[
+    \mu([x]_S) =  \int q^{-\w_S(\g)} B(x_S,\g) \d\mu(\g)
+    = \int q^{-\tilde\w_S(\g)} \,
+  \]
+  (***)
 \end{lem}
-\begin{proof}
-  Let $\lambda=1$. By the assumption, the measure $\mu= \h \nu$ is translation
-  invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have $(h\nu)\circ
-  T^{-1}=h\nu$ and it suffices to show that $(h\nu)\circ T^{-1}=({\mathcal
-    L}h)\nu$.
 
-  Let $A$ be any Borel subset of $\X$. Then
-  $$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
-\end{proof}
+****
 
-\noindent
+\subsubsection{The interface perturbation}
+
 We now fix some notation before proceeding to prove that we have a continuous eigenfunction.
-\newline
-
 \begin{center}
 \begin{tabular}{rp{0.8\textwidth}}
   $d\tilde\eta(\e)$ & The Bernoulli measure $2^{-|\e|}\ltimes d\eta(\e)$ \\
@@ -402,16 +378,68 @@ We now fix some notation before proceeding to prove that we have a continuous ei
 \end{tabular}
 \end{center}
 
+One obtains the long range Ising model with the Dyson potential $\phi_{\beta,\alpha}(x)$ as
+the marginal distribution of $x$ and the random cluster model $\mscr R(V,p,2)$
+as the marginal distributions $\g$.
+
+We now observe that a configuration $\g$ in the two-sided model
+$\mscr R(\ZZ,\alpha,\beta)$ difference between the one-sided random cluster model
+$\nu = \mscr R(V_+,J)$ and the usual two-sided model $\mu = \mscr R(V,J)$. We will
+use that a configuration $\g$ can be factored as $\g = (\g_+, \e, \g_-)$, where
+$\g_-$ is the induced graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and
+$\g_+=\g[V_+]$ is the graph induced on vertices $i\in V_+=\ZZ_{\ge0}$. The graph
+$\e=\g\cap E(V_+,V-)$ consists of edges $ji$, $i\ge0$ and $j\ge 1$, connecting vertices
+$-j\in V_-$ with vertices $i\in V_+$. Note that we often use positive indices $i,j$,
+$i\ge0$ and $j>0$, as labels for edges in $\e$. Thus $J(ij)=\beta/(i+j)^\alpha$ with this
+labelling.
+
+Let
+$$ \tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon). $$
+Note that both $\eta(\cdot)$ and $\tilde\eta (\cdot)$ are Bernoulli measures. Let also
+$$ d\tilde \nu_n(\gamma) = \frac{d\nu(\gamma_-)\otimes \tilde \eta(\epsilon)\otimes \nu(\gamma_+)}{\nu(B([x]_n,\gamma_+))}. $$
+
+Let $R_n$ be the number of correcting edges, i.e.,
+$$
+R_n=\# \{ij\in \epsilon: \omega (\gamma_{<ij}+ij)=\omega (\gamma_{<ij})\},\quad j>n.
+$$
+Let $B_n(\g)=C([x]_n,\gamma)$ be the indicator of the event that cylinder $[x]_n$ is compatible with graph $\g=(\g_-,\e,\g_+)$.
+Let also $B'_n(\g) = B_n(\g) + (1-B_n(\g_+))$ indicate compatibility of $[x]_n$ with $\g$ or not compatible with $\g_+$.
+We then have
+\[
+  h_n(x) = \frac{\mu [x]_n}{\nu [x]_n}\propto \int B_n(\g) \cdot 2^{R_n(\g)} \; d\tilde \nu_n (\gamma)
+\]
+
+Note that
+$$ R_n(\g) \le Q_n(\g_-,\e) $$
+where $Q_n$ denotes the number of edges in $\e$ that connects a vertex $j\ge n$ to a
+cluster in $\g_-$ with at least one more edge from the cluster to $[0,n-1]$. That is,
+$$  Q_n=\# \{ij \in \epsilon \mid  \exists k\, \exists l\, kl\in\e,  i \sim_{\gamma-} k, k>i, j > n\}.$$
+Notice that $Q_n$ only depends on $(\gamma_-,\epsilon)$.
+
+
+
+\section{Proof of Theorem 1}\noindent
 
 \begin{lem}
-The limit $h(x)=\lim_{n\to\infty} h_n(x)$ is continuous where, form $m\ge1$
-\(h_m(x) = \dfrac{\mu([x]_m)}{\nu([x]_m)}\).
+  If $\mu\in\CM_\T(\X)$ is a translation invariant measure which is absolutely
+  continuous with the Gibbs measure $\nu$ for $\phi$ then the Radon--Nikodym
+  derivative $h(x)=\dfrac{\partial\mu}{\partial\nu}(x)$ is an eigenfunction to the transfer
+  operator $\mscr L =\mscr L_\phi$.
 \end{lem}
+\begin{proof}
+  We can assume $\lambda=1$. By assumption, the measure $\mu= \h \nu$ is translation
+  invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have $(h\nu)\circ T^{-1}=h\nu$ and it
+  suffices to show that $(h\nu) \circ T^{-1}=({\mathcal L}h)\nu$.
 
-\noindent
-{\em Proof} \newline
+  Let $A$ be any Borel subset of $\X$. Then
+  $$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
+\end{proof}
 
-\noindent
+We need to prove that the $h_n(x)$ converge to a continuous function $h(x)$ as
+$n\to\infty$. It is enough to show that
+$$ \sup_{x,m\ge n} \frac{h_m(x)}{h_n(x)} = 1 + o({1}) \quad\text{as $n\to\infty$}$$
+since this shows that $\log h_n$ is a Cauchy-sequence.
+
 Recall that
 \begin{equation}\label{eq:3}
   h_m(x) =  \int B'_m 2^{R_m} \d \nu(\g_-)\d\tl\eta(\e) \d \nu(\g_+|B_m^+).
@@ -469,17 +497,16 @@ and hence that the limit $h(x)$ is continuous.
 
 \subsubsection*{Proof of Lemma~\ref{lem:qn}}
 
-
-We condition on a fixed graph $\g_-$ with distribution $\nu_-$. Let $C$ be a cluster of $\g_-$.
-Note that
+We condition on a fixed graph $\g_-$ with distribution $\nu_-$. Let $C$ be a
+cluster of $\g_-$. Note that
 $$ Q=(X(C_1) -1)_{+} +(X(C_2)-1)_{+} + \ldots $$
-where $X(C_i)$, is a sum of independent Bernoulli variables
+where $X(C)$, is a sum of independent Bernoulli variables
 $$ X(C) = \sum_{-j\in C} \sum_{i=0}^\infty \e_{ji} $$
 where
 $$
 \P(\e_{ij}=1) = \frac{1- \exp\{-\frac \beta{(i+j)^2}\}}{2}
 $$
-It follows that we can approximate $X(C)$ with a Poisson variable
+It follows that we can approximate $X(C)$ with a Poisson variable (***)
 $\tl X(C) \sim \opn{Po}(\lambda(C))$ with
 $$
 \lambda(C) = \frac{\beta}{2} \sum_{j\in C} \frac 1j
@@ -493,40 +520,40 @@ Note that
 where $-i(C)=\max C$.
 
 Order the clusters of $\g_-$ as $C_1,C_2,\dots$ etc. so that
-$i(C_1)<i(C_2)<\dots$. For each clister $C_i$ we can from stochastic dominance
-construct a random cluster $\tl C_i$ such that (i) $C_i\subset \tl C_i$ and (ii)
-$i(\tl C_i)=i(C_i)$. We can further assume that the $\tl C_i$s are \emph{independent}.
+$i(C_1)<i(C_2)<\dots$. For each cluster $C_i$ we can from stochastic dominance
+construct a random cluster $\tl C_i$ such that (i) $C_i \subset \tl C_i$ and (ii)
+$i(\tl C_i)=i(C_i)$. We can further assume that the $\tl C_i$s are
+\emph{independent} with the same distribution.
 
 Let now
 \[
   \tl Q = \sum_{C_i} (\tl X(\tl C_i) - 1)_+.
 \]
 where $\P(\tl X(\tl C)| \tl C) = \opn{Po}(\lambda(\tl C))$ which stochastically
-dominates $X(C)$. Note that for a poissonvariable $X\sim\opn{Po}(\lambda)$ we have
+dominates $X(C)$. For a poisson variable $X\sim\opn{Po}(\lambda)$ we have
 \[
   \E(2^{(X-1)_+}) = \frac{\exp(\lambda(e^{\ln 2}-1)) + e^{\lambda}}{2} = \cosh(\lambda)
 \]
 
 We then have
 $$
-A := \E(2^Q | \gamma_- )\leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).
+\E(2^Q | \gamma_- ) \leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).
 $$
-We obtain ($i(C_k)\leq k$)
-$$E(A)\leq \prod_{k=1}^\infty \left(1+\frac{E(|\tilde C_k|^2)}{k^2}\right)\cdot K,$$
-where $K$ is a constant.
+We obtain, since $i(C_k)\geq k$ and \qr{eq:lambdabound} and the independence of
+$\tl C_k$, that
+\begin{align}
+  E(2^Q) &\leq \prod_{k=1}^\infty \E\left(\frac{1}{2}\left(1+\frac{Y}{k}+\frac{1}{1+\frac{Y}{k}}\right) \right) \\
+         &\leq \prod_{k=1}^\infty \E\left(1+\frac{Y^2}{k^2} + \frac{Y^3}{k^3} + \dots \right).
+\end{align}
+where $Y$ has the common distribution of $|C_k|$. It is easy to see that this is
+less than $\infty$ on account of Lemma~\ref{geometric-bound}, which states that the
+distribution $Y$ has an exponentially decreasing bound for the upper tail.
 
+Since $Q = \lim Q_n$ we obtain from this that
+\[
+  \E(2^{Q_{>n}}) = \E(2^{Q-Q_n}) = 1+o(1) \quad\text{as $n\to\infty$.} \qed
+\]
 
-If $|C_k|\leq 0.1 k$, then
-$$\cosh (\lambda (\tilde C_k))\leq 1+\left( \frac{|\tilde C_k|}{i(\tilde C_k)}\right)^2,$$
-so
-$$E[2^Q]\leq \prod_{k=1}^\infty E \left(\cosh \left(\log \left(1+\frac{|\tilde C_k |}{k} \right) \right) \right).$$
-
-
-
-
-We have (with $\tilde C_k$ independent)
-$$E\left(\frac{1}{2}(1+\frac{|\tilde C_k|}{k}+\frac{1}{1+\frac{|\tilde C_k|}{k}}) \right)$$
-$$=E\left(\frac{1}{2}(1+\frac{|\tilde C_k|^2}{k^2}-\frac{|\tilde C_k|^3}{k^3}+\cdots )\right).$$
 
 
 
