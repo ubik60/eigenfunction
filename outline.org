@@ -1,0 +1,21 @@
+#+title: Outline
+
+
+* Proof
+** Eigenfunction is Kakutani limit
+
+We assume $\nu$ is unique minimiser of $F(\nu;\phi) = \nu(\phi) - H(\nu)$ among all probability
+measures and $\mu$ minimises $F(\mu;\phi)$ among all translation invariant measures.
+
+Then the Kakutani limit
+$$ h(x) = \lim_{n\to\infty} \frac{\mu([x]_n)}{\nu([x]_n)} $$
+is an eigenfunction to $\mathcal{L}_\phi$ provided it exists in $L^1(\nu)$.
+
+** We can replace $\mu$ with the twosided long-range FK-model
+
+We can extend $\mu$ and $\nu$ to distributions on $(x,\gamma)\in \X_\pm \times
+\{0,1\}^{\binom{\ZZ}{2}}$ by taking $\mu$ equal to the distribution long-range
+FK-model and $\nu_- \otimes \tilde{\eta} \otimes \nu_+$ is the distribution of the random graph
+$(\gamma_-,\varepsilon,\gamma_+)$.
+
+**
