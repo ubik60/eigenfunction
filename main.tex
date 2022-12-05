@@ -143,10 +143,10 @@ continuous functions $f(x)$ by
 \begin{equation}\label{trans}
   {\mathcal L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}\, f(y),
 \end{equation}
-Since $\X$ is a compact space, it follows automatically from the
+and since $\X$ is a compact space, it follows automatically from the
 Schauder--Tychonoff theorem that the dual ${\mathcal L}^*$, restricted to the
 probability measures, has an eigenmeasure $\nu$: ${\mathcal L}^* \mu=\lambda \nu$, for some
-maximal $\lambda>0$. This eigenmeasure $\nu$ is also the Gibbs measure with respect to $\nu$ constructed above.
+maximal $\lambda>0$. Such an eigenmeasure $\nu$ is also the Gibbs measure with respect to $\phi$ constructed above.
 The existence of
 a continuous eigenfunction $h$ such that ${\mathcal L}h=\lambda h$, $\lambda>0$, is however
 not automatic.
@@ -159,7 +159,7 @@ where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that $
 coincide in the first $n$ entries), then the existence of a continuous
 eigenfunction follows from the typical ``cone-argument'' used in {\em e.g.},
 Walters \cite{walters1}, which to date is the only known method for providing
-the existence of a continuous eigenfunction. (??)
+the existence of a continuous eigenfunction.
 
 If $\mu$ is the corresponding equilibrium measure (translation invariant Gibbs
 measure) for the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$, then
@@ -197,7 +197,7 @@ $$\phi(x_0, x_1,\ldots)=x_0\cdot \beta \sum_{j=1}^\infty \frac{x_j}{j^\alpha},$$
 and define the one-sided and two-sided 
 Dyson potentials, $\phi:\X\to \RR$ and $\psi:\X\to\RR$, respectively, as
 $$
-\phi(x)=\sum_{k=0}^\infty x_k \theta (T^k x) \quad
+\phi(x)=\sum_{k=0}^\infty x_k \theta (T^k x), \quad
 \psi(x)=\sum_{k=-\infty}^\infty x_k \theta(T^k x).
 $$
 Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$ and $\CM(\X)$, corresponding to $\psi$ and $\phi$, respectively.
@@ -277,7 +277,7 @@ $\mscr R(V,p_J,q)$ where
 When $q$
 
 Percolation is the event that the random graph contains an infinite cluster. 
-It is well-known \cite{accn} that for all $\alpha\in(1,2]$ 
+It is well-known \cite{ACCN} that for all $\alpha\in(1,2]$ 
 there exists a critical $\beta_c=\beta_c(\alpha)$ 
 such that, percolation does not occur with probability 1 for $0<\beta<\beta_c$, 
 while for $\beta\in(\beta_c,\infty)$ there is with probability 1
@@ -303,7 +303,8 @@ chosen independently: The spin sequence $x\in\{-1,+1\}^{V}$
 according to the uniform Bernoulli measure 
 $x\sim\eta(V,p=\frac12)$ on the spin sequences and the random graph $\gamma$ 
 according to the Bernoulli measure $\eta(\binom V2, p)=\mscr R(V,p_J,1)$. 
-. The extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
+
+The extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
 product measure $\d\eta(x;\frac12) \otimes \eta(x;p)$ between an independent
 Bernoulli random graph $\g\sim\mscr R(V,p,1)$ random graph on $\mscr G(V)$ and 
 and $x$ obtained by conditioning on the on the event that $x$ and $\g$ are
@@ -622,6 +623,7 @@ anders@math.uu.se\newline
 
 \noindent
 Mark Pollicott, Mathematics Institute, University of Warwick,
-Coventry, CV4 7AL, UK. Email-address: mpollic@maths.warwick.ac.uk\newline
+Coventry, CV4 7AL, UK. Email-address: mpollic@maths.warwick.ac.uk
 
 \end{document}
+
