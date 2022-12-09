@@ -140,7 +140,6 @@ the \emph{transfer operator} $\mc L=\mc L_\phi$ defined on continuous functions 
 \begin{equation}\label{trans}
   \mc{L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}\, f(y).
 \end{equation}
-<<<<<<< HEAD
 Such an eigenmeasure $\nu$ satisfies $\mc{L}^* \mu=\lambda \nu$, for some maximal positive
 eigenvalue $\lambda>0$.
 
@@ -170,7 +169,6 @@ eigenmeasure $\nu$ is. If one assumes summable variations of $\phi$,
 \end{equation}
 where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that $x$ and $y$
 coincide in the first $n$ entries), then the existence of a continuous
-<<<<<<< HEAD
 eigenfunction $h(x)$ follows from the typical ``cone-argument'' used in {\em
   e.g.}, Walters \cite{walters1}, which to date is the only known method for
 providing the existence of a continuous eigenfunction. (??) In this paper, we
@@ -214,7 +212,6 @@ variations condition for a potential.
 Here, however, we study only the Dyson potential: Fix $\alpha>1$ and $\beta>0$. Let the
 one-point long-range Ising potential $\phi=\phi_{\alpha,\beta}$ be given by
 $$\phi(x_0, x_1,\ldots)=x_0\cdot \beta \sum_{j=1}^\infty \frac{x_j}{j^\alpha},$$
-<<<<<<< HEAD
 and define the one-sided and two-sided Dyson potentials, $\Phi:\X\to \RR$ and
 $\bar\Phi:\ol\X\to\RR$ as above. Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$
 and $\CM(\ol\X)$, corresponding to $\Phi$ and $\ol\Phi$, respectively.
@@ -320,20 +317,19 @@ We will mainly consider the subcritical case $1<\alpha\le 2$ and $0<\beta <\beta
   the same for the case $q=1$ and $q>1$.
 \end{proof}
 
-<<<<<<< HEAD
 \subsubsection{The extended random cluster model}
+
 The extended \emph{random cluster model} with $\mscr R_e(V,p,q)$ can be obtained
 as the joint distribution of the spin sequences $x\in\{1,2,\dots,q\}^{V}$ and a
-random graph $\gamma\in\{0,1\}^{\binom V2}$. The distribution of $(x,\gamma)$ is obtained by
-first considering the pair chosen independently: The spin sequence
+random graph $\gamma\in\{0,1\}^{\binom V2}$. The distribution of $(x,\gamma)$ is obtained by first considering the pair chosen independently: The spin sequence
 $x\in\{0,1,\dots,q\}^{V}$ according to the uniform Bernoulli measure
 $x\sim\eta(V,p=\frac1q)$ on the spin sequences and the random graph $\gamma$ according to
 the Bernoulli measure $\eta(\binom V2, p)=\mscr R(V,p,1)$. Then $\mscr R_e(V,p,q)$
 is the distribution of $(x,\gamma)$ \emph{conditioned on} $x$ and $\gamma$ being
-\emph{compatible}: That is, the event $C(x,\g)$ that no spins $x_i=+1$ and
+\emph{compatible}: That is, the event $B(x,\g)$ that no spins $x_i=+1$ and
 $x_j=-1$ in $x$ are connected by a path (edge) in $\g$.
-
-Assume $(x,\mu)\sim\mu=\mscr R_e(V,p,q)$. Then marginal distribution $\mu\circ x^{-1}$ of $x$
+If $(x,\mu)\sim\mu=\mscr R_e(V,p,q)$ 
+then the marginal distribution $\mu\circ x^{-1}$ of $x$
 is the Potts model with interactions given by $J(ij)=\log(1-p(ij))$ and the
 marginal distribution $\mu\circ\gamma^{-1}$ of $\gamma$ is the random cluster model
 $\mscr R(V,p,q)$ described above.
@@ -345,13 +341,12 @@ $\mu=\mscr R_e(V,p,q)$. We have the following lemma.
 \begin{lem}[Probability of cylinder]
   We have
   \[
-    \mu([x]_S) =  \int q^{-\w_S(\g)} B(x_S,\g) \d\mu(\g)
+    \mu([x]_S) =  \int q^{-\w_S(\g)} B([x]_S,\g) \d\mu(\g)
     = \int q^{-\tilde\w_S(\g)} \,
   \]
   (***)
 \end{lem}
 
-****
 
 \subsubsection{The interface perturbation}
 
