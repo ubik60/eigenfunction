@@ -346,7 +346,7 @@ vertices in $S$ in a cluster, e.g. by adding a vertex $s$ connected to the eleme
 In our application, when $S$ are the intervals $[0,n)$ on the integer line,
 we write $[x]_n$, $\w_n$, $\bar\w_n$, $\mu_{\bar n}$, etc. 
 
-\begin{lem}\label{probcyl}
+\begin{lem}\label{lem:probcyl}
   Under an extended random cluster model then for any $x\in\X$
 \begin{align}
     \mu([x]_S) &=  \int 2^{-\w_S(\g)} B([x]_S,\g) \d\mu(\g) \\
@@ -365,46 +365,109 @@ use that a configuration $\g$ can be factored as $\g = (\g_+, \e, \g_-)$, where
 $\g_-$ is the induced graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and
 $\g_+=\g[V_+]$ is the graph induced on vertices $i\in V_+=\ZZ_{\ge0}$.
 
-Let
-$$ R(\g)=|\epsilon|-(\omega(\g \setminus \epsilon)-\omega(\g)).$$
-Note that
+Let $R(\g)$ denote the co-rank of $\e$ in $\g$, i.e.\
+\begin{equation}\label{eq:Rdef}
+R(\g)=|\epsilon|-(\omega(\g \setminus \epsilon)-\omega(\g)).
+\end{equation}
+Thus
+$$ \w(g) = \w(\g_+) + \w(g_-) - |\e| + R(\g). $$
+
+We say an edge $ij\in\e$, $i<0$ and $j\ge0$ is \emph{irrelevant} if there is an edge
+in $\e$ from the same cluster $C$ in $\g_-$ that precedes it in the obvious
+order. Let $Q(\g_-,\e)$ denote the total number of irrelevant edges, that is
 \begin{equation}
-0\le R(\g) \le Q(\g_-,\e) =\sum_{C\in\mscr C(\g_-)} \left(d(C,\epsilon)-1\right)_+
+Q(\g_-,\e) = \sum_{C\in\mscr C(\g_-)} \left(d(C,\epsilon)-1\right)_+.
 \end{equation}
 
-Let also
-$$ \tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon). $$
-Note that both $\eta(\cdot)$ and $\tilde\eta (\cdot)$ are Bernoulli measures. Let also
-\begin{lem}\label{lem:distributive}
-  We have
-\begin{align}
-  \mu(\g) &= q^{R(\g) - \cc{R(\g)}} \cdot \mu(\g_+) \otimes \tilde\eta(\e) \otimes \mu(\g_-) \\
-  \mu_{\bar S}(\g) &= 2^{R( \g \triangleright S) - \cc{R(\g\triangleright S)}} \cdot \mu_{\bar S}(\g_+) \otimes \tilde \eta(\e) \otimes \mu(\g_-).
-\end{align}
+Our arguments are based on the following two lemmas.
+\begin{lem}\label{lem:defQ}
+We have
+\begin{equation}
+0\le R(\g) \le 2(\g_-,\e).
+\end{equation}
+Furthermore, if $S=[0,n)$ then
+\begin{equation}
+  \label{eq:RtoQ}
+  R(g \triangleright S) \nearrow 2(\g_-,\e)
+\end{equation}
+as $n\to\infty$.
+\end{lem}
+\begin{lem}\label{lem:L1Q}
+The function $2^2$ is in $L^1(\nu(\g_-)\otimes\tilde \eta)$
 \end{lem}
 
-\def\sn{{n}}
+Let also
+$$ \tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon) = \eta(p/(2-p)), $$
+where $p$ is the original Bernoulli parameter for the random cluster model.
 
-Let $\sn$ stand for the integer interval $[0,n-1]$. Define the likelihoods
-\begin{equation*}
-  h_n(x) = \frac{\mu([x]_\sn)}{\mu_+([x]_\sn)}
-\end{equation*}
+\begin{lem}\label{lem:distributive}
+  Let $\nu(\g_-)$ and $\nu(\g_+)$ denote the ``one-sided'' random cluster models. We
+  have
 \begin{align}
-  h_n(x) &= 
-  \frac{\int B([x]_n, \g) \cdot 2^{R(\g)-K+\omega_n(\g_+)-\omega_n(\g_-)}
-  \d\nu(\g_+)\d \tilde \eta(\e)\d\nu(\g_-)}
-  {\int B([x]_n,\g_+) \cdot 2^{-\omega_n(\g_+)} d\nu(\g_+)},
+  \mu(\g) &= 2^{R(\g) - \cc{R(\g)}} \cdot \nu(\g_+) \otimes \tilde \eta(\e) \otimes \nu(\g_-) \\
+  \mu_{\bar S}(\g) &= 2^{R_S(\g) - \cc{R_S(\g)}} \cdot \nu_{\bar S}(\g_+) \otimes \tilde \eta(\e) \otimes \nu(\g_-).
 \end{align}
-where 
-$\omega_n(\g)$ is the number of clusters in $\g$ intersecting $[0,n)$. We define 
-$$R_n=R(\g)-K+\omega_n(\g_+)-\omega_n(\g_-),$$ and 
-$$B_n'(x,\g)=\frac{B([x]_n, \g)}{B([x]_n,\g_+)},$$
-and write
-$$ h_n(x) = \int B_n'(x,\g) 2^{R_n(\g)}\d\tilde \nu_n(\g_+)\d \tilde \eta(\e)\d\nu(\g_-),$$
-where $\nu_n$ is normalised. We now study the sequence of functions 
-$$g_n(\epsilon, \g_-)=\int B_n'(x,\g) 2^{R_n(\g)}\d\tilde \nu_n(\g_+).$$
+where $R_S(\g)=R(\g\triangleright S)$.
+\end{lem}
 
-Crucial to our proof of the continuity of $h$ is the $L^1$-bound of $2^Q$, in order to prove the continuity of $h$.
+Define the likelihoods
+\begin{equation*}
+  h_n(x) = \frac{\mu([x]_S)}{\mu_+([x]_S)}
+\end{equation*}
+where $S=[0,n)$. According to
+Lemma~\ref{lem:distributive} and Lemma~\ref{lem:probcyl}, we have
+\begin{equation}
+  h_n(x) =
+  K_n \cdot I_n(x)
+\end{equation}
+where $K_n$ is
+\begin{equation}
+  \label{eq:Kdef}
+  K_n = \frac{\mu(2^{-\w_S(\g)})}{\nu(2^{-\w_S(\g_+)})} \cdot
+  {\left(\int 2^{R_S(\g)} \d(\nu_{\bar S}(\g_+)\otimes \tl\eta(\eta) \otimes \nu(\g_-))\right)}^{-1}
+\end{equation}
+and $I_n(x)$ is
+\begin{equation}
+  \label{eq:I_n}
+  I_n(x) =
+  \frac{\int B([x]_S, \g) \cdot 2^{R_S(\g)} \cdot \d(\nu_{\ol S}(\g_+) \otimes\tilde \eta(\e)\otimes \nu(\g_-))}
+  {\int B([x]_S,\g_+) \d\nu_{\bar S}(\g_+)}.
+\end{equation}
+Note that $K_n$ does not depend on $x$.
+
+
+Let
+$$ B'_S(x,\g) = \begin{cases} 1 & B([x]_S,\g_+) = 0 \\ B([x]_S,\g) & \text{otherwise.} \end{cases} $$
+Thus it is zero only if $B([x]_S,\g_+)=1$ and some cluster in $\g_-$ sends a
+pair of edges in $\e$ that joins clusters in $\g_+$ intersecting different
+spins. We can rewrite $I_n(x)$ as
+\begin{equation}
+  I_n(x) = \int B_S'(x,\g) 2^{R_S(\g)}\d(\tilde \nu_{\bar S}(\g_+)\otimes\tilde \eta(\e)\otimes\nu(\g_-)),
+\end{equation}
+where $\tilde\nu_{\bar S}(\g_+)$ is the probability measure given by
+\begin{equation}\label{eq:nutilde}
+  \frac {B([x]_S,\g_+) \cdot \d\nu_{\bar S}(\g_+)}{\,\int B([x]_S,\g_+) \d\nu_{\bar S}(\g_+)\,}.
+\end{equation}
+Thus $\tilde\nu_{\bar S}(\g_+)$ is the measure $\nu_{\bar S}(\g_+)$ conditioned on
+$\g_+$ and $[x]_S$ being compatible.
+
+\begin{lem}\label{lem:B'}
+  There is a random time $N=N(\g_-,\e)$ such that $\P(N<\infty)=1$ and such that for $n\ge N$
+  \begin{equation}\label{eq:B'}
+    B'_S(x,\g) = D_N(x,\g_-,\e)
+  \end{equation}
+  and
+  \begin{equation}\label{eq:B'}
+    R_S(x,\g) = Q(\g_-,\e).
+  \end{equation}
+\end{lem}
+
+
+We now study the sequence of functions
+$$ g_n(\epsilon, \g_-)=\int B_n'(x,\g) 2^{R_n(\g)}\d\tilde \nu_n(\g_+).$$
+
+Crucial to our proof of the continuity of $h$ is the $L^1$-bound of $2^2$, in
+order to prove the continuity of $h$.
 
 \section{Proof of Theorem 1}\noindent
 
@@ -442,18 +505,18 @@ We also notice that since $R_n$ is the number of edges in $\e$ that do not reduc
 some order) the number of components in $\g\triangleright [0,n]$, it is clear
 that
 \begin{equation}\label{eq:RleQ}
-  R_n \le Q_{n} 
+  R_n \le 2_{n}
 \end{equation}
-where \(Q_{n}\) is the number of edges $ij\in\e$ where $i>n$ and $-j$ belongs
+where \(2_{n}\) is the number of edges $ij\in\e$ where $i>n$ and $-j$ belongs
 to a cluster $C$ in $\g_-$ that sends at least one more edge to $[0,\infty)$.
 
-We notice that  for $n>N$, where is $N=N(\epsilon, \gamma_-)$ is some random variable, $ B_n' (\gamma_+,\epsilon, \gamma_-) 2^{R_n(\gamma_+,\epsilon,\gamma_-)} $ is constant (in $n$). For $n\geq N$, we have $R_n(\gamma_+,\epsilon,\gamma_-)=Q(\epsilon, \gamma_-)=\lim_n Q_n(\epsilon, \gamma_-)$, and $B_n'=B_N'$.
+We notice that  for $n>N$, where is $N=N(\epsilon, \gamma_-)$ is some random variable, $ B_n' (\gamma_+,\epsilon, \gamma_-) 2^{R_n(\gamma_+,\epsilon,\gamma_-)} $ is constant (in $n$). For $n\geq N$, we have $R_n(\gamma_+,\epsilon,\gamma_-)=2(\epsilon, \gamma_-)=\lim_n 2_n(\epsilon, \gamma_-)$, and $B_n'=B_N'$.
 
-We have that $N<\infty$ a.s., since $N\leq Q\leq 2^Q$ and we have the following lemma.
+We have that $N<\infty$ a.s., since $N\leq 2\leq 2^2$ and we have the following lemma.
 \begin{lemma}\label{lem:qn}
   The integral
   $$
-    \int 2^{Q(\gamma_-,\epsilon)} \d\nu(\g_-)\, \d\tilde\eta(\e) <\infty.
+    \int 2^{2(\gamma_-,\epsilon)} \d\nu(\g_-)\, \d\tilde\eta(\e) <\infty.
   $$
 \end{lemma}
 We now conclude from dominated convergence (using $2^Q$ as the dominating function) that since $g_n(\epsilon, \gamma_-)-g_m(\epsilon, \gamma_-)=0$, if $N\leq n\leq m$, and otherwise less than or equal to $2^Q$, we have 
