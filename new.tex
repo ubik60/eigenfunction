@@ -141,9 +141,9 @@
 \def\e{\varepsilon}
 
 \title{Existence for an eigenfunction for the sub-critical phase of the Dyson
-  Ising model\langle{}\rangle}
+  Ising model}
 
-\author{Anders Johansson, Anders \"Oberg, Mark Pollicott, \\ and Evgeny Verbitskiy}
+\author{Anders Johansson, Anders \"Oberg, Mark Pollicott}
 \date{}
 \begin{document}
 \maketitle
@@ -152,64 +152,129 @@
 \section{Introduction}\noindent
 
 
-\def\gibb{\dot\ltimes} \def\gibbs{\ltimes}
+\def\gibb{\dot\ltimes}
+\def\gibbs{\ltimes}
 
 \subsection{The random cluster model and potentials}
 
-We consider measures $\alpha \in \mscr M(X)$ on configuration spaces $X = A^S$,
-where $A$ is a finite set (the ``alphabet'') and $S$ (the ``sites'') is a
-countable and usually infinite. A \emph{potential} $\phi(x)$ on $X$ is a limit
-$\phi(x) = \lim_{n\to\infty}\phi_n(x)$ of functions such that the difference
-$\phi(x)-\phi(y)$ is finite and well defined for any pair of configurations $x$
-and $y$ that coincide outside any finite set $\Lambda\subset S$. Given a
-probability measure $\alpha$ on $X$ and a potential $\phi$ on $X$, we denote by
-\[
-  e^{s\phi(x)} \gibbs \d\alpha(x)
-\]
-the family of \emph{Gibbs measure}, i.e.\ the weak limits $\Lambda\nearrow S$ of
-\[
-  p_\Lambda(x\vert_\Lambda\mid x\vert_{\Lambda^c}) = \frac {e^{s\phi(x)}\alpha(x\vert_{\Lambda}\mid x\vert_{\Lambda^c})} {Z_\Lambda(x\vert_{\Lambda^c})}
-\]
+\subsection{Gibbs measures}
+We consider measures $\alpha(x) \in \mscr M(X)$ on configurations $x\in\X = A^V$,
+where $A$ is a finite set (the ``alphabet'') and $V$ (the ``sites'') is a
+countable. For a subset $\Lambda\subset V$, we write $x_\Lambda$ for the
+restriction $x\vert_\Lambda$ of the configuration $x$ to $\Lambda$.
 
-Examples of unique Gibbs measures are Bernoulli measures.
+A \emph{potential} $\phi(x)$ on $X$ is a limit
+$\phi(x) = \lim_{n\to\infty}\phi_n(x)$ of functions such that, for any pair of
+configurations $x,y\in\X$ that coincide outside some finite set, the difference
+is well defined. That is,
+\begin{equation}\label{eq:potential}
+\phi(x)-\phi(y) = \lim_{n\to\infty} \phi_n(x) - \phi_n(y) < \infty
+\end{equation}
+if $x_{\Lambda^c}=y_{\Lambda^c}$ and $\Lambda\Subset V$.
 
-\subsection{The one-dimensional Random cluster model and the Ising-Dyson model}
+Given a positive measure $\alpha(x)$ on $x\in\X$ and a potential $\phi$ on
+$\X$, we denote by
+\[
+  e^{\phi(x)} \gibbs \alpha(x)
+\]
+the set of corresponding \emph{Gibbs measures}. That is, elements
+$\mu\in e^{\phi}\gibbs \alpha$ is the set of probability measures obtained as
+weak limits of probability measures
+\[
+  \mu(x_\Lambda\mid x_{\Lambda^c}) =
+  \frac {e^{\phi(x_\Lambda,x_{\Lambda^c})}\alpha(x_{\Lambda},x_{\Lambda^c})}
+  {\int_{x_\Lambda} e^{\phi(x_\Lambda,x_{\Lambda^c})}\d \alpha(x_{\Lambda},x_{\Lambda^c})}
+\]
+where $\Lambda\nearrow V$ is a sequence of finite subsets $\Lambda\Subset V$.
+Not that the definition makes sense as long as the measure $\alpha(x)$ is
+defined on all finite subsets of $\X$ so tha on may use, say, the counting
+measure $\kappa(x)$ on $\X$ for $\alpha(x)$.
+
+In our applications we can assume that all constructions
+$e^{\phi(x)}\gibbs \alpha(x)$ give rise to a unique Gibbs measure.
+
+A \emph{Potts} model with parameter $\beta$ and $q$ as defined as follows: Let
+the alphabet be $A=\{1,\dots,q\}$ and configuration space be $\X=A^\ZZ$. Let
+$\phi(x)$ be the potential
+\begin{equation} \label{eq:Potts}
+  \phi(x)=\beta \sum_{i\not=j} J(ij) \cdot \delta(x_i) \bullet \delta(x_j)
+\end{equation}
+where, according to Dysons recipe, the \emph{interactions} $J(ij)$ are
+\begin{equation} \label{eq:Dyson}
+  J(ij)=\frac1{|i-j|^\alpha}.
+\end{equation}
+Then the \emph{Potts model} is the Gibbs measure $e^{\phi(x)}\gibbs\kappa(x)$
+where $\kappa(x)$ is the counting measure on $\X$.
+
+\subsubsection{Rules}
+We use the following rules pertaining to the construction of Gibbs measures:
+First note that
+\begin{equation}\label{eq:additive}
+  e^{\phi(x)} \gibbs (e^{\psi(x)} \gibbs \alpha(x))
+  = e^{\phi(x)+\psi(x)} \gibbs \alpha(x).
+\end{equation}
+Secondly, if $\{S,T\}$ is a partition of $V$ and the distribution $\alpha(x)$ of
+$x=(x_{S},x_{T})$ is a product measure
+$\alpha(x) = \beta(x_{S}) \otimes \gamma({x_{T}})$ then
+\begin{equation}\label{eq:product}
+  e^{\phi(x_{S})+\psi(x_{T})} \gibbs (\beta(x_S) \otimes \gamma(x_T)) =
+  (e^{\phi(x_{S})} \gibbs (\beta(x_S)) \otimes (e^{\psi(x_T)}\gibbs \gamma(x_T))
+\end{equation}
+
+Finally, if $e^\psi\in L^1(\alpha)$ then
+\begin{equation}\label{eq:normalisation}
+  e^{\psi}  \gibbs \alpha = e^{\psi(x) - \langle\psi\rangle} \cdot \alpha(x)
+\end{equation}
+where $\langle \psi \rangle = \log \int e^{\psi}\d\alpha$.
+
+
+\subsubsection{Bernoulli measures}
+Examples of unique Gibbs measures are \emph{Bernoulli measures}: Consider the
+Bernoulli measure $\eta(x)$ where the marginal distribution of $x_i\in A$ is
+$p(i)$, i.e. $p(i)(a)=\P(x_i=a)$, $a\in A$. We can obtain this as the Gibbs
+measure $\eta(x)=e^{\phi(x)} \gibbs \kappa(x)$ where $\kappa$ is the counting
+measure and the potential used is the linear function
+$$ \phi(x) = \sum_{i\in V} \delta_x(i) \bullet \log p(i)\sum_{a\in A} \delta_x(i)(a)\,\log p_i(a) $$
+in the representation $\delta_x \in (\{0,1\}^A)^V$ of $x$. In general, any
+gibbs measure $e^{\phi(x)}\gibbs \eta(x)$ with a linear potential $\phi(x)$ and
+a Bernoulli measure $\eta$ results in a new unique Bernoulli measure.
+
+\subsection{The one-dimensional random cluster model and the Ising-Dyson model}
 
 For a finite graph, let $\w(G)$ denote the number of connected components
-(``clusters'') in the graph $G$. For simple graphs $G\subset \binom V2$ on an
-countably infinite set $V$ of vertices, we consider the number of clusters
-$\w(G)$ as a \emph{potential}. This means that the difference
-$\Delta\w(G,F) = \w(G)-\w(F)$ is defined for any two graphs $F$ and $G$ that
-coincide outside a \emph{finite} subset $\Lambda\subset \binom V2$.
+(``clusters'') in the graph $G$. For simple graphs $\g\in \{0,1\}^{\binom V2}$
+on an countably infinite set $V$ of vertices, the number of clusters $\w(\g)$ is
+well defined as a \emph{potential} since the difference $\w(\g)-\w(\g')$ is well
+defined and finite for any two graphs $\g$ and $\g'$ that coincide on
+$\binom{\Lambda^c}{2}$ for a \emph{finite} subset $\Lambda\Subset V$.
 
-A random graph $G\sim\alpha$ on a set of vertices $V$ is a probability
-distribution $\alpha$ on the set $\{0,1\}^{\binom V2}$. The random cluster
-models $\mscr R(V,p)$, we consider are specified by a set of vertices $V$ and a
-weight function $p$, $ij\mapsto p(ij)\in[0,1]$, defined on the set of pairs
-$ij\in \binom V2$. The model $\mscr R(V,p)$ is a Gibbs distribution on random
-graphs, i.e.\ configurations i $\{0,1\}^{\binom V2}$, such that a
+Starting with $p:\binom V2\to [0,1]$, we can consider the Bernoulli graph model
+as the Bernoulli measure $\eta(\g;p)$ with marginals $\P(\g(ij)=1)=p(ij)$ and
+$\P(\g(ij)=0)=1-p(ij)$. The Random Cluster Model $\mscr{RC}(\g; p,q)$,
+corresponding to $p$ and $q\ge1$, is the Gibbs measure
+$q^{\w(\g)} \gibbs \eta(p)$.
 
-In the one-dimensional Ising-Dyson model let $V=\ZZ$ (or $V=V_+=\ZZ_{\ge0}$ for
-the one-sided case) and for $i,j\in V$ let
+One obtains the extended \emph{random cluster model} by considering the product
+measure $\d\eta(\g;p) \otimes \d\ett(\frac 1q)$ between an independent Bernoulli
+distributed $\g\sim\eta(p)$ random graph and the uniform Bernoulli measure
+$\eta(\frac1q)$ on the spin (or ``color'') sequences $x\in\X=A^{V}$, where
+$A=\{1,\dots,q\}$. The extended random cluster model $\pi(x,\g)$ is the joint
+distribution of $\g$ and $x$ obtained by conditioning on the event that $x$ and
+$\g$ are \emph{compatible}: That is, the event $B(x,\g)$ that no path in $\g$
+join two sites of different spins or, equivalently, all clusters
+$C\in\mscr C(\g)$ are monochromatic under the colouring $x$. One obtain,
+simultaneously, the Potts model as the distrubution $\pi(x)$ of $x$ and the
+random cluster model $\pi(g)=\mscr{RC(\g;p,q)}$ as the marginal distributions of
+$x$ and $\g$, respectively. See \cite{grimmet}.
+
+In the one-dimensional Potts-Dyson model, let $V=\ZZ$ (or $V=\ZZ_+$). For
+$i,j\in V$ let
 \begin{equation}\label{eq:Jdef}
-  J({ij}) = \frac \beta{|i-j|^\alpha}.
+  p(ij) = 1-\exp(-\beta J(ij)) \quad\text{where}\quad J({ij}) = \frac 1{|i-j|^\alpha}.
 \end{equation}
-We will consider the case $\alpha=2$ and $0<\beta <\beta_c$. For $\beta>0$, let
-\(\g\sim \eta \) be the Bernoulli random graph $\eta \in \mscr G(V)$ with
-$$
-\P(ij \in \g)=1-e^{-\beta J({ij})}.
-$$
+and the Dyson model we consider is random cluster model
+$\pi(x,\g;\beta,q)=\mscr{RC}(x,\g; p,q)$.
 
-The extended \emph{random cluster model} can be obtained by considering the
-product measure $\d\eta(\g) \otimes \d\ett(x)$ between an independent
-Bernoulli distributed $\g\sim\eta_p$ random graph on $\mscr G(V)$ and the
-uniform measure $x\sim\ett$ on the spin sequences $x\in\{-1,+1\}^{V}$. The
-extended random cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$
-and $x$ obtained by conditioning on the on the event that $x$ and $\g$ are
-compatible: That is, the event $C(x,\g)$ that no spins $x_i=+1$ and $x_j=-1$ in
-$x$ are connected by a path (edge) in $\g$. One obtain, simultaneously, the
-Ising model $\d\mu(x)$ and the random cluster model $\d\mu(\g)$ as the marginal
-distributions of $x$ and $\g$, respectively.
 
 We can also introduce the random cluster model $\mu$ as the Gibbs measure on
 $\{0,1\}^{\binom V2}$
