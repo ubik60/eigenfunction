@@ -158,10 +158,10 @@
 \subsection{The random cluster model and potentials}
 
 \subsection{Gibbs measures}
-We consider measures $\alpha(x) \in \mscr M(X)$ on configurations $x\in\X = A^V$,
-where $A$ is a finite set (the ``alphabet'') and $V$ (the ``sites'') is a
-countable. For a subset $\Lambda\subset V$, we write $x_\Lambda$ for the
-restriction $x\vert_\Lambda$ of the configuration $x$ to $\Lambda$.
+We consider measures $\alpha(x) \in \mscr M(X)$ on configurations $x\in\X = A^V$, where
+$A$ is a finite set (the ``alphabet'') and $V$ (the ``sites'') is a countable.
+For a subset $\Lambda\subset V$, we write $x_\Lambda$ for the restriction $x\vert_\Lambda$ of the
+configuration $x$ to $\Lambda$.
 
 A \emph{potential} $\phi(x)$ on $X$ is a limit
 $\phi(x) = \lim_{n\to\infty}\phi_n(x)$ of functions such that, for any pair of
@@ -172,23 +172,23 @@ is well defined. That is,
 \end{equation}
 if $x_{\Lambda^c}=y_{\Lambda^c}$ and $\Lambda\Subset V$.
 
-Given a positive measure $\alpha(x)$ on $x\in\X$ and a potential $\phi$ on
-$\X$, we denote by
-\[
-  e^{\phi(x)} \gibbs \alpha(x)
-\]
-the set of corresponding \emph{Gibbs measures}. That is, elements
-$\mu\in e^{\phi}\gibbs \alpha$ is the set of probability measures obtained as
-weak limits of probability measures
-\[
-  \mu(x_\Lambda\mid x_{\Lambda^c}) =
-  \frac {e^{\phi(x_\Lambda,x_{\Lambda^c})}\alpha(x_{\Lambda},x_{\Lambda^c})}
-  {\int_{x_\Lambda} e^{\phi(x_\Lambda,x_{\Lambda^c})}\d \alpha(x_{\Lambda},x_{\Lambda^c})}
-\]
-where $\Lambda\nearrow V$ is a sequence of finite subsets $\Lambda\Subset V$.
-Not that the definition makes sense as long as the measure $\alpha(x)$ is
-defined on all finite subsets of $\X$ so tha on may use, say, the counting
-measure $\kappa(x)$ on $\X$ for $\alpha(x)$.
+Given a positive measure $\alpha(x)$ on $x\in\X$ and a potential $\phi(x)$ on $\X$, we
+denote by \(e^{\phi} \gibbs \alpha \) or \(e^{\phi(x)} \gibbs \alpha(x) \) the set of
+corresponding \emph{Gibbs probability measures} on $\X$. That is, elements
+$\mu\in e^{\phi}\gibbs \alpha$ is the set of probability measures obtained as limits
+$\lim_{\Lambda\nearrow V} \mu_\Lambda( \cdot \mid x_{\Lambda^c})$ of probability measures $\mu_\Lambda(\cdot\mid x_{\Lambda^c})$ on
+$A^\Lambda$ where $\Lambda \nearrow V$ is a sequence of finite subsets eventually capturing every
+finite subset of $V$. One obtain the conditional marginal of $x_\Lambda$ given the
+``boundary condition'' $x_{\Lambda^c}$ by the relation
+\begin{equation}
+  \mu(x_\Lambda\mid x_{\Lambda^c}) = \frac{\mu_\Lambda(x_\Lambda\mid x_{\Lambda^c})}{\mu_\Lambda(y_\Lambda\mid x_{\Lambda^c})}
+  = {e^{\phi(x_\Lambda,x_{\Lambda^c})-\phi(y_\Lambda,x_{\Lambda^c})}
+    \frac{\alpha(x_{\Lambda} \mid x_{\Lambda^c})} {\alpha(y_{\Lambda} \mid x_{\Lambda^c})}
+\label{eq:gibbsmargina}
+\end{equation}
+Note that the definition makes sense as long as the measure $\alpha(x)$ ha a
+well-defined conditional $\alpha( x_F \mid x_{F^c})$ for finite subsets $F$. of $\X$ so that on may use, say, the
+counting measure $\kappa(x)$ on $\X$ for $\alpha(x)$.
 
 In our applications we can assume that all constructions
 $e^{\phi(x)}\gibbs \alpha(x)$ give rise to a unique Gibbs measure.
@@ -220,7 +220,6 @@ $\alpha(x) = \beta(x_{S}) \otimes \gamma({x_{T}})$ then
   e^{\phi(x_{S})+\psi(x_{T})} \gibbs (\beta(x_S) \otimes \gamma(x_T)) =
   (e^{\phi(x_{S})} \gibbs (\beta(x_S)) \otimes (e^{\psi(x_T)}\gibbs \gamma(x_T))
 \end{equation}
-
 Finally, if $e^\psi\in L^1(\alpha)$ then
 \begin{equation}\label{eq:normalisation}
   e^{\psi}  \gibbs \alpha = e^{\psi(x) - \langle\psi\rangle} \cdot \alpha(x)

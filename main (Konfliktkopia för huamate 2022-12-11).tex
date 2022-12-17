@@ -1,0 +1,609 @@
+\documentclass[11pt, a4paper]{amsart}
+\usepackage[textsize=footnotesize,textwidth=3cm]{todonotes}
+\usepackage[parfill]{parskip} % Begin paragraphs with an empty line rather than an indent
+
+
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{theorem}[thm]{Theorem}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{proposition}[thm]{Proposition}
+
+\newtheorem{axiom}{Axiom}
+\newtheorem{claim}{Claim}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{definition}{Definition}
+\newtheorem{ex}{Example}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem{notation}{Notation}
+\newtheorem{remark}{Remark}
+\newtheorem{rem}{Remark}
+
+\PassOptionsToPackage{override}{xcolor} % Beamer option
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath}
+\usepackage{dsfont}
+\usepackage[mathscr]{euscript}
+\usepackage{enumerate,xspace,threeparttable}
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+%\providecommand{\ie}{i.e.\ }
+\providecommand{\qr}{\eqref}
+\renewcommand{\d}{\,d}
+\providecommand{\dd}[2]{\dfrac{d#1}{d#2}}
+\providecommand{\qtext}[1]{\quad\text{#1 }\quad}
+
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\CF}{\mathscr{F}}
+\providecommand{\CB}{\mathscr{B}}
+\providecommand{\CA}{\mathscr{A}}
+\providecommand{\CM}{\mathscr{M}}
+\providecommand{\CT}{\mathscr{T}}
+
+\providecommand{\mfrak}{\mathfrak}
+\providecommand{\mscr}{\mathscr}
+\providecommand{\mc}{\mathcal}
+\providecommand{\mb}{\mathbf}
+\providecommand{\bs}{\boldsymbol}
+\providecommand{\mbb}{\mathbb}
+\providecommand{\ms}{\mathsf}
+\providecommand{\vv}[2]{\ensuremath{\overrightarrow{#1#2}}} % vector
+\providecommand{\opn}{\operatorname}
+\providecommand{\ol}{\overline}
+\def\ii#1{^{(#1)}}
+\def\pp#1{\left(#1\right)}
+
+\renewcommand{\P}{\mathsf{P}}
+\renewcommand{\Pr}[1]{\P\pp{#1}}
+\providecommand{\E}{\mathsf{E}}
+\providecommand{\Ex}[1]{\E\pp{#1}}
+
+\providecommand{\Var}{\opn{Var}}
+\providecommand{\var}{\opn{var}} 
+\providecommand{\Cov}{\opn{Cov}}
+\providecommand{\msf}{\mathsf}
+\providecommand{\ett}{\mathsf{1}}
+
+\providecommand{\e}{\epsilon}
+\providecommand{\tl}{\tilde}
+\providecommand{\g}{\gamma}
+\providecommand{\w}{\omega}
+\providecommand{\scp}[2]{\ensuremath{\left\langle#1,#2\right\rangle}}
+
+\providecommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\providecommand{\ds}{\displaystyle}
+\renewcommand{\L}{\mathscr{L}}
+
+\def\X{X}
+\def\T{T}
+
+\def\scp#1#2{\left\langle #1 , #2 \right\rangle}
+
+\title[Existence of continuous eigenfunction]{Existence of continuous eigenfunctions for the Dyson model in the critical phase}
+
+\author{Anders Johansson, Anders \"Oberg, and Mark Pollicott}
+\date{}
+\begin{document}
+
+\maketitle
+\begin{abstract}
+  We prove that there exists a continuous eigenfunction of the transfer operator
+  defined by potentials for the so-called Dyson model for all inverse critical
+  temperatures that are strictly less than the critical inverse temperature.
+  This includes all cases when the potential does not have summable variations,
+  the classical condition that ensures the existence of a continuous
+  eigenfunction of the transfer operator. As a consequence the inverse critical
+  temperatures for the one-sided and the two-sided models are the same. We use
+  the random cluster model for our method of proof, so the results also hold in
+  this wider context. In particular, we base our conclusions of this paper by
+  recent results of Duminil-Copin, Garban, and Tassion \cite{duminil}.
+\end{abstract}
+\def\h{h}
+
+
+\section{Introduction}\noindent
+
+It is well-known \cite{walters1} that there exists a continuous and strictly
+positive eigenfunction $h$ for any transfer operator defined on a symbolic shift
+space with a finite number of symbols such that the potential has summable
+variations. Here we prove the existence of a continuous eigenfunction for the
+important special class of Dyson potentials up to the critical phase, when the
+potential does not satisfy the condition of summable variations. We stress that
+it is the continuity that is the main difficulty. To see that there is a
+measurable eigenfunction follows from a simple application of the martingale
+convergence theorem.
+
+More precisely, let $\T$ be the left shift on the space $\X=S^{{\mathbb Z}_+}$,
+where $S$ is a finite set. Let $\phi:\X\to \RR$ be a continuous function defined
+up to an additive constant. We refer to $\phi$ as a one-point \emph{potential}.
+A \emph{Gibbs measure} $\nu$ for $\phi$ is one that minimises the free energy
+$P(\nu;\phi)=\nu(\phi)-H(\nu)$, where $H(\nu)$ denotes the entropy
+$\lim_{n\to\infty} H(\nu\vert_{\CF_n})/n$ per time unit. This measure $\nu$ can
+also be obtained as a Gibbs measure on $\X$ with respect to the potential
+$\sum_{k=0}^\infty \phi(\T^k x)$ on $\X$. The \emph{equilibrium measure} $\mu$
+is a minimiser of $P(\mu;\phi)$ among all translation invariant measures
+$\mu\in{\CM}_T(\X)$. Taking the natural extension of $\mu$, we can represent
+$\mu$ as a translation invariant measure on the \emph{two-sided} space
+$\X_0 = S^\ZZ$.
+
+In addition, we can define the transfer operator $\mc L=\mc L_\phi$ on
+continuous functions $f(x)$ by
+\begin{equation}\label{trans}
+  {\mathcal L} f(x)= \sum_{y\in T^{-1}x} e^{\phi(y)}\, f(y),
+\end{equation}
+Since $\X$ is a compact space, it follows automatically from the
+Schauder--Tychonoff theorem that the dual ${\mathcal L}^*$, restricted to the
+probability measures, has an eigenmeasure $\nu$:
+${\mathcal L}^* \mu=\lambda \nu$, for some maximal $\lambda>0$. This
+eigenmeasure $\nu$ is also the Gibbs measure with respect to $\nu$ constructed
+above. The existence of a continuous eigenfunction $h$ such that
+${\mathcal L}h=\lambda h$, $\lambda>0$, is however not automatic.
+
+If one assumes summable variations of $\phi$,
+\begin{equation}\label{sum}
+  \sum_{n=1}^\infty \var_n (\phi)<\infty,
+\end{equation}
+where $\var_n(\phi)=\sup_{x\sim_n y}|\phi(x)-\phi(y)|$ ($x\sim_n y$ means that
+$x$ and $y$ coincide in the first $n$ entries), then the existence of a
+continuous eigenfunction follows from the typical ``cone-argument'' used in {\em
+  e.g.}, Walters \cite{walters1}, which to date is the only known method for
+providing the existence of a continuous eigenfunction. (??)
+
+If $\mu$ is the corresponding equilibrium measure (translation invariant Gibbs
+measure) for the continuous potential $\psi:X\to X$, where $X=S^{\mathbb Z}$,
+then (with slight abuse of notation) $\mu$ is recovered on $\X$ as an
+eigenmeasure for the probability potential
+\begin{equation}\label{g}
+  g(x)= \frac{h(x) e^{\phi(y)}}{\lambda h(Tx)}.
+\end{equation} 
+More precisely, for a transfer operator ${\mathcal L}_g$, defined on continuous
+functions $f$ by
+\begin{equation} {\mathcal L}_g f(x)=\sum_{y\in T^{-1}x} g(y) f(y)
+\end{equation}
+we have ${\mathcal L}_g^*\mu=\mu$, and also the invariance
+$\mu\circ T^{-1}=\mu$. In \cite{johob} it was proved that uniqueness of such
+$g$-measures (in the terminology of Keane \cite{keane}) follows if we have
+$$\sum_{n=1}^\infty (\var_n g)^2<\infty,$$
+and more recently Berger et al.\ \cite{berger2} proved that for such {\em
+  Doeblin measures} uniqueness follows if $\var_n \log g <2/\sqrt{n}$ (see also
+\cite{johob3} for a slightly stronger condition). This is in contrast to Dyson's
+counterexample in \cite{dyson} where it is shown that there are examples of
+multiple equilibrium measures for $\phi$ whenever
+$$\sum_{n=1}^\infty (\var_n \phi)^{1+\epsilon}<\infty,$$
+where $\epsilon>0$. Dyson's example is for a two-sided model, but we showed in
+\cite{johob4} that the inverse critical temperature $\beta_c^+$ satisfies
+$\beta_c^+\leq 8\beta_c$, where $\beta_c$ is the inverse critical temperature
+for the two-sided model, and this show that Dyson's example of multiple
+equilibrium measures can be formulated for a one-sided model as above.
+
+Since we have the ``translation'' via \eqref{g} between the case for general
+potentials and for Doeblin measures, we may guess that the existence of a
+continuous eigenfunction cannot be moved very far away from the summability of
+variations condition for a potential.
+
+One possibility for the existence of a continuous eigenfunction in general could
+be the Berbee condition. Berbee proved (\cite{berbee89}) that there exists a
+unique equilibrium measure whenever
+\begin{equation}\label{berbee}
+  \sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,    
+\end{equation}
+where $r_n=\var_n \log \phi$. Berbee's condition gives uniqueness for both the
+two-sided and one-sided potentials
+
+Here, however, we study only the Dyson potential: Fix $\alpha>1$ and $\beta>0$.
+Let the one-point potential $\phi$ be given by
+$$\phi(x_0, x_1,\ldots)=x_0\cdot \beta \sum_{j=1}^\infty \frac{x_j}{j^\alpha},$$
+and define the one-sided and two-sided Dyson potentials, $\phi:\X\to \RR$ and
+$\psi:\X\to\RR$, respectively, as
+$$
+\phi(x)=\sum_{k=0}^\infty x_k \theta (T^k x) \quad \psi(x)=\sum_{k=-\infty}^\infty x_k \theta(T^k x).
+$$
+Let $\mu$ and $\nu$ be the Gibbs measures on $\CM(\X)$ and $\CM(\X)$,
+corresponding to $\psi$ and $\phi$, respectively.
+
+We then have for $\alpha>2$
+$$\mu\vert_{{\mathcal F}_{[0,\infty)}}= h\nu,$$
+where $\mu$ is the two-sided translation invariant Gibbs measure (the
+equilibrium measure) and where ${\mathcal L}^*\nu=\lambda \nu$, and $h>0$ is a
+H\"older continuous eigenfunction. We are interested in the boundary case
+$\alpha=2$, when there exists a unique equilibrium measure for $\psi$ for
+$\beta<\beta_c$ \cite{ACCN}. In this case the summable variations condition is
+not satisfied for neither $\psi$ nor $\phi$; hence we may have multiple
+eigenmeasures for ${\mathcal L}^*$. In this context we have
+$\var_n(\phi)=O(\frac{1}{n})$, but as we noted earlier, in the general setting
+above, is not clear that there exists a continuous eigenfunction even in the
+cases we have a unique equilibrium measure
+
+We prove that if the inverse critical temperature $\beta$ is strictly smaller
+than the critical inverse temperature $\beta_c$, which will be seen to be the
+same for the two-sided and one-sided models, then we have a continuous
+eigenfunction of ${\mathcal L}$.
+
+\begin{thm}\label{main} Let $\mu$ be the Gibbs equilibrium measure with respect
+  to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure,
+  i.e., ${\mathcal L}^*\nu=\lambda \nu$. Define
+$$h_n(x)=\frac{\mu[x_0,\ldots x_n]}{\nu[x_0,\ldots, x_n]},$$
+and consider the measurable function $h(x)=\lim_{n\to \infty}h_n(x)$ (that
+exists by virtue of the martingale convergence theorem). If $\beta<\beta_c$,
+then $h$ is a continuous function on $\X$, and which is also an eigenfunction of
+${\mathcal L}$.
+\end{thm}
+
+We conjecture that there exists a continuous eigenfunction for a potential
+$\phi$ that satisfies Berbee's condition \eqref{berbee}.
+
+The next result is a corollary of Theorem 1:
+
+\begin{thm}
+  The critical $\beta_c$ for the two-sided model is the same as for the
+  one-sided model, i.e., $\beta_c^+=\beta_c$.
+\end{thm}
+
+This improves our result of Theorem 1 in \cite{johob4} that
+$\beta_c^+\leq 8\beta_c$.
+\section{The one-dimensional random cluster model and the Ising--Dyson model}
+
+For a finite graph, let $\w(G)$ denote the number of connected components
+(``clusters'') in the graph $G$. For simple graphs $G\subset \binom V2$ on an
+countably infinite set $V$ of vertices, we consider the number of clusters
+$\w(G)$ as a \emph{potential}. This means that the difference
+$\Delta\w(G,F) = \w(G)-\w(F)$ is defined for any two graphs $F$ and $G$ that
+coincide outside a \emph{finite} subset $\Lambda\subset \binom V2$.
+
+A random graph $G\sim\alpha$ on a set of vertices $V$ is a probability
+distribution $\alpha$ on the set $\{0,1\}^{\binom V2}$. The random cluster
+models $\mscr R(V,p)$, we consider are specified by a set of vertices $V$ and a
+weight function $p$, $ij\mapsto p(ij)\in[0,1]$, defined on the set of pairs
+$ij\in \binom V2$. The model $\mscr R(V,p)$ is a Gibbs distribution on random
+graphs, i.e.\ configurations i $\{0,1\}^{\binom V2}$, such that a
+
+In the one-dimensional Ising--Dyson model we let $V=\ZZ$ (or $V=V_+=\ZZ_{\ge0}$
+for the one-sided case) and for $i,j\in V$ let
+\begin{equation}\label{eq:Jdef}
+  J({ij}) = \frac \beta{|i-j|^\alpha}.
+\end{equation}
+We will consider the case $\alpha=2$ and $0<\beta <\beta_c$. For $\beta>0$, let
+\(\g\sim \eta \) be the Bernoulli random graph $\eta \in \mscr G(V)$ with
+$$
+\P(ij \in \g)=1-e^{-\beta J({ij})}.
+$$
+
+The extended \emph{random cluster model} can be obtained by considering the
+product measure $\d\eta(\g) \otimes \d\ett(x)$ between an independent Bernoulli
+distributed $\g\sim\eta_p$ random graph on $\mscr G(V)$ and the uniform measure
+$x\sim\ett$ on the spin sequences $x\in\{-1,+1\}^{V}$. The extended random
+cluster model $\d\mu(x,\g)$ is the joint distribution of $\g$ and $x$ obtained
+by conditioning on the on the event that $x$ and $\g$ are compatible: That is,
+the event $C(x,\g)$ that no spins $x_i=+1$ and $x_j=-1$ in $x$ are connected by
+a path (edge) in $\g$. One obtains the Ising model $\d\mu(x)$ and the random
+cluster model $\d\mu(\g)$ as the marginal distributions of $x$ and $\g$,
+respectively.
+
+We can also introduce the random cluster model $\mu$ as the Gibbs measure on
+$\{0,1\}^{\binom V2}$
+$$ \d\mu = 2^{\w(\g)} \ltimes \d\eta(\g), $$
+where $\w(\g)$ is the potential counting then number of connected components
+(``clusters'') in $\g$. For the values of $\beta$ we consider the Gibbs measure
+is unique. Thus can we parameterise the random clusters models as
+$\mu = \mscr R(V,J)$ where $J(ij)$ is a given weighting on $\binom V2$ such as
+\eqref{eq:Jdef}.
+
+We observe the difference between the one-sided random cluster model
+$\nu = \mscr R(V_+,J)$ and the usual two-sided model $\mu = \mscr R(V,J)$. We
+will use that a configuration $\g$ can be factored as $\g = (\g_+, \e, \g_-)$,
+where $\g_-$ is the induced graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and
+$\g_+=\g[V_+]$ is the graph induced on vertices $i\in V_+=\ZZ_{\ge0}$. The graph
+$\e=\g\cap E(V_+,V-)$ consists of edges $ji$, $i\ge0$ and $j\ge 1$, connecting
+vertices $-j\in V_-$ with vertices $i\in V_+$. Note that we often use positive
+indices $i,j$, $i\ge0$ and $j>0$, as labels for edges in $\e$. Thus
+$J(ij)=\beta/(i+j)^\alpha$ with this labelling.
+
+Let
+$$
+\tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon).
+$$
+Note that both $\eta(\cdot)$ and $\tilde\eta (\cdot)$ are Bernoulli measures.
+Let also
+$$
+d\tilde \nu_n(\gamma) = \frac{d\nu(\gamma_-)\otimes \tilde \eta(\epsilon)\otimes \nu(\gamma_+)}{\nu(B([x]_n,\gamma_+))}
+$$
+
+Let $R_n$ be the number of correcting edges, i.e.,
+$$
+R_n=\# \{ij\in \epsilon: \omega (\gamma_{< ij}+ij)=\omega (\gamma_{ij}\},\quad j>n.
+$$
+Let $B_n(\g)=C([x]_n,\gamma)$ be the indicator of the event that cylinder
+$[x]_n$ is compatible with graph $\g=(\g_-,\e,\g_+)$. Let also
+$B'_n(\g) = B_n(\g) + (1-B_n(\g_+))$ indicate compatibility of $[x]_n$ with $\g$
+or not compatible with $\g_+$. We then have
+\[
+  h_n(x) = \frac{\mu [x]_n}{\nu [x]_n}\propto \int B_n(\g) \cdot 2^{R_n(\g)} \; d\tilde \nu_n (\gamma)
+\]
+
+Note that
+$$ R_n(\g) \le Q_n(\g_-,\e) $$
+where $Q_n$ denotes the number of edges in $\e$ that connects a vertex $j\ge n$
+to a cluster in $\g_-$ with at least one more edge from the cluster to
+$[0,n-1]$. That is,
+$$  Q_n=\# \{ij \in \epsilon \mid  \exists k\, \exists l\, kl\in\e,  i \sim_{\gamma-} k, k>i, j > n\}.$$
+Notice that $Q_n$ only depends on $(\gamma_-,\epsilon)$.
+
+
+
+\section{Proofs of the main results}\noindent
+
+\begin{lem}
+  There exists a continuous eigenfunction $h$ of ${\mathcal L}$, if,
+$$\frac{\mu[x_0,\ldots x_n, \ldots, x_m]}{\nu[x_0,\ldots, x_n, \ldots, x_m]}=(1+o(1)) \frac{\mu[x_0,\ldots, x_n]}{\nu[x_0, \ldots, x_n]},$$
+for all $m\geq n$, as $n\to \infty$.
+\end{lem}
+\begin{proof}
+  Let $\lambda=1$. By the assumption, the measure $\mu= \h \nu$ is translation
+  invariant, i.e., $\mu\circ T^{-1}=\mu$. Hence we have
+  $(h\nu)\circ T^{-1}=h\nu$ and it suffices to show that
+  $(h\nu)\circ T^{-1}=({\mathcal L}h)\nu$.
+
+  Let $A$ be any Borel subset of $\X$. Then
+  $$(h\nu)\circ T^{-1} (A)=\int_A \sum_{y: Ty=x} h(y)e^{\phi(y)}\; d\nu(x)=\int_A h(x)\; d\nu(x).$$
+\end{proof}
+
+\noindent
+We now fix some notation before proceeding to prove that we have a continuous
+eigenfunction. \newline
+
+\begin{center}
+  \begin{tabular}{rp{0.8\textwidth}}
+    $d\tilde\eta(\e)$ & The Bernoulli measure $2^{-|\e|}\ltimes d\eta(\e)$ \\
+    $B_n$  & The indicator of the event $[x]_n$ compatible with $\g$. \\
+    $B_n^+$  & The indicator of the event $[x]_n$ compatible with $\g_+$. \\
+    $B'_n(\g)$ & The indicator of the event $[x]_n$ is
+                 compatible with $\g$ or not compatible with $\g_+$. \\
+    $\hat B_n(\g_-,\e)$ & The indicator of the event that there are
+                          no two edges from some cluster $C$ in $\g_-$
+                          to a pair $i,j\in[0,n)$ having opposite spins,
+                          i.e. such that $x_i x_j = -1$. \\
+    $\hat X_n(\g_-,\e)$ & The indicator of the event that $Q_n=0$. \\
+    $R_n(\g)$ & Correction term so that
+              $$ d\mu(\g|B^+_n) = B'_n \cdot 2^{R_n(\g)} \ltimes d\nu(\g_-) \d\tilde\eta(\e) \d\nu(\g_+|B_n) $$ \\
+    $Q_{>n}(\g_-,\e)$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $(n,\infty)$
+                        such that there is at least one more edge in $\e$ from the same cluster to $[0,\infty)$
+                        preceding it in some order\\
+    $Q(\g_-,\e)$ & Number of edges in $\e$ from clusters of $\g_-$ to vertices in $[0,\infty)$
+                   such that there is at least one more edge in $\e$ from the same cluster to $[0,\infty)$
+                   preceding it in some order\\
+    $X(C)$ & For a cluster $C\subset \g_{-}$ it is the number of edges in $\e$ to $[0,\infty]$. \\
+    $i(C)$ & For a cluster $C\subset \g_{-}$ it is the rightmost vertex, i.e.\ $i(C)=\max \{j\in C\}$. \\
+    $\lambda(C)$ & The sum $\lambda(C) = \frac{\beta}{2} \sum_{j\in C} \frac 1j$. \\
+  \end{tabular}
+\end{center}
+
+
+\begin{lem}
+  The limit $h(x)=\lim_{n\to\infty} h_n(x)$ is continuous where, form $m\ge1$
+  \(h_m(x) = \dfrac{\mu([x]_m)}{\nu([x]_m)}\).
+\end{lem}
+
+\noindent {\em Proof} \newline
+
+\noindent
+Recall that
+\begin{equation}\label{eq:3}
+  h_m(x) =  \int B'_m 2^{R_m} \d \nu(\g_-)\d\tl\eta(\e) \d \nu(\g_+|B_m^+).
+\end{equation}
+Since $R_m$ is the number of edges in $\e$ that do not reduce (with respect to
+some order) the number of components in $\g\triangleright [0,n]$, it is clear
+that
+\begin{equation}\label{eq:RleQ}
+  R_m \le Q_{>m}
+\end{equation}
+where \(Q_{>m}\) is the number of edges $ij\in\e$ where $i>n$ and $-j$ belongs
+to a cluster $C$ in $\g_-$ that sends at least one more edge to $[0,\infty)$.
+
+For $n\le m$, we have
+$$ \hat B_n \hat X_n \le B'_m \le \hat B_n $$
+and, on account of \eqref{eq:RleQ}, it follows that
+\begin{equation}\label{eq:4}
+  \int \hat B_n \hat X_n \d \nu(\g_-) \d\tl\eta(\e)
+  \le h_m(x) \le \int \hat B_n 2^{Q_{>n}} \d\nu(\g_-) \d\tl\eta(\e).
+\end{equation}
+We have used that $\hat B_n$, $\hat X_n$ and $Q_{>m}$ are independent of $\g_+$
+and that
+$$\int\d\nu(\g_+|B_m^+)=1. $$
+
+Since both $\hat B_n$ and $\hat X_n$ are decreasing in $(\g_-,\e)$ it follows
+from the FKG inequality that
+\begin{equation}
+  \label{eq:5}
+  I_n \cdot \int \hat X_n \d\nu(\g_-) \d\tl\eta(\e)
+  \le h_m(x)
+  \le I_n \cdot \int 2^{Q_{>n}} \d\nu(\g_-) \d\tl\eta(\e).
+\end{equation}
+where
+\begin{equation}
+  \label{eq:6}
+  I_n = \int \hat B_n \d\nu(\g_-) \d\tl\eta(\e).
+\end{equation}
+
+We prove the following lemma.
+\begin{lemma}\label{lem:qn}
+  The integral
+  \[
+    \int 2^{Q_{>n}} \d\nu(\g_-)\, \d\tilde\eta(\e) = 1+o(1).
+  \]
+  as $n\to\infty$.
+\end{lemma}
+
+From \eqref{eq:5} and this lemma we deduce that
+\begin{equation}
+  \label{eq:2}
+  h_m(x) = (1+o(1)) I_n = h_n(x) \cdot (1+o(1))
+\end{equation}
+if $m\ge n$ as $n\to\infty$. It follows that $\log h_n(x)$ is a Cauchy sequence
+and hence that the limit $h(x)$ is continuous.
+
+
+\subsubsection*{Proof of Lemma~\ref{lem:qn}}
+
+
+We condition on a fixed graph $\g_-$ with distribution $\nu_-$. Let $C$ be a
+cluster of $\g_-$. Note that
+$$ Q=(X(C_1) -1)_{+} +(X(C_2)-1)_{+} + \ldots $$
+where $X(C_i)$, is a sum of independent Bernoulli variables
+$$ X(C) = \sum_{-j\in C} \sum_{i=0}^\infty \e_{ji} $$
+where
+$$
+\P(\e_{ij}=1) = \frac{1- \exp\{-\frac \beta{(i+j)^2}\}}{2}
+$$
+It follows that we can approximate $X(C)$ with a Poisson variable
+$\tl X(C) \sim \opn{Po}(\lambda(C))$ with
+$$
+\lambda(C) = \frac{\beta}{2} \sum_{j\in C} \frac 1j \approx \frac{\beta}{2} \sum_{j\in C} \sum_{i=0}^\infty \P(\e_{ij}=1).
+$$
+Note that
+\begin{equation}
+  \label{eq:lambdabound}
+  \lambda(C) \leq \log \left(1+\frac{|C|}{i(C)}\right)
+\end{equation}
+where $-i(C)=\max C$.
+
+Order the clusters of $\g_-$ as $C_1,C_2,\dots$ etc. so that
+$i(C_1)<i(C_2)<\dots$. For each clister $C_i$ we can from stochastic dominance
+construct a random cluster $\tl C_i$ such that (i) $C_i\subset \tl C_i$ and (ii)
+$i(\tl C_i)=i(C_i)$. We can further assume that the $\tl C_i$s are
+\emph{independent}.
+
+Let now
+\[
+  \tl Q = \sum_{C_i} (\tl X(\tl C_i) - 1)_+.
+\]
+where $\P(\tl X(\tl C)| \tl C) = \opn{Po}(\lambda(\tl C))$ which stochastically
+dominates $X(C)$. Note that for a poissonvariable $X\sim\opn{Po}(\lambda)$ we
+have
+\[
+  \E(2^{(X-1)_+}) = \frac{\exp(\lambda(e^{\ln 2}-1)) + e^{\lambda}}{2} = \cosh(\lambda)
+\]
+
+We then have
+$$
+A := \E(2^Q | \gamma_- )\leq \prod \cosh (\lambda(C_i))\leq \prod \cosh (\lambda (\tilde C_i)).
+$$
+We obtain ($i(C_k)\leq k$)
+$$E(A)\leq \prod_{k=1}^\infty \left(1+\frac{E(|\tilde C_k|^2)}{k^2}\right)\cdot K,$$
+where $K$ is a constant.
+
+
+If $|C_k|\leq 0.1 k$, then
+$$\cosh (\lambda (\tilde C_k))\leq 1+\left( \frac{|\tilde C_k|}{i(\tilde C_k)}\right)^2,$$
+so
+$$E[2^Q]\leq \prod_{k=1}^\infty E \left(\cosh \left(\log \left(1+\frac{|\tilde C_k |}{k} \right) \right) \right).$$
+
+
+
+
+We have (with $\tilde C_k$ independent)
+$$E\left(\frac{1}{2}(1+\frac{|\tilde C_k|}{k}+\frac{1}{1+\frac{|\tilde C_k|}{k}}) \right)$$
+$$=E\left(\frac{1}{2}(1+\frac{|\tilde C_k|^2}{k^2}-\frac{|\tilde C_k|^3}{k^3}+\cdots )\right).$$
+
+
+
+
+\begin{thebibliography}{999}
+
+  \bibitem{ACCN} M.\ Aizenman, J.\ Chayes, L.\ Chayes and C.\ Newman,
+  Discontinuity of the magnetization in the one-dimensional $1/|x-y|^2$ Ising
+  and Potts models, {\em J.\ Statist.\ Phys.\ } {\bf 50} (1988), 1--40.
+    
+  \bibitem{berger} N.\ Berger, C.\ Hoffman and V.\ Sidoravicius, Nonuniqueness
+  for specifications in $l^{2+\epsilon}$, {\em Ergodic Theory \& Dynam.\
+    Systems} {\bf 38} (2018), no.\ 4, 1342--1352.
+
+  \bibitem{berbee87} H. Berbee, Chains with Infinite Connections: Uniqueness and
+  Markov Representation, {\em Probab.\ Theory Related Fields} {\bf 76} (1987),
+  243--253.
+ 
+  \bibitem{berbee89} H. Berbee, Uniqueness of Gibbs measures and absorption
+  probabilities, {\em Ann.\ Probab.\ } {\bf 17} (1989), no.\ 4, 1416--1431.
+ 
+  \bibitem{berger2} N.\ Berger, D.\ Conache, A.\ Johansson, and A.\ \"Oberg,
+  Doeblin measures --- uniqueness and mixing properties, preprint.
+ 
+  \bibitem{lop1} L.\ Cioletti and A.\ Lopes, Interactions, Specifications, DLR
+  probabilities and the Ruelle Operator in the One-Dimensional Lattice,
+  preprint, arXiv:1404.3232.
+ 
+  \bibitem{lop3} L.\ Cioletti and A.\ Lopes, Ruelle Operator for Continuous
+  Potentials and DLR-Gibbs Measures, preprint, arXiv:1608.03881v1.
+  
+  \bibitem{doeblin} W.\ Doeblin and R.\ Fortet, Sur des cha{\^i}nes {\`a}
+  liaisons compl{\`e}tes, {\em Bull.\ Soc.\ Math.\ France} {\bf 65} (1937),
+  132--148.
+  
+  \bibitem{duminil} H.\ Duminil-Copin, C.\ Garban, and V.\ Tassion, Long-range
+  models in 1D revisited, preprint.
+
+  \bibitem{dyson} F.J.\ Dyson, Non-existence of spontaneous magnetisation in a
+  one-dimensional Ising ferromagnet, {\em Commun.\ Math.\ Phys.\ } {\bf 12}
+  (1969), no.\ 3, 212--215.
+
+ 
+  \bibitem{FS} J.\ Fr\"ohlich and T.\ Spencer, The phase transition in the
+  one-dimensional Ising Model with $1/r^2$ interaction energy, {\em Comm.\
+    Math.\ Phys.\ } {\bf 4} (1982), no.\ 1, 87--101.
+
+  \bibitem{johob} A.\ Johansson and A. \"Oberg, Square summability of variations
+  of $g$-functions and uniqueness of $g$-measures, {\em Math.\ Res.\ Lett.\ }
+  {\bf 10} (2003), no.\ 5-6, 587--601.
+    
+  \bibitem{johob2} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Countable state
+  shifts and uniqueness of $g$-measures, {\em Amer.\ J.\ Math.\ } {\bf 129}
+  (2007), no.\ 6, 1501--1511.
+
+  \bibitem{johob3} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Unique
+  Bernoulli $g$-measures, {\em JEMS} {\bf 14} (2012), 1599--1615.
+
+  \bibitem{johob4} A.\ Johansson, A.\ \"Oberg and M.\ Pollicott, Phase
+  transitions in long-range Ising models and an optimal condition for factors of
+  $g$-measures, {\em Ergodic Theory \& Dynam.\ Systems} {\bf 39} (2019), no.\ 5,
+  1317--1330.
+
+  
+  \bibitem{keane} M.\ Keane, Strongly mixing $g$-measures, {\em Invent.\ Math.\
+  } {\bf 16} (1972), 309--324.
+
+  \bibitem{sin} Ya.G.\ Sinai, Gibbs measures in ergodic theory, {\em Russian
+    Mathematical Surveys} {\bf 27}(4) (1972), 21--69.
+
+  \bibitem{walters1} P.\ Walters, Ruelle's operator theorem and $g$-measures,
+  {\em Trans.\ Amer.\ Math.\ Soc.\ } {\bf 214} (1975), 375--387.
+
+  \bibitem{walters3} P.\ Walters, Convergence of the Ruelle Operator, {\em
+    Trans.\ Amer.\ Math.\ Soc.\ } {\bf 353} (2000), no.\ 1, 327--347.
+\end{thebibliography}
+
+
+\noindent
+Anders Johansson, Department of Mathematics, University of G\"avle, 801 76
+G\"avle, Sweden. Email-address: ajj@hig.se\newline
+
+\noindent
+Anders \"Oberg, Department of Mathematics, Uppsala University, P.O.\ Box 480,
+751 06 Uppsala, Sweden. E-mail-address: anders@math.uu.se\newline
+
+\noindent
+Mark Pollicott, Mathematics Institute, University of Warwick, Coventry, CV4 7AL,
+UK. Email-address: mpollic@maths.warwick.ac.uk\newline
+
+\end{document}
