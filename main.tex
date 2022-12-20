@@ -184,7 +184,8 @@ $\bar\Phi:\ol\X\to\RR$ as above. Let $\mu$ and $\nu$ be the Gibbs measures on $\
 and $\CM(\ol\X)$, corresponding to $\Phi$ and $\ol\Phi$, respectively.
 
 \subsection{The result}
-For $\alpha>2$ we then have summable variations of the one-sided potential $\Phi$, in fact it is H\"older continuous. We then have 
+For $\alpha>2$ we then have summable variations of the one-sided potential $\Phi$, in
+fact it is H\"older continuous. We then have
 $$ \mu= h\nu, $$
 where $h>0$ is a H\"older continuous eigenfunction. We are interested in the
 boundary cases where $1<\alpha\le2$, when there exists a unique equilibrium measure for
@@ -196,7 +197,16 @@ In this case the summable variations condition is not satisfied for neither
 $\ol\Phi$ nor $\Phi$; hence we may have multiple eigen-measures for $\mc{L}^*$. In
 this context we have $\var_n(\phi)=O(\frac{1}{n})$.
 
-Crucial to our proof of the continuity of an eigenfunction is the existence of a certain dominating random variable whose boundedness in $L^1$ (Lemma \ref{lem:qn}) follows from known estimates of the exponential decay of the upper tail cluster size distribution (Lemma \ref{geometric-bound}). Since this is known better for certain models than others, we also obtain slightly different results for these different models. We obtain the existence of a continuous eigenfunction when $\beta(\alpha)<\beta_c(\alpha)$, whenever $\alpha>1$, for the Bernoulli model ($q=1$ in the random cluster model), but for other models ($q>1$), we obtain these results for some $\beta^*(\alpha) \leq \beta^*(\alpha) <\beta_c (\alpha)$, $\alpha>1$. In all cases we have $\alpha\leq 2$, summable a variations condition on the potential is not satisfied.
+Crucial to our proof of the continuity of an eigenfunction is the existence of a
+certain dominating random variable whose boundedness in $L^1$ (Lemma
+\ref{lem:qn}) follows from known estimates of the exponential decay of the upper
+tail cluster size distribution (Lemma \ref{geometric-bound}). Since this is
+known better for certain models than others, we also obtain slightly different
+results for these different models. We obtain the existence of a continuous
+eigenfunction when $\beta(\alpha)<\beta_c(\alpha)$, whenever $\alpha>1$, for the Bernoulli model ($q=1$
+in the random cluster model), but for other models ($q>1$), we obtain these
+results for some $\beta^*(\alpha) \leq \beta^*(\alpha) <\beta_c (\alpha)$, $\alpha>1$. In all cases we have $\alpha\leq 2$,
+summable a variations condition on the potential is not satisfied.
 
 Let $\mu$ be the Gibbs equilibrium measure with respect
 to the Dyson potential $\phi$ and let $\nu$ be the one-sided Gibbs measure.
@@ -207,12 +217,16 @@ $$
 and consider the measurable function $h(x)=\limsup_{n\to \infty}h_n(x)$. 
 
 \begin{thm}\label{main} 
-If $\alpha>1$ and $\beta(\alpha)$ is sufficiently small, then $h(x)$ is a continuous function on $\X$, $h>0$, and it is also an eigenfunction of $\mc{L}$. In the Bernoulli case we assume only that $\beta(\alpha)<\beta_c$, that is for all subcritical inverse temperatures.
+  If $\alpha>1$ and $\beta(\alpha)$ is sufficiently small, then $h(x)$ is a continuous
+  function on $\X$, $h>0$, and it is also an eigenfunction of $\mc{L}$. In the
+  Bernoulli case we assume only that $\beta(\alpha)<\beta_c$, that is for all subcritical
+  inverse temperatures.
 \end{thm}
 
 \subsection{A conjecture}
-We conjecture that there exists a continuous eigenfunction for a potential
-$\phi$ whenever that potential satisfies Berbee's condition \cite{berbee89}. Berbee proved that equilibrium measures are unique if we have
+We conjecture that there exists a continuous eigenfunction for a potential $\phi$
+whenever that potential satisfies Berbee's condition \cite{berbee89}. Berbee
+proved that equilibrium measures are unique if we have
 \begin{equation}\label{berbee}
   \sum_{n=1}^\infty e^{-r_1-r_2-\cdots-r_n}=\infty,
 \end{equation}
@@ -281,7 +295,8 @@ such that, percolation does not occur with probability 1 for $0<\beta<\beta_c$,
 while for $\beta\in(\beta_c,\infty)$ there is with probability 1
 no infinite cluster.     
 
-We will mainly consider the subcritical case $1<\alpha\le 2$ and $0<\beta <\beta_c(\alpha)$ and use the following lemma. 
+We will mainly consider the subcritical case $1<\alpha\le 2$ and $0<\beta <\beta_c(\alpha)$ and use
+the following lemma.
 \begin{lem}\label{geometric-bound}
  Let $X=X(C_s)$ denote the size of the cluster $C_s$ 
  containing a specified vertex $s\in V$. Then there are constants 
@@ -332,12 +347,13 @@ In our application, when $S$ are the intervals $[0,n)$ on the integer line,
 we write $[x]_n$, $\w_n$, $\bar\w_n$, $\mu_{\bar n}$, etc. 
 
 \begin{lem}\label{probcyl}
-Under an extended random cluster model then for any $x\in\X$
+  Under an extended random cluster model then for any $x\in\X$
 \begin{align}
     \mu([x]_S) &=  \int 2^{-\w_S(\g)} B([x]_S,\g) \d\mu(\g) \\
     &= 2^\cc{-\w_S(\g)} \cdot \int B([x]_S,\g) \d \mu_{\bar S}(\g)  
 \end{align}
-where $\mu_{\bar S}$ denote the random cluster model and 
+where $\mu_{\bar S}$ denote the random cluster model and we define the normalising
+constant by
 $$ \cc{-\w_S(\g)} = \log_2 \int 2^{-\w_S(\g)} \d\mu(\g,x) $$
 \end{lem}
 
@@ -347,46 +363,32 @@ $\mscr R(\ZZ,\alpha,\beta)$ difference between the one-sided random cluster mode
 $\nu = \mscr R(V_+,J)$ and the usual two-sided model $\mu = \mscr R(V,J)$. We will
 use that a configuration $\g$ can be factored as $\g = (\g_+, \e, \g_-)$, where
 $\g_-$ is the induced graph $\g[V_-]$ on vertices $-j\in V_-=\ZZ_{<0}$ and
-$\g_+=\g[V_+]$ is the graph induced on vertices $i\in V_+=\ZZ_{\ge0}$. 
-
-\begin{lem}
-\begin{align}
-\mu(\g) &= \mu(\g_+) \otimes \tilde\eta(\e) \otimes \mu(\g_-) \\
-\mu_{\bar S}(\g) &= 2^{R_S(\g)} \cdot \mu_{\bar S}(\g_+) \otimes \tilde\eta(\e) \otimes \mu(\g_-) 
-\end{align}
-where 
-$$
-R_S(\g) = |\e|-\w_{\bar S}(\g)+ 
-$$
-\end{lem}
-
-The graph
-$\e=\g\cap E(V_+,V-)$ consists of edges $ji$, $i\ge0$ and $j\ge 1$, connecting vertices
-$-j\in V_-$ with vertices $i\in V_+$. Note that we often use positive indices $i,j$,
-$i\ge0$ and $j>0$, as labels for edges in $\e$. Thus $J(ij)=\beta/(i+j)^\alpha$ with this
-labelling.
-
-We then have (analogously to Lemma \ref{probcyl})
- \[
-    \nu([x]_n) =  \int 2^{-\w_n(\g_+)} B(x_n,\g_+) \d\nu(\g_+).
-     \]
-
+$\g_+=\g[V_+]$ is the graph induced on vertices $i\in V_+=\ZZ_{\ge0}$.
 
 Let
+$$ R(\g)=|\epsilon|-(\omega(\g \setminus \epsilon)-\omega(\g)).$$
+Note that
+\begin{equation}
+0\le R(\g) \le Q(\g_-,\e) =\sum_{C\in\mscr C(\g_-)} \left(d(C,\epsilon)-1\right)_+
+\end{equation}
+
+Let also
 $$ \tilde \eta(\epsilon)= 2^{-|\epsilon|} \ltimes \eta (\epsilon). $$
 Note that both $\eta(\cdot)$ and $\tilde\eta (\cdot)$ are Bernoulli measures. Let also
-$$ d\tilde \nu_n(\gamma) = \frac{d\nu(\gamma_-)\otimes \tilde \eta(\epsilon)\otimes \nu(\gamma_+)}{\nu(B([x]_n,\gamma_+))}. $$
+\begin{lem}\label{lem:distributive}
+  We have
+\begin{align}
+  \mu(\g) &= q^{R(\g) - \cc{R(\g)}} \cdot \mu(\g_+) \otimes \tilde\eta(\e) \otimes \mu(\g_-) \\
+  \mu_{\bar S}(\g) &= 2^{R( \g \triangleright S) - \cc{R(\g\triangleright S)}} \cdot \mu_{\bar S}(\g_+) \otimes \tilde \eta(\e) \otimes \mu(\g_-).
+\end{align}
+\end{lem}
 
-If $\mu$ is a random cluster measure, we can write (with a suitable normalisation to make it a probability measure):
-$$\mu= 2^{R(\g)-K} \d\nu(\g_-)\d\tilde \eta(\epsilon) \d(\g_+),$$
-where $2^K$ is the normalisation, and $R(\g)$ is the ``co-rank of $\epsilon$ in $\g$", i.e.,
-$$R(\g)=|\epsilon|-(\omega(\g \setminus \epsilon)-\omega(\g)).$$
+\def\sn{{n}}
 
-Note that
-$$ R(\g) \le Q(\g_-,\e) =\sum \left(d(c,\epsilon)-1\right)_+$$
-Notice that $Q$ only depends on $(\gamma_-,\epsilon)$. 
-
-We have
+Let $\sn$ stand for the integer interval $[0,n-1]$. Define the likelihoods
+\begin{equation*}
+  h_n(x) = \frac{\mu([x]_\sn)}{\mu_+([x]_\sn)}
+\end{equation*}
 \begin{align}
   h_n(x) &= 
   \frac{\int B([x]_n, \g) \cdot 2^{R(\g)-K+\omega_n(\g_+)-\omega_n(\g_-)}
